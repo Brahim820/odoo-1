@@ -1,0 +1,3 @@
+id,impuesto,name,description,type_tax_use,amount_type,amount,python_compute,python_applicable,tax_group_id:id,tag_ids:id
+tax_101855,855,TC 855,RETENCIONES EN LA FUENTE DE IR REALIZADAS POR EMISORAS DE TARJETA DE CRÉDITO,sale,code,0,result = quantity,result = True,l10n_ec_sri.tax_group_retrenta,"l10n_ec_sri.account_tag_101855,l10n_ec_sri.account_tag_directo"
+tax_104609,609,TC 609,RETENCIONES EN LA FUENTE DE IVA REALIZADAS POR EMISORAS DE TARJETA DE CRÉDITO,sale,code,0,result = quantity,result = True,l10n_ec_sri.tax_group_retiva,"l10n_ec_sri.account_tag_104609,l10n_ec_sri.account_tag_directo"

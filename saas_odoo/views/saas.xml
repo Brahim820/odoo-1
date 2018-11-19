@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="saas_client_form_view" model="ir.ui.view">
+        <field name="name">Saas Client form view</field>
+        <field name="model">saas.client</field>
+        <field name="inherit_id" ref="base_saas.saas_client_form_view"/>
+        <field name="arch" type="xml">
+            <field name="server_id" position="after">
+                <field name="odoo_database_ids">
+                    <tree>
+                        <field name="name"/>
+                        <field name="usage"/>
+                        <field name="state"/>
+                    </tree>
+                </field>
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="odoo_database_form_view">
+        <field name="name">Odoo database form view</field>
+        <field name="model">odoo.database</field>
+        <field name="arch" type="xml">
+            <form string="Databases">
+                <header>
+                    <field name="usage"
+                           widget="statusbar" clickable="True"/>
+                </header>
+                <sheet>
+                    <group name="info" string="General information">
+                        <group >
+                            <field name="name"/>
+                            <field name="url"/>
+                            <field name="port"/>
+                        </group>
+                        <group>
+                            <button name="test_connect_odoorpc"
+                            class="oe_highlight"
+                            type="object"
+                            string="Test connection"/>
+                            <newline/>
+                            <field name="state" invisible="1"/>
+                            <div style="color:red;font-weight: bold;"
+                                 attrs="{'invisible':[('state', '!=', 'fail')]}">
+                                CONNECTION FAIL
+                            </div>
+                            <div style="color:green;font-weight: bold;"
+                                 attrs="{'invisible':[('state', '!=', 'success')]}">
+                                CONNECTION SUCCESS
+                            </div>
+                        </group>
+                    </group>
+                    <newline/>
+                    <group>
+                        <group string="Access information" name="access">
+                            <field name="user"/>
+                            <field name="password"/>
+                        </group>
+                        <group string="Ownership" name="ownership">
+                            <field name="saas_client_id"/>
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_database_tree_view" model="ir.ui.view">
+        <field name="name">Odoo Database tree view</field>
+        <field name="model">odoo.database</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="url"/>
+                <field name="usage"/>
+                <field name="saas_client_id"/>
+                <field name="partner_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_database_search_view" model="ir.ui.view">
+        <field name="name">Odoo Database search view</field>
+        <field name="model">odoo.database</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Client" domain="[]" context="{'group_by':'saas_client_id'}"/>
+                    <filter string="Usage" domain="[]" context="{'group_by':'usage'}"/>
+                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="odoo_database_list_action">
+        <field name="name">Odoo Database</field>
+        <field name="res_model">odoo.database</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="odoo_database_menu" name="Odoo Databases" parent="base_saas.saas_menu"
+              action="odoo_database_list_action"
+              sequence="50"/>
+
+</odoo>

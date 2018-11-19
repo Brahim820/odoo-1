@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="wizard_form_view">
+            <field name="name">Wizard</field>
+            <field name="model">mrp_cleanup_for_production.wizard</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <group string="Filters">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="limit"/>
+                        </group>
+
+                        <group string="MRP Productions">
+                                <field name="cleanup_mrp_production"/>
+                                <field name="production_state"/>
+                                <field name="cleanup_products_to_consume" />
+                                <field name="cleanup_consumed_products" />
+                                <field name="cleanup_products_to_produce" />
+                                <field name="cleanup_produced_products" />
+                                <field name="cleanup_scheduled_products" />
+                                <field name="cleanup_work_orders" />
+                        </group>
+
+                        <group string="Stock move">
+                                <field name="cleanup_stock_moves"/>
+                        </group>
+
+                        <div>
+                            <button name="button_cleanup" string="CLEAN UP RECORDS" type="object"
+                                    default_focus="1" class="btn-primary"/>
+                        </div>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="wizard_list_action">
+            <field name="name">MRP clean up for production</field>
+            <field name="res_model">mrp_cleanup_for_production.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem id="cleanup_menu" name="MRP Cleanup"
+          action="wizard_list_action"
+          sequence="100"/>
+
+    </data>
+</odoo>

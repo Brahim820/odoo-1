@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="event_condition_form_view" model="ir.ui.view">
+        <field name="name">Event condition form view</field>
+        <field name="model">event.condition</field>
+        <field name="arch" type="xml">
+            <form string="Condition" >
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="highlight" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="event_condition_tree_view" model="ir.ui.view">
+        <field name="name">Conditions tree view</field>
+        <field name="model">event.condition</field>
+        <field name="arch" type="xml">
+            <tree editable="botton">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="highlight"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="event_condition_list_action">
+        <field name="name">Conditions for events</field>
+        <field name="res_model">event.condition</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Conditions for your events.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="event_condition_menu" name="Conditions" parent="event.menu_event_configuration"
+              action="event_condition_list_action"
+              sequence="10"/>
+</odoo>

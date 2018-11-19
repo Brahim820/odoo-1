@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    <record id="partner_credit_form_view_2" model="ir.ui.view">
+        <field name="name">partner.credit.form.view.2</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_ec_sri.view_partner_form_sri"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after" >
+                <field name="code"/>
+                <field name="committee_groups"/> 
+            </xpath>
+        </field>
+    </record>
+
+    <record id="partner_credit_form_view" model="ir.ui.view">
+        <field name="name">partner.credit.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="credits_quotas" string="Credits and Quotas">
+                    <group name="credits" string="Credits">
+                        <field name="credit_ids" nolabel="1"/>
+                    </group> 
+                    <group name="quotas" string="Quotas">
+                        <field name="invoice_ids" nolabel="1"/>
+                    </group> 
+                </page> 
+            </notebook>    
+        </field>
+    </record>
+
+    <record id="affiliates_search_view" model="ir.ui.view">
+        <field name="name">affiliates.search.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter string="Committee Groups"
+                    name="committee_groups"
+                    context="{'group_by': 'committee_groups'}"/>
+            </xpath>
+        </field>
+    </record>
+    
+
+    <record id="action_res_partner_affiliates_form" model="ir.actions.act_window">
+        <field name="name">Res partner affiliates form</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_committee_groups": 1}</field>
+    </record>
+    
+    
+    
+
+</odoo>

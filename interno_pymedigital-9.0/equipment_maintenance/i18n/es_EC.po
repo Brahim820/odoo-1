@@ -1,0 +1,422 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* equipment_maintenance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-01 19:48+0000\n"
+"PO-Revision-Date: 2017-06-01 14:49-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_EC\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_nbr
+msgid "# of Lines"
+msgstr "Nº de líneas"
+
+#. module: equipment_maintenance
+#: code:addons/equipment_maintenance/models/hr_equipment.py:92
+#, python-format
+msgid "</li><li>Equipment: "
+msgstr "</li><li>Equipo: "
+
+#. module: equipment_maintenance
+#: code:addons/equipment_maintenance/models/hr_equipment.py:91
+#, python-format
+msgid "<p>Hello, </p><p>You got a new Equipment Request:</p><ul><li>Name: "
+msgstr "<p>Hola, </p><p>Tiene una nueva solicitud de mantenimiento:</p><ul><li>Nombre: "
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_account_asset_id
+msgid "Account Asset"
+msgstr "Activo fijo"
+
+#. module: equipment_maintenance
+#: model:hr.equipment.stage,name:equipment_maintenance.stage_5
+msgid "Cancel"
+msgstr "Cancelado"
+
+#. module: equipment_maintenance
+#: model:ir.actions.act_window,help:equipment_maintenance.maintenance_team_action_settings
+msgid "Click to add a team in the maintenance request."
+msgstr "Clic para añadir un equipo en el pedido de mantenimiento."
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_close_date
+msgid "Close Date"
+msgstr "Fecha de Cierre"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "Create Picking"
+msgstr "Crear egreso"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_create_uid
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_create_date
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,help:equipment_maintenance.field_hr_equipment_request_start_date
+msgid "Datetime when the maintenance start"
+msgstr "Fecha y hora en la que el mantenimiento inicia"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_dest_location_id
+msgid "Destination Location"
+msgstr "Ubicación destino"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_display_name
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_display_name
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_hr_equipment
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_equipment_id
+#: model:ir.ui.menu,name:equipment_maintenance.menu_report_equipment1
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Equipment"
+msgstr "Equipamiento"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_equipment_request_report_graph
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_equipment_request_report_pivot
+msgid "Equipment Analysis"
+msgstr "Análisis de equipos"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_categ_id
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Equipment Category"
+msgstr "Categoría de equipos"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_calendar
+msgid "Equipment Request"
+msgstr "Solicitud de mantenimiento"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Equipment Request date"
+msgstr "Fecha de solicitud"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_equipment_request_id
+msgid "Equipment request id"
+msgstr "Id solicitud de mantenimiento"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Extended Filters"
+msgstr "Filtros Avanzados"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_id
+msgid "ID"
+msgstr "ID"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "In Scrap"
+msgstr "Desecho"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "Internal Note ......."
+msgstr "Nota interna..."
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_res_users_is_international
+msgid "International partner"
+msgstr "Cliente Internacional"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report___last_update
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team___last_update
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_write_uid
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_write_date
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_write_date
+msgid "Last Updated on"
+msgstr "Actualizado en"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_leader_id
+msgid "Leader"
+msgstr "Lider"
+
+#. module: equipment_maintenance
+#: model:ir.actions.act_window,name:equipment_maintenance.action_order_report_maintenane_team
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Maintenance Analysis"
+msgstr "Análisis de mantenimientos"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_hr_equipment_request
+msgid "Maintenance Requests"
+msgstr "Peticiones de mantenimiento"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_maintenance_report
+msgid "Maintenance Requests Statistics"
+msgstr "Estadísitcas de los pedidos de mantenimiento"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_team_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_team_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_team_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_res_users_maintenance_team_id
+#: model:ir.ui.view,arch_db:equipment_maintenance.maintenance_team_view_form
+#: model:ir.ui.view,arch_db:equipment_maintenance.maintenance_team_view_tree
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Maintenance Team"
+msgstr "Equipo de mantenimiento"
+
+#. module: equipment_maintenance
+#: model:ir.ui.menu,name:equipment_maintenance.menu_maintenance_teams
+msgid "Maintenance Teams"
+msgstr "Equipos de mantenimiento"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: equipment_maintenance
+#: code:addons/equipment_maintenance/models/hr_equipment.py:87
+#, python-format
+msgid "New Equipment Request"
+msgstr "New Equipment Request"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Order Month"
+msgstr "Orden Mensual"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_product_ids
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_category_part
+msgid "Part/Component"
+msgstr "Parte/Componente"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_part_require
+msgid "Parts Required?"
+msgstr "Requiere partes?"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "Parts/Component"
+msgstr "Partes/Componentes"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_picking_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_picking_id
+msgid "Picking"
+msgstr "Despacho"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_picking_type
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_picking_type_id
+msgid "Picking Type"
+msgstr "Tipo de Movimiento"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_location_id
+msgid "Preferred Location"
+msgstr "Ubicación preferida"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_product_id
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_product_request_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_user_id
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Repair Responsible"
+msgstr "Responsable de Reparación"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.hr_equipment_request_view_inheirted_form
+msgid "Repaired"
+msgstr "Reparado"
+
+#. module: equipment_maintenance
+#: model:ir.ui.menu,name:equipment_maintenance.menu_report_equipment
+msgid "Reports"
+msgstr "Informes"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_date
+msgid "Request Date"
+msgstr "Fecha de solicitud"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_name
+msgid "Request Reference"
+msgstr "Referencia de la solicitud"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,help:equipment_maintenance.field_product_request_qty
+msgid "Required Quantity of Product"
+msgstr "Cantidad requerida del producto"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_resource_id
+msgid "Resource"
+msgstr "Recurso"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_employee_id
+msgid "Sender"
+msgstr "Envía"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_location_id
+msgid "Source Location"
+msgstr "Ubicación origen"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_stage_id
+msgid "Stage"
+msgstr "Etapa"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_start_date
+msgid "Start date"
+msgstr "Fecha de inicio"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_team_member_ids
+#: model:ir.ui.view,arch_db:equipment_maintenance.maintenance_team_view_form
+msgid "Team Members"
+msgstr "Miembros del equipo"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.maintenance_team_view_form
+msgid "Team Name"
+msgstr "Nombre del equipo"
+
+#. module: equipment_maintenance
+#: model:ir.actions.act_window,name:equipment_maintenance.maintenance_team_action_settings
+msgid "Teams"
+msgstr "Equipos"
+
+#. module: equipment_maintenance
+#: model:ir.ui.view,arch_db:equipment_maintenance.view_maintenance_report_search
+msgid "This Year"
+msgstr "Este Año"
+
+#. module: equipment_maintenance
+#: model:ir.actions.act_window,help:equipment_maintenance.action_order_report_maintenane_team
+msgid "This report performs analysis on Equipment Request. Analysis check your Equipment parts Used and sort it by different group criteria (employee, team, product, etc.)"
+msgstr "Este reporte realiza un análisis de los pedidos de equipamiento. El análisis revisa las partes usadas y permite la agrupación y el ordenamiento por diferentes criterios (empleado, equipo, producto, etc.)"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_maintenance_report_qty
+msgid "Used part(qty)"
+msgstr "Cant. de partes usadas"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_website_message_ids
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,help:equipment_maintenance.field_hr_equipment_request_website_message_ids
+#: model:ir.model.fields,help:equipment_maintenance.field_hr_equipment_website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_maintenance_team
+msgid "maintenance.team"
+msgstr "maintenance.team"
+
+#. module: equipment_maintenance
+#: model:ir.model,name:equipment_maintenance.model_product_request
+msgid "product.request"
+msgstr "product.request"
+
+#. module: equipment_maintenance
+#: model:ir.model.fields,field_description:equipment_maintenance.field_hr_equipment_request_stage
+msgid "stage"
+msgstr "stage"

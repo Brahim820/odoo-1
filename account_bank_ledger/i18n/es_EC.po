@@ -1,0 +1,272 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_bank_ledger
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-29 15:10+0000\n"
+"PO-Revision-Date: 2016-06-29 15:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid ": Bank ledger"
+msgstr ": Libro de bancos"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "<strong>Date from :</strong>"
+msgstr "<strong>Fecha desde:</strong>"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "<strong>Date to :</strong>"
+msgstr "<strong>Fecha hasta:</strong>"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "<strong>Display Account</strong>"
+msgstr "<strong>Ver cuenta</strong>"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "<strong>Journals:</strong>"
+msgstr "<strong>Diarios:</strong>"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "<strong>Sorted By:</strong>"
+msgstr "<strong>Ordenado por:</strong>"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "<strong>Target Moves:</strong>"
+msgstr "<strong>Movimientos señalados:</strong>"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,display_account:0
+msgid "All"
+msgstr "Todo"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,target_move:0
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "All Entries"
+msgstr "Todos los asientos"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,target_move:0
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "All Posted Entries"
+msgstr "Todos los asientos asentados"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "All accounts'"
+msgstr "Todas la cuentas"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Balance"
+msgstr "Saldo pendiente"
+
+#. module: account_bank_ledger
+#: model:ir.actions.act_window,name:account_bank_ledger.action_account_bank_ledger_menu
+#: model:ir.actions.report.xml,name:account_bank_ledger.action_report_bank_ledger
+#: model:ir.ui.menu,name:account_bank_ledger.menu_bank_ledger
+msgid "Bank Ledger"
+msgstr "Libro bancos"
+
+#. module: account_bank_ledger
+#: model:ir.model,name:account_bank_ledger.model_account_report_bank_ledger
+msgid "Bank Ledger Report"
+msgstr "Reporte libro bancos"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_create_uid
+msgid "Created by"
+msgstr "Creado por:"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Credit"
+msgstr "Haber"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,sortby:0
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Date"
+msgstr "Fecha"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Debit"
+msgstr "Debe"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_display_account
+msgid "Display Accounts"
+msgstr "Mostrar cuentas"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_display_name
+#: model:ir.model.fields,field_description:account_bank_ledger.field_report_account_bank_ledger_report_bankledger_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_date_to
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_id
+#: model:ir.model.fields,field_description:account_bank_ledger.field_report_account_bank_ledger_report_bankledger_id
+msgid "ID"
+msgstr "ID"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,help:account_bank_ledger.field_account_report_bank_ledger_initial_balance
+msgid "If you selected date, this field allow you to add a row to display the amount of debit/credit/balance that precedes the filter you've set."
+msgstr "Si seleccionó fecha, este campo le permite añadir una línea que muestra el monto de débito/crédito/balance que precede al filtro que haya establecido."
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_initial_balance
+msgid "Include Initial Balances"
+msgstr "Incluir saldo inicial"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,sortby:0
+msgid "Journal & Partner"
+msgstr "Diario y Empresa"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Journal and Partner"
+msgstr "Diario y Empresa"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_journal_ids
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger___last_update
+#: model:ir.model.fields,field_description:account_bank_ledger.field_report_account_bank_ledger_report_bankledger___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_write_uid
+msgid "Last Updated by"
+msgstr "Ultima Actualización por"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_write_date
+msgid "Last Updated on"
+msgstr "Actualizado en"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Move ID"
+msgstr "ID del movimiento"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Number"
+msgstr "Numero"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Payment name"
+msgstr "Referencia"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Ref"
+msgstr "Ref."
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_sortby
+msgid "Sort by"
+msgstr "Ordenar por"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_date_from
+msgid "Start Date"
+msgstr "Fecha Inicio"
+
+#. module: account_bank_ledger
+#: model:ir.model.fields,field_description:account_bank_ledger.field_account_report_bank_ledger_target_move
+msgid "Target Moves"
+msgstr "Movimientos destino"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "Type"
+msgstr "Tipo"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,display_account:0
+msgid "With balance is not equal to 0"
+msgstr "Con saldo distinto a 0"
+
+#. module: account_bank_ledger
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "With balance not equal to zero"
+msgstr "Con saldo distinto a 0"
+
+#. module: account_bank_ledger
+#: selection:account.report.bank.ledger,display_account:0
+#: model:ir.ui.view,arch_db:account_bank_ledger.report_bankledger
+msgid "With movements"
+msgstr "Con movimientos"
+
+#. module: account_bank_ledger
+#: code:addons/account_bank_ledger/wizard/account_report_bank_ledger.py:22
+#, python-format
+msgid "You must define a Start Date"
+msgstr "Usted debe definir una fecha inicial"
+
+#. module: account_bank_ledger
+#: model:ir.model,name:account_bank_ledger.model_report_account_report_bankledger
+msgid "report.account.report_bankledger"
+msgstr "report.account.report_bankledger"
+
+#. module: account_bank_ledger
+#: model:ir.model,name:account_bank_ledger.model_report_account_bank_ledger_report_bankledger
+msgid "report.account_bank_ledger.report_bankledger"
+msgstr "report.account_bank_ledger.report_bankledger"
+

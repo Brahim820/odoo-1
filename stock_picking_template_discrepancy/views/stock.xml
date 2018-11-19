@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_move_picking_tree" model="ir.ui.view">
+        <field name="name">Stock move discrepancy tree view</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="replace" >
+                <field name="product_id"
+                       attrs="{'readonly':[('product_id', '!=', False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_qty']" position="after" >
+                <field name="has_difference" invisible="1"/>
+                <field name="theoretical_qty" readonly="1" />
+                <field name="actual_qty" />
+                <field name="reason"
+                       attrs="{'readonly':[('has_difference', '==', False)], 'required':[('has_difference', '!=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">Stock picking template inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="move_type" position="after">
+                <field name="inventory_id" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

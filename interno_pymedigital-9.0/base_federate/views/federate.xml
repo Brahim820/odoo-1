@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="federate_database_form_view">
+        <field name="name">Federate database form view</field>
+        <field name="model">federate.database</field>
+        <field name="arch" type="xml">
+            <form string="Databases.">
+                <header>
+                    <field name="state"
+                           widget="statusbar"
+                           readonly="1"/>
+                </header>
+                <sheet>
+                    <group string="Database information">
+                        <group>
+                            <field name="name"/>
+                            <field name="url"/>
+                            <field name="port"/>
+                        </group>
+                        <div>
+                            <button name="test_connect_odoorpc"
+                            class="oe_highlight"
+                            type="object"
+                            string="Test connection"/>
+                        </div>
+                        <group>
+                            <field name="user"/>
+                            <field name="password"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="federate_database_tree_view" model="ir.ui.view">
+        <field name="name">Federate database tree view</field>
+        <field name="model">federate.database</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="url"/>
+                <field name="port"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

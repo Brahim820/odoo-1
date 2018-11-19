@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="l10n_ec_view_hr_payslip_form" model="ir.ui.view">
+        <field name="name">l10n_ec_view_hr_payslip_form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='refund_sheet']" position="after">
+                <button string="Pagar" name="pay_sheet" type="object"
+                        attrs="{'invisible':['|',('payment_id','!=',False),('state','!=','done')]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='paid']" position="before">
+                <field name="pagar_liquido" readonly="1"/>
+                <field name="payment_id" readonly="1"/>
+                <field name="reconciled" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="view_l10n_ec_payslip_run_payment_form" model="ir.ui.view"> -->
+    <!--     <field name="name">view.l10n.ec.payslip.run.payment.form</field> -->
+    <!--     <field name="model">hr.payslip.run</field> -->
+    <!--     <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form" /> -->
+    <!--     <field name="arch" type="xml"> -->
+    <!--         <xpath expr="//separator" position="replace" /> -->
+    <!--         <xpath expr="//field[@name='slip_ids']" position="replace" > -->
+    <!--             <notebook> -->
+    <!--                 <page string="Payslips"> -->
+    <!--                     <field name="slip_ids" readonly="1"/> -->
+    <!--                 </page> -->
+    <!--                 <page string="Payments" attrs="{'invisible': [('state', '!=', 'paid')]}" > -->
+    <!--                     <field name="payment_ids" readonly="1"/> -->
+    <!--                 </page> -->
+    <!--             </notebook> -->
+    <!--         </xpath> -->
+    <!--     </field> -->
+    <!-- </record> -->
+
+</odoo>

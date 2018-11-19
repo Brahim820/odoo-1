@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_invoice_supplier_form_ec" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form.ec</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <button name="button_sri_ats_checker" string="VERIFICAR"
+                            type="object" class="btn-primary"/>
+                </field>
+                <xpath expr="//header" position="after" >
+                    <div class="alert alert-danger"
+                         role="alert"
+                         style="margin-bottom:0px;"
+                         groups="account.group_account_user"
+                         attrs="{'invisible': [('invoice_ats_errors','=',False)]}">
+                        <bold><field name="invoice_ats_errors" /> </bold>
+                    </div>
+                    <div class="alert alert-success"
+                         role="alert"
+                         style="margin-bottom:0px;"
+                         attrs="{'invisible': ['|', ('invoice_ats_errors','!=',False),('state','!=','draft')]}">
+                        <bold>La factura no presenta errores y puede ser validada con seguridad.</bold>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_invoice_form_ec" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form.ec</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="before">
+                    <button name="button_sri_ats_checker" string="VERIFICAR"
+                            type="object" class="btn-primary"/>
+                </field>
+                <xpath expr="//header" position="after" >
+                    <div class="alert alert-danger"
+                         role="alert"
+                         style="margin-bottom:0px;"
+                         groups="account.group_account_user"
+                         attrs="{'invisible': [('invoice_ats_errors','=',False)]}">
+                        <bold><field name="invoice_ats_errors" /> </bold>
+                    </div>
+                    <div class="alert alert-success"
+                         role="alert"
+                         style="margin-bottom:0px;"
+                         attrs="{'invisible': ['|', ('invoice_ats_errors','!=',False),('state','!=','draft')]}">
+                        <bold>La factura no presenta errores y puede ser validada con seguridad.</bold>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_invoice_ats_errors_tree">
+            <field name="name">SRI - Validador ATS</field>
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml" >
+                <tree>
+                    <field name="state" invisible="1" />
+                    <field name="date_invoice" />
+                    <field name="number"/>
+                    <field name="partner_id" />
+                    <field name="invoice_ats_errors" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_invoice_ats_errors">
+            <field name="name">Facturas por revisar</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{ 'search_default_needs_review': 1 }</field>
+            <field name="view_id" ref="view_invoice_ats_errors_tree" />
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Felicitaciones, no tiene facturas por revisar, recuerde que actualmente el sistema realiza las siguientes validaciones:<br/>
+                    <li>Que el comprobante seleccionado correponda a uno autorizado por el SRI.</li>
+                    <li>Que todas las facturas que registran retenciones tengan un comprobante de retención.</li>
+                </p>
+            </field>
+        </record>
+
+    <menuitem
+            id="menu_invoice_ats_errors"
+            name="Facturas por revisar"
+            sequence="10"
+            action="action_invoice_ats_errors"
+            parent="l10n_ec_sri.menu_sri"
+            groups="account.group_account_user" />
+
+        <record id="view_account_invoice_filter_sri" model="ir.ui.view">
+            <field name="name">Invoice - Validador ATS</field>
+            <field name="model">account.invoice</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='date']" position="after" >
+                        <separator/>
+                        <field name="invoice_ats_errors" invisible="1"/>
+                        <filter name="needs_review"
+                                string="Por revisar"
+                                domain="[('invoice_ats_errors','!=', '')]" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <!--        <record id="view_invoice_form_ec" model="ir.ui.view">
+            <field name="name">account.invoice.form.ec</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page" position="after">
+                    <field name="fechaemiret1"
+                           attrs="{'required':[('r_comprobante_id', '!=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="invoice_supplier_tree_ec" model="ir.ui.view">
+            <field name="name">Invoice Ecuador tree view</field>
+            <field name="model">account.invoice</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="account.invoice_supplier_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='amount_total_signed']" position="replace" >
+                        <field name="total" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="invoice_tree_ec" model="ir.ui.view">
+            <field name="name">Invoice Ecuador tree view</field>
+            <field name="model">account.invoice</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='origin']" position="replace" >
+                        <field name="secuencial" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+ -->
+    </data>
+</odoo>

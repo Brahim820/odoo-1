@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="cancel_reason_no_stock" model="mrp.production.cancel.reason">
+            <field name="name">No raw materials stock available</field>
+        </record>
+        <record id="cancel_reason_mistake" model="mrp.production.cancel.reason">
+            <field name="name">Mistake in the production document</field>
+        </record>
+        <record id="cancel_reason_planification_change" model="mrp.production.cancel.reason">
+            <field name="name">Planification changes</field>
+        </record>
+
+    </data>
+</odoo>

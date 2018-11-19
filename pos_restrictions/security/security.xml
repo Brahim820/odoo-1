@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="filter_user_pos_config_allowed" model="ir.rule">
+        <field name="name">Filter Pos Config Allowed</field>
+        <field name="model_id" search="[('model','=','pos.config')]" model="ir.model"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">['|',('user_ids','=',False), ('id','in', [ p.id for p in user.pos_config_ids ])]</field>
+    </record>
+</odoo>

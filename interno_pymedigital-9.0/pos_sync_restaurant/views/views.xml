@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_restaurant_floor_form">
+            <field name="name">Restaurant Floors</field>
+            <field name="model">restaurant.floor</field>
+            <field name="inherit_id" ref="pos_restaurant.view_restaurant_floor_form"></field>
+            <field name="arch" type="xml">
+                <field name="pos_config_id"  position="replace">
+                    <field name="pos_config_id" widget="many2many_tags"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

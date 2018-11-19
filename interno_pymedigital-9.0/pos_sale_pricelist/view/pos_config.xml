@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="pos_sale_pricelist">
+        <field name="name">pos.config.pos_sale_pricelist</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group[@name='features']" position="before">
+                    <group string="Multi Price List">
+                        <field name="multi_pricelist" nolabel="1"/>
+                    </group>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

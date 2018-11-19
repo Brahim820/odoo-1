@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_payment_form" model="ir.ui.view">
+        <field name="name">account.check.deposit.date.form.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_date" position="after">
+                <field name="date_deposit"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_payment_invoice_form" model="ir.ui.view">
+        <field name="name">Payment from invoices date deposit form view</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_date" position="after">
+                <field name="date_deposit"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_payment_from_invoices_date_deposit" model="ir.ui.view">
+        <field name="name">Payment from invoices date deposit</field>
+        <field name="model">account.register.payments</field>
+        <field name="inherit_id" ref="account.view_account_payment_from_invoices"/>
+        <field name="arch" type="xml">
+            <field name="payment_date" position="after">
+                <field name="date_deposit" readonly="0"/>
+            </field>
+        </field>
+    </record>
+</odoo>

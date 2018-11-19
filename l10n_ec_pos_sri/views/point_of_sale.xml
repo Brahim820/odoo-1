@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/l10n_ec_pos_sri/static/src/js/models.js"></script>
+                <script type="text/javascript" src="/l10n_ec_pos_sri/static/src/js/screens.js"></script>
+                <script type="text/javascript" src="/l10n_ec_pos_sri/static/src/js/chrome.js"></script>
+                <script type="text/javascript" src="/l10n_ec_pos_sri/static/src/js/main.js"></script>
+                <script type="text/javascript" src="/l10n_ec_pos_sri/static/src/js/db.js"></script>
+            </xpath>
+        </template>
+
+        <record id="view_pos_config_form_ec" model="ir.ui.view">
+            <field name="name">EC - Point of sale form view inherit</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group" position="inside">
+                    <field name="autorizacion_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

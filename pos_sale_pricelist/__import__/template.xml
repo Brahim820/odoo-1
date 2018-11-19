@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="pos_sale_pricelist_asset" name="pos_sale_pricelist asset" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_sale_pricelist/static/src/js/pos_sale_pricelist.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

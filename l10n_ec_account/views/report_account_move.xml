@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+            id="journal_entries"
+            model="account.move"
+            string="Journal entries"
+            name="l10n_ec_account.journal_entries_id"
+            file="jorunal_entries"
+            report_type="qweb-pdf"
+    />
+
+    <template id="journal_entries_id">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="font-size:7pt;">
+                    <div align="center">
+                        EMPRESA: <t t-esc="doc.company_id.partner_id.name"/> R.U.C.: <t t-esc="doc.company_id.partner_id.vat"/>
+                    </div>
+                    <table class="table-condensed" style="table-layout:fixed;width:100%;" >
+                        <tbody>
+                            <tr>
+                                <td style="width:100mm;;">
+                                    <strong>Diario: </strong> <t t-esc="doc.journal_id.name"/><br/>
+                                    <strong>Empresa: </strong> <t t-esc="doc.partner_id.name"/><br/>
+                                    <strong>Nro de registro: </strong> <t t-esc="doc.name"/>
+                                </td>
+                                <td style="width:50%;">
+                                    <strong>Fecha: </strong> <t t-esc="doc.date"/><br/>
+                                    <strong>Referencia: </strong> <t t-esc="doc.ref"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table-condensed" style="table-layout:fixed;width:100%;" >
+                        <thead>
+                            <tr>
+                                <th>
+                                    Cuenta
+                                </th>
+                                <th>
+                                    Descripción
+                                </th>
+                                <th>
+                                    Débito
+                                </th>
+                                <th>
+                                    Crédito
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="credit" t-value="0.0"/>
+                            <tr t-foreach="doc.line_ids" t-as="line">
+                                <td>
+                                    <span t-field="line.account_id"/>
+                                </td>
+                                <td>
+                                    <t t-esc="line.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="line.debit"/>
+                                </td>
+                                <td>
+                                    <t t-esc="line.credit"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="border-top: solid black 1px">
+                                    TOTALES
+                                </td>
+                                <td style="border-top: solid black 1px">
+                                    <t t-esc="sum(l.debit for l in doc.line_ids)"/>
+                                </td>
+                                <td style="border-top: solid black 1px">
+                                    <t t-esc="sum(l.credit for l in doc.line_ids)"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" style="margin-top:15mm;width:100%;" align="center" >
+                        <tbody>
+                            <tr>
+                                <td align="center" style="border-top:solid black 1px;width:30mm;" >
+                                    <t>Revisado por</t>
+                                </td>
+                                <td style="border-top-color:transparent;width:10mm;"><div/></td>
+                                <td align="center" style="border-top:solid black 1px;width:30mm;" >
+                                    <t>Aprobado por</t>
+                                </td>
+                                <td style="border-top-color:transparent;width:10mm;"><div/></td>
+                                <td align="center" style="border-top:solid black 1px;width:30mm;">
+                                    <t>Recibí conforme</t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="journal_entries" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.paperformat_euro"/>
+    </record>
+</odoo>

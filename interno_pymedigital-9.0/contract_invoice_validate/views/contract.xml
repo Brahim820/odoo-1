@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="account_analytic_recurring_form_form_inh3" model="ir.ui.view">
+            <field name="name">account.analytic.recurring.form.form.inh3</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_start']" position="after" >
+                    <field name="auto_validate"/>
+                </xpath>
+                <header>
+                    <button name="recurring_create_invoice" 
+                        type="object"
+                        string="Create invoice"
+                        class="btn-primary"/>
+                </header>       
+            </field>
+        </record>
+    </data>
+</odoo>

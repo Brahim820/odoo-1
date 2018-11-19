@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+        <!-- Sobre escritura de menus y acciones de Facturas-->
+
+    <record id="account.action_invoice_tree1" model="ir.actions.act_window">
+      <field name="name">Comprobantes de ingresos</field>
+      <field name="res_model">account.invoice</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+      <field eval="False" name="view_id"/>
+      <field name="domain">[('type','in',('out_invoice', 'out_refund'))]</field>
+      <field name="context">{'default_type':'out_invoice', 'type':'out_invoice', 'journal_type': 'sale'}</field>
+      <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click para crear un comprobante de ingresos
+        </p>
+      </field>
+    </record>
+
+    <menuitem action="account.action_invoice_tree1"
+              id="account.menu_action_invoice_tree1"
+              parent="account.menu_finance_receivables"
+              name="Comprobantes de ingresos"
+              sequence="1"/>
+
+    <record id="account.action_invoice_tree2" model="ir.actions.act_window">
+      <field name="name">Comprobantes de egresos</field>
+      <field name="res_model">account.invoice</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,kanban,form,calendar,pivot,graph</field>
+      <field eval="False" name="view_id"/>
+      <field name="domain">[('type','in',('in_invoice', 'in_refund'))]</field>
+      <field name="context">{'default_type': 'in_invoice', 'type': 'in_invoice', 'journal_type': 'purchase'}</field>
+      <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click para crear un nuevo comprobante de egresos
+        </p>
+      </field>
+    </record>
+
+    <menuitem action="account.action_invoice_tree2"
+              id="account.menu_action_invoice_tree2"
+              parent="account.menu_finance_payables"
+              name="Comprobantes de egresos"
+              sequence="1"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,model_id/id,name,perm_write,perm_read,active,perm_unlink,perm_create,group_id/id
+access_external_credit_credit_credit_type_admin,external_credit.model_credit_credit_type,CreditType,1,1,1,1,1,external_credit.admin
+access_external_credit_credit_affiliate_report_admin,external_credit.model_credit_affiliate_report,Report/ Admin,1,1,1,1,1,external_credit.admin
+access_external_credit_credit_credit_admin,base_credit.model_credit_credit,Credit / Admin,1,1,1,1,1,external_credit.admin
+access_external_credit_credit_credit_line_admin,base_credit.model_credit_credit_line,CreditLine / Admin,1,1,1,1,1,external_credit.admin
+access_external_credit_credit_payment_admin,base_credit.model_credit_payment,Payment / Admin,1,1,1,1,1,external_credit.admin

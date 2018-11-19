@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    <record id="account_invoice_payments_form_view" model="ir.ui.view">
+        <field name="name">account.invoice.payments.form.view</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='state']" position="before" >
+                    <button name="do_print_income_expenses_voucher" type="object" string="Imprimir comprobante de Egresos/Ingresos"/>
+                </xpath>
+                <xpath expr="//field[@name='team_id']"  position="after">
+                    <field name="payment_ids" invisible="1"/>
+                </xpath>
+                    
+            </data>
+        </field>
+    </record>
+    
+</odoo>

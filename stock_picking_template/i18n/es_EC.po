@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_picking_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c-20170609\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-22 21:40+0000\n"
+"PO-Revision-Date: 2017-11-22 21:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_create_uid
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_create_date
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_display_name
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_id
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_id
+msgid "ID"
+msgstr "ID"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template___last_update
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_write_uid
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_write_date
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: stock_picking_template
+#: model:ir.ui.view,arch_db:stock_picking_template.template_form_view
+msgid "Picking lines"
+msgstr "Líneas de pedido"
+
+#. module: stock_picking_template
+#: model:ir.actions.act_window,name:stock_picking_template.action_stock_picking_template
+msgid "Picking template"
+msgstr "Plantilla de pedido"
+
+#. module: stock_picking_template
+#: model:ir.ui.menu,name:stock_picking_template.menu_stock_picking_template
+msgid "Picking templates"
+msgstr "Plantillas de pedido"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_product_uom
+msgid "Product UOM"
+msgstr "UDM del producto"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_product_uom_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_location_src_ids
+msgid "Source Locations"
+msgstr "Ubicaciones de origen"
+
+#. module: stock_picking_template
+#: model:ir.ui.view,arch_db:stock_picking_template.template_form_view
+msgid "Stock picking template"
+msgstr "Platillas de pedido de inventario"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_line_template_id
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: stock_picking_template
+#: model:ir.model.fields,field_description:stock_picking_template.field_stock_picking_template_template_line_ids
+msgid "Template lines"
+msgstr "Lineas de la plantilla"
+
+#. module: stock_picking_template
+#: model:ir.model,name:stock_picking_template.model_stock_picking_template
+msgid "stock.picking.template"
+msgstr "stock.picking.template"
+
+#. module: stock_picking_template
+#: model:ir.model,name:stock_picking_template.model_stock_picking_template_line
+msgid "stock.picking.template.line"
+msgstr "stock.picking.template.line"
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="pos_big_data"
+                  name="Cache POS data"
+                  parent="point_of_sale.menu_point_root"
+                  groups="point_of_sale.group_pos_manager"
+        />
+
+        <record id="pos_auto_cache" model="ir.ui.view">
+            <field name="name">pos.auto.cache.form</field>
+            <field name="model">pos.auto.cache</field>
+            <field name="arch" type="xml">
+                <form string="Clean cache">
+                    <header>
+                        <button string="Clear cache" name="clear_cache"
+                                type="object" class="btn-primary"/>
+                    </header>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="pos_auto_cache_action">
+            <field name="name">Cache</field>
+            <field name="res_model">pos.auto.cache</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="pos_auto_cache_menu"
+                  action="pos_auto_cache_action"
+                  parent="pos_big_data"
+                  groups="point_of_sale.group_pos_manager"
+        />
+
+    </data>
+</odoo>

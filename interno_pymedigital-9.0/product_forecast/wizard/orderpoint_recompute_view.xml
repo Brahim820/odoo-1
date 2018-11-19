@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--  Compute Stock Minimum Rules Only -->
+
+        <record id="view_orderpoint_compute_wizard" model="ir.ui.view">
+            <field name="name">Run Orderpoints recompute</field>
+            <field name="model">orderpoint.compute</field>
+            <field name="arch" type="xml">
+                <form string="Parameters">
+                    <group>
+                        <label string="Wizard checks all the stock rules and generate suggested news."/>
+                    </group>
+                    <footer>
+                        <button name="orderpoint_calculation" string="Compute" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_orderpoint_compute" model="ir.actions.act_window">
+            <field name="name">Run Reordering Orderpoint Rules</field>
+            <field name="res_model">orderpoint.compute</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_orderpoint_compute"
+                  id="menu_orderpoint_compute"
+                  parent="stock.menu_stock_sched" sequence="3"/>
+
+    </data>
+</openerp>

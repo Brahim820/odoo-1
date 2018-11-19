@@ -1,0 +1,3 @@
+"id","name","description","day_from","day_to"
+"payslip_type_q","Quincenal","","01","15"
+"payslip_type_m","Mensual","","01","30"

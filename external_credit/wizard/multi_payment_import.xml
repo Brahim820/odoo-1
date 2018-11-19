@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+
+    <record id="multi_payment_import_form_view" model="ir.ui.view">
+        <field name="name">multi.payment.import.form.view</field>
+        <field name="model">multi.payment.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="text"/>
+                        <field name="file_to_import"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="cancel"
+                        string="Cancel"
+                        special="cancel"
+                        class="btn-default"
+                        />
+                    <button
+                        name="button_do_payment"
+                        string="Do payment"
+                        type="object"
+                        class="btn-primary"
+                        />
+                    
+                    
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_multi_payment_import" model="ir.actions.act_window">
+        <field name="name">Import multi payment</field>
+        <field name="res_model">multi.payment.import.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem
+        id="menu_multi_payment"
+        parent="menu_credit"
+        name="Multi payment"
+        />
+     
+    <menuitem
+        id="menu_multi_payment_import"
+        name="Multi payment import"
+        parent="menu_multi_payment"
+        action="action_multi_payment_import"
+        />
+</odoo>

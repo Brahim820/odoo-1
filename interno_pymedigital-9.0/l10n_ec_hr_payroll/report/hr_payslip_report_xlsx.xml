@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="hr_payslip_run_xlsx"
+            model="wizard.hr.payroll.print"
+            string="Hr Payslip Run XLSX"
+            report_type="xlsx"
+            name="hr_payslip_run.xlsx"
+            file="hr_payslip_run.xlsx"
+            attachment_use="False" />
+
+</odoo>

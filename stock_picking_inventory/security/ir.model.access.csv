@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_stock_picking_template_all,stock.picking.template all,model_stock_picking_template,,1,0,0,0
+access_stock_picking_template_line_all,stock.picking.template.line all,model_stock_picking_template_line,,1,0,0,0
+access_stock_picking_template_manager,stock.picking.template manager,model_stock_picking_template,stock.group_stock_manager,1,1,1,1
+access_stock_picking_template_line_manager,stock.picking.template.line manager,model_stock_picking_template_line,stock.group_stock_manager,1,1,1,1

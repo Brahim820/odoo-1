@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_stock_location_kardex_all,stock.location.kardex all,model_stock_location_kardex,,1,0,0,0
+access_stock_location_kardex_line_all,stock.location.kardex.line all,model_stock_location_kardex_line,,1,0,0,0
+access_stock_location_kardex_manager,stock.location.kardex manager,model_stock_location_kardex,stock.group_stock_manager,1,1,1,1
+access_stock_location_kardex_line_manager,stock.location.kardex.line manager,model_stock_location_kardex_line,stock.group_stock_manager,1,1,1,1

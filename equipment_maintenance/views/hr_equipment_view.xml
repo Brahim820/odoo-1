@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- hr.equiment.request : inherited -->
+    <record id="hr_equipment_request_view_inheirted_form" model="ir.ui.view">
+        <field name="name">hr.equipment.request.inherited.form</field>
+        <field name="model">hr.equipment.request</field>
+        <field name="inherit_id" ref="hr_equipment.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+        	<field name="equipment_id" position="attributes">
+				<attribute name="string">Equipment</attribute>
+			</field>
+			<field name="description" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</field> 
+			<xpath expr="//form/sheet" position="inside">
+				<notebook>
+					<page string="Parts/Component">
+						<field name="product_ids" nolabel='1' attrs="{'readonly':[('stage','!=','2')],'invisible':[('part_require','=',False)],'required':[('part_require','=',True)]}" groups="base.group_equipment_manager">
+							<tree editable="top">
+								<field name="product_id" options="{'no_create':True}" domain="[('categ_id.part','=',True)]"/>
+								<field name="qty"/>
+							</tree>
+						</field>
+					</page>
+					<page string="Description">
+						<field name='description' placeholder="Internal Note ......."/>
+					</page>
+				</notebook>
+			</xpath>
+			<field name="close_date" position="after">
+				<field name="location_id" attrs="{'readonly':[('stage','!=','2')],'invisible':[('part_require','=',False)],'required':[('part_require','=',True)]}" groups="base.group_equipment_manager"/>
+			</field>
+        	<field name="priority" position="after">
+        		<field name="part_require" attrs="{'readonly':[('stage','!=','2')]}"/>
+    			<field name="picking_type" attrs="{'readonly':[('stage','!=','2')],'required':[('part_require','=',True)],'invisible':[('part_require','=',False)]}" groups="base.group_equipment_manager"/>
+    			<field name="dest_location_id" attrs="{'readonly':[('stage','!=','2')],'invisible':[('part_require','=',False)],'required':[('part_require','=',True)]}" groups="base.group_equipment_manager"/>
+    			<field name="picking_id" readonly='1' attrs="{'readonly':[('stage','!=','2')],'invisible':['|',('picking_id','=',False),('part_require','=',False)]}" groups="base.group_equipment_manager"/>
+    			<field name="stage" invisible='1'/>
+        	</field>
+        	<field name='stage_id' position="replace">
+        		<field name="stage_id" widget="statusbar" />
+        	</field>
+        	<xpath expr="//button[@name='archive_equipment_request']" position="attributes">
+        		<attribute name="attrs">{'invisible': [('stage','=', '5')]}</attribute>
+        	</xpath>
+        	<xpath expr="//button[@name='reset_equipment_request']" position="attributes">
+        		<attribute name="attrs">{'invisible': [('stage','!=', '5')]}</attribute>
+        	</xpath>
+        	<xpath expr="//button[@name='archive_equipment_request']" position="before">
+        		<button type="object" name="do_inprogress" string="In Progress" attrs="{'invisible':[('stage','!=','1')]}" groups="base.group_equipment_manager"/>
+        		<button type="object" name="do_repair" string="Repaired" attrs="{'invisible':[('stage','not in',['2'])]}" groups="base.group_equipment_manager"/>
+        		<button type="object" name="do_scrap" string="In Scrap" attrs="{'invisible':[('stage','not in',['2'])]}" groups="base.group_equipment_manager"/>
+        		<button type="object" name="create_picking" string="Create Picking" attrs="{'invisible':['|',('part_require','=',False),'|',('stage','not in',['2','3']),('picking_id','!=',False)]}" groups="base.group_equipment_manager"/>
+        	</xpath>
+			<field name="user_id" position="before">
+				<field name="team_id" readonly="1"/>
+			</field>
+        </field>
+    </record>
+    
+    <record id="hr_equipment_request_calendar" model="ir.ui.view">
+    	<field name="name">hr.equipment.request.calendar</field>
+    	<field name="model">hr.equipment.request</field>
+    	<field name="arch" type="xml">
+    		<calendar string="Equipment Request" date_start="request_date" date_stop="close_date" color="equipment_id">
+    			<field name="equipment_id"/>
+    			<field name="employee_id"/>
+    		</calendar>
+    	</field>
+    </record>
+    
+    <!-- hr.equiment.request : actions -->
+    <record id="hr_equipment.hr_equipment_request_action" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests</field>
+        <field name="res_model">hr.equipment.request</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
+        <field name="view_id" ref="hr_equipment.hr_equipment_request_view_kanban"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a new maintenance request.
+            </p><p>
+                Follow the process of the request and communicate with the collaborator.
+            </p>
+        </field>
+    </record>
+    
+    <record id="hr_equipment_view_inheirted_form" model="ir.ui.view">
+        <field name="name">hr.equipment.inherited.form</field>
+        <field name="model">hr.equipment</field>
+        <field name="inherit_id" ref="hr_equipment.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+        	<field name="employee_id" position="after">
+    			<field name="account_asset_id"/>
+    			<field name="resource_id" domain="[('user_id','=',user_id)]"/>
+        	</field>
+			<!-- <field name="partner_id" position="before">
+				<field name="product_id" domain="[('categ_id.part','=',True)]" />
+			</field> -->
+			<field name="category_id" position="replace">
+				<field name="category_id"/>
+			</field>
+			<field name="name" position="replace">
+				<field name="name"/>
+			</field>
+			<field name="user_id" position="before">
+				<field name="team_id"/>
+			</field>
+			<field name="assign_date" position="after">
+				<field name="maintenance_startdate"/>
+				<field name="maintenance_enddate"/>
+				<field name="maintenance_nextdate"/>
+			</field>			
+        </field>
+    </record>
+    
+    <record id="product_category_form_inherited" model="ir.ui.view">
+        	<field name="name">product.category.form.inheritted</field>
+        	<field name="model">product.category</field>
+        	<field name="type">form</field>
+        	<field name="inherit_id" ref="product.product_category_form_view"/>
+        	<field name="arch" type="xml">
+        		<field name="type" position="after">
+        			<field name="part"/>
+        		</field>
+        	</field>
+    </record>
+    
+    <menuitem
+        id="hr_equipment.menu_equipment_title"
+        name="Equipments"
+        web_icon="hr_equipment,static/description/icon.png"
+        groups="base.group_user,base.group_hr_user,base.group_equipment_manager"
+        sequence="110"/>
+       
+    <menuitem
+        id="hr_equipment.menu_equipment_configuration"
+        name="Configuration"
+        parent="hr_equipment.menu_equipment_title"
+        groups="base.group_equipment_manager,base.group_hr_manager,base.group_configuration"
+        sequence="100"/>
+        
+</odoo>

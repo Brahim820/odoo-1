@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem name="SaaS"
+              id="main_saas_menu"
+              groups="group_saas_admin,group_saas_user"
+              icon="fa-usd"
+              web_icon="base_saas,static/description/icon.png"
+              sequence="1"/>
+
+    <menuitem id="saas_menu" name="SaaS" parent="base_saas.main_saas_menu"
+              sequence="10"/>
+
+    <menuitem id="saas_config_menu" name="Configuration" parent="base_saas.main_saas_menu"
+              sequence="300"/>
+
+    <record id="saas_server_form_view" model="ir.ui.view">
+        <field name="name">Saas Server form view</field>
+        <field name="model">saas.server</field>
+        <field name="arch" type="xml">
+            <form string="SaaS Server">
+                <header>
+                    <field name="state" widget="statusbar" clickable="True"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="public_ip"/>
+                        <field name="main_domain"/>
+                    </group>
+                    <notebook>
+                        <page name="clients" string="Clients">
+                            <field name="client_ids" nolabel="1">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="saas_server_tree_view" model="ir.ui.view">
+        <field name="name">Saas Server tree view</field>
+        <field name="model">saas.server</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="public_ip"/>
+                <field name="main_domain"/>
+                <field name="state" widget="statusbar" clickable="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="saas_server_search_view" model="ir.ui.view">
+        <field name="name">SaaS Server search view</field>
+        <field name="model">saas.server</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="public_ip"/>
+                <field name="main_domain"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="saas_server_list_action">
+        <field name="name">SaaS Server</field>
+        <field name="res_model">saas.server</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="saas_server_menu" name="Servers" parent="base_saas.saas_menu"
+              action="saas_server_list_action"
+              sequence="100"/>
+
+    <record id="saas_service_form_view" model="ir.ui.view">
+        <field name="name">Saas service form view</field>
+        <field name="model">saas.service</field>
+        <field name="arch" type="xml">
+            <form string="SaaS Service">
+                <header>
+                    <field name="state" widget="statusbar" clickable="True"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="saas_service_tree_view" model="ir.ui.view">
+        <field name="name">Saas Service tree view</field>
+        <field name="model">saas.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="saas_service_search_view" model="ir.ui.view">
+        <field name="name">SaaS Service search view</field>
+        <field name="model">saas.service</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="saas_service_list_action">
+        <field name="name">SaaS Service</field>
+        <field name="res_model">saas.service</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="saas_service_menu" name="services" parent="base_saas.saas_menu"
+              action="saas_service_list_action"
+              sequence="100"/>
+
+    <record id="saas_client_form_view" model="ir.ui.view">
+        <field name="name">Saas Client form view</field>
+        <field name="model">saas.client</field>
+        <field name="arch" type="xml">
+            <form string="SaaS Client">
+                <header>
+                    <field name="state" widget="statusbar" clickable="True"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="server_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="saas_client_tree_view" model="ir.ui.view">
+        <field name="name">Saas client tree view</field>
+        <field name="model">saas.client</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="server_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="saas_client_search_view" model="ir.ui.view">
+        <field name="name">SaaS Client search view</field>
+        <field name="model">saas.client</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="server_id"/>
+                <field name="state"/>
+                <group expand="0" string="Group By">
+                    <filter string="Server" domain="[]" context="{'group_by':'server_id'}"/>
+                    <filter string="Usage" domain="[]" context="{'group_by':'usage'}"/>
+                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="saas_client_list_action">
+        <field name="name">SaaS Client</field>
+        <field name="res_model">saas.client</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="saas_client_menu" name="Clients" parent="base_saas.saas_menu"
+              action="saas_client_list_action"
+              sequence="20"/>
+
+    <record id="saas_app_form_view" model="ir.ui.view">
+        <field name="name">Saas App form view</field>
+        <field name="model">saas.app</field>
+        <field name="arch" type="xml">
+            <form string="SaaS app">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="saas_app_tree_view" model="ir.ui.view">
+        <field name="name">Saas App tree view</field>
+        <field name="model">saas.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="saas_app_search_view" model="ir.ui.view">
+        <field name="name">SaaS App search view</field>
+        <field name="model">saas.app</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="saas_app_list_action">
+        <field name="name">SaaS App</field>
+        <field name="res_model">saas.app</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="saas_app_menu" name="Apps" parent="base_saas.saas_config_menu"
+              action="saas_app_list_action"
+              sequence="100"/>
+
+
+    <record id="saas_app_form_view" model="ir.ui.view">
+        <field name="name">Saas App form view</field>
+        <field name="model">saas.app</field>
+        <field name="arch" type="xml">
+            <form string="SaaS app">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="saas_app_tree_view" model="ir.ui.view">
+        <field name="name">Saas App tree view</field>
+        <field name="model">saas.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="saas_app_search_view" model="ir.ui.view">
+        <field name="name">SaaS App search view</field>
+        <field name="model">saas.app</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="saas_app_list_action">
+        <field name="name">SaaS App</field>
+        <field name="res_model">saas.app</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="saas_app_menu" name="Apps" parent="base_saas.saas_config_menu"
+              action="saas_app_list_action"
+              sequence="100"/>
+
+
+</odoo>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report id="report_guia_remision_electronica_id" model="stock.picking"
+            string="Guía electrónica" name="l10n_ec_sri_ece_stock.report_guia_electronica"
+            file="Guía electrónica" report_type="qweb-pdf" />
+
+    <template id="report_guia_content">
+        <table class="table-condensed" style="width: 100%;">
+            <tbody>
+                <tr>
+                    <td style="width:50%; vertical-align: top;">
+                    <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64, %s' % o.company_id.logo" style="width:60%; height:50%; align:center;"/>
+
+                        <br />
+                        <strong>
+                            <t t-esc="o.company_id.name"/>
+                        </strong>
+                        <br/>
+                        <strong>DIRECCIÓN MATRIZ</strong>
+                        <br/>
+                        <t t-esc="o.company_id.street"/>
+                        <t t-esc="o.company_id.street2"/>
+                        <br/>
+                        <strong>CONTRIBUYENTE ESPECIAL NRO: </strong>
+                        <t t-esc="o.company_id.contribuyenteespecial"/>
+                        <br/>
+                        <strong>OBLIGADO A LLEVAR CONTABILIDAD: </strong>SI<br/>
+                    </td>
+                    <td style="width:50%; border: solid 1px black; vertical-align: top;">
+                        <strong>R.U.C: </strong>
+                        <t t-esc="o.company_id.vat"/>
+                        <br/>
+                        <strong>GUÍA DE REMISIÓN</strong>
+                        <br/>
+                        <strong>Nro: </strong>
+                        <t t-esc="str(o.establecimiento or 0).zfill(3)"/>-<t t-esc="str(o.puntoemision or 0).zfill(3)"/>-<t t-esc="str(o.secuencial or 0).zfill(9)"/>
+                        <br/>
+                        <strong>NÚMERO DE AUTORIZACIÓN:</strong>
+                        <br/>
+                        <t t-esc="o.autorizacion"/>
+                        <br/>
+                        <strong>FECHA Y HORA DE AUTORIZACIÓN:</strong>
+                        <br/>
+                        <strong>AMBIENTE: </strong>
+                        <span t-field="o.guia_remision_electronica_id.ambiente"/>
+                        <br/>
+                        <strong>EMISIÓN: </strong>
+                        <span t-field="o.guia_remision_electronica_id.tipoemision"/>
+                        <br/>
+                        <strong>CLAVE DE ACCESO:</strong>
+                        <br/>
+                        <img style="width:100%; height: 40%" t-if="o.guia_remision_electronica_id" t-att-src="'data:image/png;base64,%s' % o.guia_remision_electronica_id.barcode128"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <table class="table table-condensed"
+			   style="border: 2px solid #000000;font-size:10px;  margin-top: -0.5cm;" >
+            <tbody>
+                <tr class="active">
+                    <td style="width:100%; border: solid black 1px">
+                        <strong>Identificación transportista: </strong>
+                        <t t-esc="o.driver_id.name" />
+                        <br/>
+                        <strong>Razón social: </strong>
+                        <t t-esc="o.carrier_id.name" />
+                        <br/>
+                        <strong>Placa: </strong>
+                        <t t-esc="o.carrier_tracking_ref" />
+                        <br/>
+                        <strong>Punto de partida: </strong>
+                        <t t-esc="o.company_id.street" />
+                        <t t-esc="o.company_id.street2" />
+                        <br/>
+                        <strong>Fecha de inicio: </strong>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/> / <strong>Fecha de fin: </strong>
+                        <span t-esc="time.strftime('%d/%m/%Y',time.strptime(o.min_date,'%Y-%m-%d %H:%M:%S'))"/>
+                        <br/>
+                    </td>
+                </tr>
+                <tr t-foreach="o.invoice_ids" t-as="inv" class="active">
+                    <t t-if="inv.state in ['open', 'paid']" >
+                        <td style="width:100%; border: solid black 1px">
+                            <strong>Comprobante de venta: </strong>
+                            <t t-esc="inv.comprobante_id.name" />: <t t-esc="inv.get_sri_secuencial_completo_factura()"/>
+                            <strong>Fecha de emisión: </strong>
+                            <span t-esc="time.strftime('%d/%m/%Y',time.strptime(inv.date_invoice,'%Y-%m-%d'))"/>
+                            <br/>
+                            <strong>Motivo del translado: </strong> VENTA DE MERCADERIA
+                            <br/>
+                            <strong>Destino: </strong>
+                            <t t-esc="o.partner_id.street" />
+                            <t t-esc="o.partner_id.street2" />
+                            <br/>
+                            <strong>Identificación del destinatario: </strong>
+                            <t t-esc="o.partner_id.vat" />
+                            <br/>
+                            <strong>Razón social: </strong>
+                            <t t-esc="o.partner_id.name" />
+                            <br/>
+                            <strong>Ruta: </strong>
+                            <t t-esc="o.route" />
+                            <br/>
+                        </td>
+                    </t>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-condensed"
+			   style="border: 2px solid; font-size:10px; margin-top: -0.5cm;">
+			<thead>
+                <tr class="active">
+                    <th>CANTIDAD</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>CÓDIGO PRINCIPAL</th>
+                    <th>CÓDIGO SECUNDARIO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="o.move_lines" t-as="m">
+                    <td>
+                        <t t-esc="m.product_uom_qty"/>
+                    </td>
+                    <td>
+                        <t t-esc="m.product_id.name"/>
+                    </td>
+                    <td>
+                        <t t-esc="m.product_id.default_code"/>
+                    </td>
+                    <td>
+                        <t t-esc="m.product_id.barcode" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="report_guia_electronica">
+        <t t-foreach="docs" t-as="o">
+            <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
+            <div class="page">
+                <t t-call="l10n_ec_sri_ece_stock.report_guia_content"/>
+            </div>
+        </t>
+    </template>
+
+    <record id="report_guia_remision_electronica_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="l10n_ec_sri_ece.ride_format" />
+    </record>
+</odoo>

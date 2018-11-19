@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- REGLAS DE LA LIQUIDACIÓN DE HABERES-->
+
+    <record id="hr_rule_liq_bon25" model="hr.salary.rule">
+        <field name="name">Bonificación 25% (gasto)</field>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="sequence" eval="10"/>
+        <field name="code">LIQBON25</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQBON25:
+    value = inputs.LIQBON25.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_inddesint" model="hr.salary.rule">
+        <field name="name">Indemnización por despido intempestivo (gasto)</field>
+        <field name="sequence" eval="20"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQINDDESINT</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQINDDESINT:
+    value = inputs.LIQINDDESINT.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_indemb" model="hr.salary.rule">
+        <field name="name">Indemnización por embarazo (gasto)</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQINDEMB</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQINDEMB:
+    value = inputs.LIQINDEMB.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_inddirsin" model="hr.salary.rule">
+        <field name="name">Indemnización por dirigencia sindical (gasto)</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQINDDIRSIN</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQINDDIRSIN:
+    value = inputs.LIQINDDIRSIN.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_indenfnopro" model="hr.salary.rule">
+        <field name="name">Indemnización por enfermedad no profesional (gasto)</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQINDENFNOPROF</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQINDENFNOPROF:
+    value = inputs.LIQINDENFNOPROF.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+
+    <record id="hr_rule_liq_inddis" model="hr.salary.rule">
+        <field name="name">Indemnización por discapacidad (gasto)</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQINDDIS</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQINDDIS:
+    value = inputs.LIQINDDIS.amount
+result = roound(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_indterantpla" model="hr.salary.rule">
+        <field name="name">Indemnización por terminación antes de plazo (gasto)</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQINDTERANTPLA</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQINDTERANTPLA:
+    value = inputs.LIQINDTERANTPLA.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_13" model="hr.salary.rule">
+        <field name="name">Décima tercera remuneración en liquidaciones</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQ13</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQ13:
+    value = inputs.LIQ13.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_14" model="hr.salary.rule">
+        <field name="name">Décimo cuarta remuneración en liquidaciones</field>
+        <field name="sequence" eval="30"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQ14</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQ14:
+    value = inputs.LIQ14.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_vac" model="hr.salary.rule">
+        <field name="name">Vacaciones de años anteriores</field>
+        <field name="sequence" eval="100"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQVAC</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQVAC:
+    value = inputs.LIQVAC.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_vacultper" model="hr.salary.rule">
+        <field name="name">Vacaciones del último periodo</field>
+        <field name="sequence" eval="100"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQVACULTPER</field>
+        <field name="category_id" ref="LIQING"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQVACULTPER:
+    value = inputs.LIQVACULTPER.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_liq_valcaliess" model="hr.salary.rule">
+        <field name="name">Valor calculado que debe aportar al IESS</field>
+        <field name="sequence" eval="100"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQVALCALIESS</field>
+        <field name="category_id" ref="LIQDED"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+value = 0
+if inputs.LIQVALCALIESS:
+    value = inputs.LIQVALCALIESS.amount
+result = round(value, 2)
+        </field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+    <record id="hr_rule_net_liquidacion" model="hr.salary.rule">
+        <field name="name">Valor neto a recibir</field>
+        <field name="sequence" eval="300"/>
+        <field name="allowed_in_news" eval="False"/>
+        <field name="code">LIQNET</field>
+        <field name="category_id" ref="hr_payroll.NET"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = categories.LIQING - categories.LIQDED</field>
+        <field name="register_id" ref="hr_payroll.contrib_register_employees"/>
+    </record>
+
+</odoo>

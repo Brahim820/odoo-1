@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_account_res_users_account_invoice","res.users account invoice","model_res_users","account.group_account_invoice",1,1,0,0

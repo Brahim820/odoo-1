@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_l10n_ec_payslip_account_journal" model="ir.ui.view">
+        <field name="name">view.l10n.ec.payslip.account.journal</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='show_on_dashboard']" position="before">
+                <field name="payroll_discount" groups="base.group_no_one"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

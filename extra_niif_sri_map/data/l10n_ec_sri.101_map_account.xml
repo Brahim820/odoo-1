@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1" >
+        <record id="l10n_ec_sri.tax_10185501" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','1010502')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','1010502')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_10185502" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','1010502')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','1010502')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_10185508" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','1010502')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','1010502')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_10185510" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','1010502')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','1010502')]"/>
+        </record>
+    </data>
+</odoo>

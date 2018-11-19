@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">recurring payments order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="button_compute_qty_delivered" string="Compute delivered quantities"
+                        type="object" class="btn-primary"/>
+            </xpath>
+            <field name="payment_term_id" position="after">
+                <field name="date_begin"/>
+            </field>
+             <xpath expr="//field[@name='order_line']//tree//field[@name='price_subtotal']" position="after">
+                    <field name="date_begin"/>
+             </xpath>
+             <xpath expr="//field[@name='order_line']//form//field[@name='tax_id']" position="after">
+                    <field name="date_begin"/>
+             </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_tree" model="ir.ui.view">
+        <field name="name">Compute pending values from tree view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                    <button name="button_compute_qty_delivered" type="object" icon="gtk-refresh"
+                            string="Compute delivered quantities"/>
+            </field>
+        </field>
+    </record>
+</odoo>

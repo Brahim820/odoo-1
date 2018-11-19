@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_allowed_products_users_form" model="ir.ui.view">
+        <field name="name">user_product_restriction.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook/page[2]" position="after">
+                <page string="Allowed Products" attrs="{'invisible': [('name', '==', 'Administrator')]}">
+                    <button name="get_products" string="Load Products" type="object"/>
+                    <group>
+                        <field name="route_ids" widget="many2many_tags"/>
+                        <field name="categ_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <group string="Products" cols="2">
+                            <field name="user_product_ids" nolabel="1" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

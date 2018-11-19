@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report 
+            string="Custom Production Order"
+            id="action_report_production_order_custom"
+            model="mrp.production" 
+            name="mrp_user_custom_reports.report_mrporder"
+            file="mrp_user_custom_reports.report_mrporder"
+            report_type="qweb-pdf"
+        />
+    </data>
+</openerp>

@@ -1,0 +1,7 @@
+.pos .paymentline.selected.o_pos_red {
+    background: #ff2663;
+}
+
+.pos .paymentline.selected.o_pos_blue {
+    background: #514bf4;
+}

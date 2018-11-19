@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates id="template" inherit_id="point_of_sale.template">
+
+    <t t-extend="PaymentScreen-Paymentlines">
+
+<!--
+        Usar if para enviar la clase adecuada según el pos_color de cada línea.
+
+        if (COLOR === 'default') {
+            // nothing to do.
+        } else if (COLOR === 'blue') {
+            this.addClass('o_pos_blue');
+        } else if (COLOR === 'red') {
+            this.addClass('o_pos_red');
+        }
+
+        Este código funciona, pero no se ha podido agregar el if.
+        <t t-jquery=".paymentline.selected">
+            this.addClass('o_pos_blue');
+        </t>
+-->
+        <t t-jquery=".paymentline.selected" t-operation="inner">
+            <t t-if="line.cashregister.journal.pos_color === 'red'">
+                <tr class='paymentline selected o_pos_red'>
+                    <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))' /> </td>
+                    <td class='col-tendered edit'>
+                        <t t-esc='widget.inputbuffer' />
+                    </td>
+                    <t t-if='order.get_change(line)'>
+                        <td class='col-change highlight' >
+                            <t t-esc='widget.format_currency_no_symbol(order.get_change(line))' />
+                        </td>
+                    </t>
+                    <t t-if='!order.get_change(line)'>
+                        <td class='col-change' ></td>
+                    </t>
+
+                    <td class='col-name' > <t t-esc='line.name' /> </td>
+                    <td class='delete-button' t-att-data-cid='line.cid'> <i class='fa fa-times-circle' /> </td>
+                </tr>
+            </t>
+            <t t-if="line.cashregister.journal.pos_color === 'blue'">
+                <tr class='paymentline selected o_pos_blue'>
+                    <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))' /> </td>
+                    <td class='col-tendered edit'>
+                        <t t-esc='widget.inputbuffer' />
+                    </td>
+                    <t t-if='order.get_change(line)'>
+                        <td class='col-change highlight' >
+                            <t t-esc='widget.format_currency_no_symbol(order.get_change(line))' />
+                        </td>
+                    </t>
+                    <t t-if='!order.get_change(line)'>
+                        <td class='col-change' ></td>
+                    </t>
+
+                    <td class='col-name' > <t t-esc='line.name' /> </td>
+                    <td class='delete-button' t-att-data-cid='line.cid'> <i class='fa fa-times-circle' /> </td>
+                </tr>
+            </t>
+            <t t-if="line.cashregister.journal.pos_color === 'default'">
+                <tr class='paymentline selected'>
+                    <td class='col-due'> <t t-esc='widget.format_currency_no_symbol(order.get_due(line))' /> </td>
+                    <td class='col-tendered edit'>
+                        <t t-esc='widget.inputbuffer' />
+                    </td>
+                    <t t-if='order.get_change(line)'>
+                        <td class='col-change highlight' >
+                            <t t-esc='widget.format_currency_no_symbol(order.get_change(line))' />
+                        </td>
+                    </t>
+                    <t t-if='!order.get_change(line)'>
+                        <td class='col-change' ></td>
+                    </t>
+
+                    <td class='col-name' > <t t-esc='line.name' /> </td>
+                    <td class='delete-button' t-att-data-cid='line.cid'> <i class='fa fa-times-circle' /> </td>
+                </tr>
+            </t>
+        </t>
+
+    </t>
+
+</templates>

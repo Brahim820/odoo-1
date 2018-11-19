@@ -1,0 +1,226 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_ec_sri_pos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-26 05:35+0000\n"
+"PO-Revision-Date: 2017-07-26 05:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:188
+#, python-format
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/screens.js:21
+#, python-format
+msgid "A Customer Name Is Required"
+msgstr "El nombre del cliente es requerido"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:158
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:222
+#: code:addons/l10n_ec_sri_pos/static/src/xml/authorization.xml:6
+#, python-format
+msgid "Authorization"
+msgstr "Autorización"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:6
+#, python-format
+msgid "C.I. / R.U.C."
+msgstr "C.I. / R.U.C."
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:25
+#, python-format
+msgid "C.I. / R.U.C. / Pasaporte"
+msgstr "C.I. / R.U.C. / Pasaporte"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:109
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:184
+#, python-format
+msgid "CAJERO:"
+msgstr "CAJERO:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:97
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:172
+#, python-format
+msgid "CAMBIO:"
+msgstr "CAMBIO:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:56
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:131
+#, python-format
+msgid "CAN."
+msgstr "CAN."
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:42
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:117
+#, python-format
+msgid "CLIENTE:"
+msgstr "CLIENTE:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:53
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:128
+#, python-format
+msgid "DESCRIPCIÓN"
+msgstr "DESCRIPCIÓN"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:44
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:119
+#, python-format
+msgid "DIRECCIÓN:"
+msgstr "DIRECCIÓN:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:139
+#, python-format
+msgid "Electronic"
+msgstr "Electrónica"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:179
+#, python-format
+msgid "Electronic billing"
+msgstr "Facturación electrónica"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:157
+#, python-format
+msgid "Emission Point"
+msgstr "Punto de Emisión"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:153
+#, python-format
+msgid "Emission Type"
+msgstr "Tipo de Emisión"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/screens.js:52
+#, python-format
+msgid "Error: Could not Save Changes"
+msgstr "Error: No se pudieron salvar los cambios"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:152
+#, python-format
+msgid "Establishment"
+msgstr "Establecimiento"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:39
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:114
+#, python-format
+msgid "FECHA:"
+msgstr "FECHA:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:84
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:159
+#, python-format
+msgid "MONTO IVA:"
+msgstr "MONTO IVA:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:137
+#, python-format
+msgid "Physical"
+msgstr "Física"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:178
+#, python-format
+msgid "Physical billing"
+msgstr "Facturación Física"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:43
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:118
+#, python-format
+msgid "R.U.C / C.I.:"
+msgstr "R.U.C / C.I.:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:77
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:152
+#, python-format
+msgid "SUBTOTAL 12%:"
+msgstr "SUBTOTAL 12%:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:159
+#: code:addons/l10n_ec_sri_pos/static/src/js/authorization.js:198
+#, python-format
+msgid "Sequential"
+msgstr "Secuencial"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:59
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:134
+#, python-format
+msgid "TOT."
+msgstr "TOT."
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:91
+#: code:addons/l10n_ec_sri_pos/static/src/xml/pos.xml:166
+#, python-format
+msgid "TOTAL:"
+msgstr "TOTAL:"
+
+#. module: l10n_ec_sri_pos
+#. openerp-web
+#: code:addons/l10n_ec_sri_pos/static/src/js/screens.js:53
+#, python-format
+msgid "Your Internet connection is probably down."
+msgstr "Es posible que su conexión a Internet se haya caido."
+
+#. module: l10n_ec_sri_pos
+#: model:ir.model,name:l10n_ec_sri_pos.model_pos_config
+msgid "pos.config"
+msgstr "Configuración del TPV"
+

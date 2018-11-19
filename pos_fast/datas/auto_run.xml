@@ -1,0 +1,16 @@
+<openerp>
+	<data noupdate="0">
+
+        <record model="ir.cron" id="pos_cache_data">
+            <field name='name'>[POS] Cache Datas</field>
+            <field name='interval_number'>30</field>
+            <field name='interval_type'>minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+            <field name="model" eval="'pos.auto.cache'"/>
+            <field name="function" eval="'auto_clean_cache'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+
+	</data>
+</openerp>

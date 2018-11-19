@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_users_form" model="ir.ui.view">
+        <field name="name">view_users_form account report formats</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <notebook position="after">
+                <group string="Production report formats">
+                    <field name="production_format_id"/>
+                </group>
+            </notebook>
+        </field>
+    </record>
+</odoo>

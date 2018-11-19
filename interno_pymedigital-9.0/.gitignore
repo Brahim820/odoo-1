@@ -1,0 +1,13 @@
+.csv#
+*.pyc
+.settings
+.project
+.pydevproject
+*.py~
+*.xml~
+*.po~
+*.*~
+/.idea/
+*.swo
+*.swp
+*.pyc

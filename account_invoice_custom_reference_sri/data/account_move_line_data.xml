@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Actualizar los asientos contables de las facturas que tengan como nombre '/'.-->
+        <function model="account.move.line" name="update_old_names"/>
+    </data>
+</odoo>

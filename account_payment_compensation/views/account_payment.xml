@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_account_payment_form" model="ir.ui.view">
+      <field name="name">Account Payment compensations form view</field>
+      <field name="model">account.payment</field>
+      <field name="inherit_id" ref="account.view_account_payment_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@name='amount_div']" position="after">
+          <field name="compensation_ids" widget="many2many"
+              attrs="{'invisible': [('payment_method_code', '!=', 'compensation')]}">
+              <tree>
+                  <field name="name"/>
+                  <field name="amount_residual"/>
+              </tree>
+          </field>  
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_account_payment_invoice_form" model="ir.ui.view">
+      <field name="name">Payment invoice compenstions form view</field>
+      <field name="model">account.payment</field>
+      <field name="inherit_id" ref="account.view_account_payment_invoice_form" />
+      <field name="arch" type="xml">
+          <xpath expr="//div[@name='amount_div']" position="after">
+          <field name="compensation_account_id" invisible="1"/>
+          
+          <field name="compensation_ids" widget="many2many"
+              domain="[('partner_id','=',partner_id),('reconciled','=',False),('account_id','=',compensation_account_id)]"
+              attrs="{'invisible': [('payment_method_code', '!=', 'compensation')]}"
+              >
+              <tree>
+                  <field name="name"/>
+                  <field name="amount_residual"/>
+              </tree>
+          </field>  
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_account_payment_from_invoices" model="ir.ui.view">
+      <field name="name">Ecuador Payment multi invoices compensation form view</field>
+      <field name="model">account.register.payments</field>
+      <field name="inherit_id" ref="account.view_account_payment_from_invoices" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount']" position="after">
+          <field name="compensation_ids" widget="many2many"
+              attrs="{'invisible': [('payment_method_code', '!=', 'compensation')]}">
+              <tree>
+                  <field name="name"/>
+                  <field name="amount_residual"/>
+              </tree>
+          </field>  
+        </xpath>
+      </field>
+    </record>
+
+
+</odoo>

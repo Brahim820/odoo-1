@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    <record id="account_analytic_account_recurring_form_form_inherit" model="ir.ui.view">
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form"/>
+        <field name="arch" type="xml">
+		    <xpath 
+			    expr="//field[@name='recurring_invoice_line_ids']//field[@name='name']"
+			    position="attributes">
+                <attribute name="invisible">1</attribute>
+		    </xpath>
+		    <xpath 
+			    expr="//field[@name='recurring_invoice_line_ids']//field[@name='uom_id']"
+			    position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_analytic_recurring_form_form_inh2" model="ir.ui.view">
+        <field name="name">account.analytic.recurring.form.form.inh2</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" 
+            ref="contract_variable_quantity.account_analytic_account_recurring_form_form"/>
+        <field name="arch" type="xml">
+		    <xpath 
+			    expr="//field[@name='recurring_invoice_line_ids']//field[@name='qty_formula_id']"
+			    position="attributes">
+                <attribute name="invisible">1</attribute>
+		    </xpath>
+            <xpath
+			    expr="//field[@name='recurring_invoice_line_ids']//field[@name='qty_formula_id']"
+                position="before">
+                <field name="asset_ids"
+                    widget="many2many_tags"
+                    options="{'no_create_edit':True, 'no_open': True, 'no_quick_create': True}"
+                    />
+                <field name="counter_type_id" 
+                    attrs="{'required':[('qty_type','=', 'variable')], 
+                    'invisible': [('qty_type', '=', 'fixed')]}"
+                    options="{'no_create_edit':True, 'no_open': True, 'no_quick_create': True}"/>
+                <field name="analytic_account_id"/>
+            </xpath>
+        </field>
+    </record>
+    
+
+</odoo>

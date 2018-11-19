@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_move_line_filter" model="ir.ui.view">
+        <field name="name">account.move.line.filter.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+        <field name="arch" type="xml">
+            <group position="inside">
+                <filter string="Día de depósito" name="day_deposit" domain="[]"
+                        context="{'group_by':'date_deposit:day'}"/>
+                <filter string="Semana de depósito" name="week_deposit" domain="[]"
+                        context="{'group_by':'date_deposit:week'}"/>
+                <filter string="Mes de depósito" name="month_deposit" domain="[]"
+                        context="{'group_by':'date_deposit:month'}"/>
+            </group>
+        </field>
+    </record>
+</odoo>

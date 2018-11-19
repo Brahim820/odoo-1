@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_payment_batch_file_form" model="ir.ui.view">
+        <field name="name">view.account.payment.batch.file.form</field>
+        <field name="model">account.payment.batch.file</field>
+        <field name="arch" type="xml">
+            <form string="Load Batch Payments from File">
+                <field name="state" invisible="1" />
+                <div class="oe_title">
+                    <h1>
+                        <field name="partner_id" class="oe_inline" required="1" attrs="{'readonly': [('state', '!=', 'new')]}"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="payment_method_id" required="1" attrs="{'readonly': [('state', '!=', 'new')]}" domain="[('payment_type','=','inbound')]" widget="selection"/>
+                        <field name="payment_slip_number" attrs="{'readonly': [('state', '!=', 'new')]}"/>
+                    </group>
+                    <group>
+                        <field name="csv_file" filename="csv_name" required="1" attrs="{'readonly': [('state', '!=', 'new')]}"/>
+                        <field name="delimiter" required="1" attrs="{'readonly': [('state', '!=', 'new')]}"/>
+                        <field name="csv_name" invisible="1" attrs="{'readonly': [('state', '!=', 'new')]}"/>
+                    </group>
+                </group>
+                <group attrs="{'invisible': [('state', '!=', 'error')]}">
+                    <field name="error" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="check_invoices" string="Check Invoices" class="oe_highlight" type="object" attrs="{'invisible': [('state', '=', 'error')]}"/>
+                     <label string="or" attrs="{'invisible': [('state', '=', 'error')]}" />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_payment_batch_file" model="ir.actions.act_window">
+        <field name="name">Load Batch Payments from File</field>
+        <field name="res_model">account.payment.batch.file</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem action="action_account_payment_batch_file"
+              id="menu_action_payments_receivable_process_file"
+              parent="menu_action_account_payments_receivable_root"
+              sequence="20"
+              groups="account.group_account_user"/>
+
+
+</odoo>

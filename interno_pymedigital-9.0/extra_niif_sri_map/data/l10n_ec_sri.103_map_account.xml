@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="l10n_ec_sri.tax_103303" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103304" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103304A" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103304B" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103304C" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103304D" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103304E" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103307" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103308" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103309" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103310" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103311" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103312" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103312A" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103314B" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103314D" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103319" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103320" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103322" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103332" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103332B" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103332C" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103332D" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103332G" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+        <record id="l10n_ec_sri.tax_103344" model="account.tax">
+            <field name="account_id" model='account.account' search="[('code','like','2010701')]"/>
+            <field name="refund_account_id" model='account.account' search="[('code','like','2010701')]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_action_account_payments_receivable_root"
+              parent="account.menu_finance_receivables"
+              name="Payments"
+              sequence="20"
+              groups="account.group_account_user"/>
+
+    <menuitem action="account.action_account_payments"
+              id="account.menu_action_account_payments_receivable"
+              parent="menu_action_account_payments_receivable_root"
+              sequence="20"
+              groups="account.group_account_user"/>
+
+
+</odoo>

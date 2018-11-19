@@ -1,0 +1,4 @@
+import res_partner
+import pricelist
+import pos_config
+import pos_order

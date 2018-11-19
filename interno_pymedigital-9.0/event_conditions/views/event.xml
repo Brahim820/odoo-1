@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_form">
+        <field name="name">Event conditions form view</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//sheet/notebook/page" position="after" >
+                    <page string="Conditions" name="conditions" >
+                        <group string="Event Conditions" name="condition" >
+                            <field name="condition_ids" widget="many2many_checkboxes" nolabel="1" />
+                        </group>
+                    </page>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

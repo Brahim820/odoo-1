@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+account_asset_asset_consumption_manager,Recurring manager,model_account_asset_asset_consumption,base.group_sale_manager,1,1,1,1
+account_asset_consumption_counter_type_manager,Recurring manager,model_asset_consumption_counter_type,base.group_sale_manager,1,1,1,1
+account_asset_asset_consumption_user,Recurring user,model_account_asset_asset_consumption,base.group_sale_salesman,1,0,0,0
+account_asset_consumption_counter_type_user,Recurring user,model_asset_consumption_counter_type,base.group_sale_salesman,1,0,0,0

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">Stock picking template inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="pack_operation_product_ids" position="before">
+                <button name="qty_done_complete"
+                        string="Send the requested quantity on all operations"
+                        type="object"
+                        states="confirmed,assigned,waiting,partially_available"
+                        />
+            </field>
+            <xpath expr="//field[@name='pack_operation_product_ids']//tree//button[@name='show_details']"
+                   position="before">
+                <button name="qty_done_complete"
+                        string="Send the requested quantity"
+                        type="object"
+                        icon="fa-check"
+                        states="confirmed,assigned,waiting,partially_available"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

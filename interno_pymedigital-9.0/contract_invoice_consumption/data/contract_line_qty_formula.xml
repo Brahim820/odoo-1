@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    <data>
+        <record id="contract_line_qty_formula_1" model="contract.line.qty.formula">
+            <field name="name">Cantidad de copias</field>
+            <field name="code">
+result = line.final_qty - line.start_qty - line.base_quantity
+if 0 > result:
+    result = 0
+            </field>
+        </record>
+    </data>
+</odoo>

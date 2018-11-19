@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_forecast_summary,access_product_forecast_summary,model_product_forecast_summary,,1,1,1,1
+access_stock_orderpoint_line,access_stock_orderpoint_line,model_stock_orderpoint_line,,1,1,1,1
+access_product_summary,access_product_summary,model_product_summary,,1,1,1,1
+access_user_view_product_summary_user,access_view_product_summary_user,model_view_product_summary,stock.group_stock_user,1,0,0,0
+access_user_view_product_summary_manager,access_view_product_summary_manager,model_view_product_summary,stock.group_stock_manager,1,1,1,1

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_form_view" model="ir.ui.view">
+        <field name="name">mrp.production.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel']" position="before">
+                <button
+                    name="%(action_mrp_production_cancel)d"
+                    states="draft,confirmed,ready,in_production"
+                    string="Cancel Production"
+                    type="action"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <h2 attrs="{'invisible': [('state', '!=', 'cancel')]}">
+                    <label for="cancel_reason_id" string="Cancellation reason:"/>
+                    <field name="cancel_reason_id" class="oe_inline"
+                           options='{"no_open": True}'/>
+                </h2>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_mrp_production_cancel_reason_form">
+        <field name="name">Mrp Production Cancel Reason</field>
+        <field name="model">mrp.production.cancel.reason</field>
+        <field name="arch" type="xml">
+            <form string="Mrp Production Cancel Reasons">
+                <field name="name"/>
+                <field name="active"/>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_mrp_production_cancel_reason_tree">
+        <field name="name">Mrp Production Cancel Reason</field>
+        <field name="model">mrp.production.cancel.reason</field>
+        <field name="arch" type="xml">
+            <tree string="Mrp Production Cancel Reasons">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_mrp_production_cancel_reason">
+        <field name="name">Mrp Production Cancel Reason</field>
+        <field name="res_model">mrp.production.cancel.reason</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mrp_production_cancel_reason"
+              parent="mrp.menu_mrp_configuration"
+              name="Cancel Reasons"
+              action="action_mrp_production_cancel_reason"
+              sequence="150"
+              groups="mrp.group_mrp_manager"/>
+
+</odoo>

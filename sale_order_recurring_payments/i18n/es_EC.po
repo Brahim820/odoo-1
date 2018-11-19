@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sale_order_recurring_payments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-19 15:43+0000\n"
+"PO-Revision-Date: 2016-12-19 15:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_order_recurring_payments
+#: model:ir.ui.view,arch_db:sale_order_recurring_payments.view_order_form
+#: model:ir.ui.view,arch_db:sale_order_recurring_payments.view_order_tree
+msgid "Compute delivered quantities"
+msgstr "Calcular cantidades enviadas"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,help:sale_order_recurring_payments.field_product_template_frequency
+msgid "Frecuency in days, Ejem: 30 for a monthy payment"
+msgstr "Frecuencia en días, Ejem: 30 para generar pagos mensuales"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,field_description:sale_order_recurring_payments.field_product_template_frequency
+msgid "Frequency of collection"
+msgstr "Frecuencia de cobro"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,help:sale_order_recurring_payments.field_product_template_in_advance
+msgid "If selected, payment will be charged in advance."
+msgstr "Si se selecciona, el pago será solicitado por adelantado."
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,field_description:sale_order_recurring_payments.field_product_template_in_advance
+msgid "In advance"
+msgstr "Pago por adelantado"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,field_description:sale_order_recurring_payments.field_sale_order_date_begin
+msgid "Recurring Payment's start date"
+msgstr "Incio de pagos recurrentes"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model,name:sale_order_recurring_payments.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,field_description:sale_order_recurring_payments.field_product_template_recurring
+msgid "Recurring payment"
+msgstr "Pago recurrente"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model.fields,help:sale_order_recurring_payments.field_sale_order_date_begin
+msgid "If selected, all recurring payments will use this date to compute the overdue payments."
+msgstr "Si se selecciona, todos los pagos recurrentes usaran esta fecha para calcular los pagos vencidos."
+
+#. module: sale_order_recurring_payments
+#: model:ir.ui.view,arch_db:sale_order_recurring_payments.product_template_form_view
+msgid "Recurring payments"
+msgstr "Pagos recurrentes"
+
+#. module: sale_order_recurring_payments
+#: model:ir.model,name:sale_order_recurring_payments.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de Venta"
+

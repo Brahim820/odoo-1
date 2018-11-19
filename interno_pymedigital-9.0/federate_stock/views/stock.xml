@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">view picking form inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="move_lines_related" position="before">
+                <button
+                    name="button_check_partner_stock"
+                    string="Check partner stock"
+                    type="object"
+                    class="oe_link oe_inline"
+                    />
+                
+            </field>
+        </field>
+    </record>
+    <record id="view_move_picking_tree" model="ir.ui.view">
+        <field name="name">view move picking tree inherit</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+        <field name="arch" type="xml">
+            <field name="product_uom_qty" position="after">
+                <field name="partner_stock"/>
+            </field>
+        </field>
+    </record>
+</odoo>

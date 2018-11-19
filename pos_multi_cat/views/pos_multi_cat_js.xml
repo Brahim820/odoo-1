@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend_js" name="pos_multi_cat assests" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+               <script type="text/javascript" src="/pos_multi_cat/static/src/js/pos_multi_cat.js"></script>  
+            </xpath>
+        </template>
+    </data>
+</openerp>

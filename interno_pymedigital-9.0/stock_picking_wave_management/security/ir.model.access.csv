@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_make_procurement_all,make.procurement all,model_make_procurement,,1,1,1,1
+access_stock_picking_type_all,stock.picking.type all,stock.model_stock_picking_type,,1,1,1,1

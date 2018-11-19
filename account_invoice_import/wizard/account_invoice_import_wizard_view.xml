@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_invoice_import_wizard_view" model="ir.ui.view">
+        <field name="name">Account invoice import wizard view</field>
+        <field name="model">account.invoice.import.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="result" string="Result" states="done,fail">
+                    <field name="state" invisible="1"/>
+                    <field name="import_errors" nolabel="1"/>
+                </group>
+                <group states="new">
+                    <group>
+                        <field name="text_to_import"/>
+                        <field name="file_to_import"/>
+                        <field name="invoices" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="block_on_error"/>
+                        <field name="header"/>
+                        <field name="invoice_creation_type"/>
+                        <field name="auto_validate"/>
+                        <field name="separator"/>
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="Cancel"
+                        string="Cancel"
+                        special="cancel"
+                        class="btn-default"
+                        states="new,fail"
+                        />
+                    <button
+                        name="button_create_invoices"
+                        string="Create invoices"
+                        type="object"
+                        class="btn-primary"
+                        states="new"
+                        />
+                    <button
+                        name="button_close"
+                        string="Close"
+                        type="object"
+                        class="btn-primary"
+                        states="done"
+                        />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_invoice_import_wizard" model="ir.actions.act_window">
+        <field name="name">Account invoice import wizard</field>
+        <field name="res_model">account.invoice.import.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem 
+        id="menu_import_invoices" 
+        name="Import Invoices" 
+        parent="account.menu_finance_receivables" 
+        action="account_invoice_import.action_account_invoice_import_wizard"
+        />
+</odoo>

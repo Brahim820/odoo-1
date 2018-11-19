@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="bi_mrp_report_wizard_form_view" model="ir.ui.view">
+        <field name="name">bi.mrp.report.wizard.form.view</field>
+        <field name="model">bi.mrp.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="info" string="Info">
+                        <field name="type"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="valuation"/>
+                        
+                    </group>
+
+                    <group string="Filtros">
+                        <group name="states" string="States">
+                            <field name="done"/>
+                            <field name="confirmed"/>
+                            <field name="ready"/>
+                        </group>
+                        <group>
+                            <field name="in_production"/>
+                            <field name="cancel"/>
+                            <field name="draft"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="production_ids" widget="many2many_tags"/>
+                        <field name="product_ids" widget="many2many_tags"/>
+                        <field name="template_ids" widget="many2many_tags"/>
+                        <field name="category_ids" widget="many2many_tags"/>
+                        <!--<field name="route_ids"/>-->
+                    </group>
+                    <div>
+                        <p>
+                            Puede descargar su reporte de producción aquí:
+                            <field name="xlsx_file" filename="xlsx_filename"/>
+                        </p>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="get_production_report"
+                            type='object' string='Generate report'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_bi_mrp_report_wizard" model="ir.actions.act_window">
+        <field name="name">Business Ingelligence</field>
+        <field name="res_model">bi.mrp.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="bi_mrp_report_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_bi_mrp_report_widard"
+              parent="base.menu_mrp_root"
+              groups="account.group_account_manager"
+              action="action_bi_mrp_report_wizard"/>
+</odoo>

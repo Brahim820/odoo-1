@@ -1,0 +1,235 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_payment_batch_process_file
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-05 15:17+0000\n"
+"PO-Revision-Date: 2018-03-05 10:22-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_EC\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_csv_file
+msgid "Archivo CSV"
+msgstr "Archivo CSV"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:95
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:106
+#, python-format
+msgid "Batch Payments from File"
+msgstr "Pagos por lotes desde el archivo"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:33
+#, python-format
+msgid "CSV File"
+msgstr "Archivo CSV"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:35
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_csv_name
+#, python-format
+msgid "CSV File name"
+msgstr "Nombre Archivo CSV"
+
+#. module: account_payment_batch_process_file
+#: model:ir.ui.view,arch_db:account_payment_batch_process_file.view_account_payment_batch_file_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_payment_batch_process_file
+#: model:ir.ui.view,arch_db:account_payment_batch_process_file.view_account_payment_batch_file_form
+msgid "Check Invoices"
+msgstr "Verificar Facturas"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_delimiter
+msgid "Delimitador"
+msgstr "Delimitador"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:34
+#, python-format
+msgid "Delimiter"
+msgstr "Delimitador"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_partner_id
+msgid "Empresa"
+msgstr "Empresa"
+
+#. module: account_payment_batch_process_file
+#: selection:account.payment.batch.file,state:0
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:37
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:38
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_error
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_id
+msgid "ID"
+msgstr "ID"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:154
+#, python-format
+msgid "In order to pay multiple invoices at once, they must use the same currency."
+msgstr "Para pagar varias facturas a la vez, deben usar la misma moneda."
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: account_payment_batch_process_file
+#: model:ir.actions.act_window,name:account_payment_batch_process_file.action_account_payment_batch_file
+#: model:ir.ui.menu,name:account_payment_batch_process_file.menu_action_payments_receivable_process_file
+#: model:ir.ui.view,arch_db:account_payment_batch_process_file.view_account_payment_batch_file_form
+msgid "Load Batch Payments from File"
+msgstr "Cargar pagos por lotes desde archivo"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:38
+#, python-format
+msgid "New"
+msgstr "Neuevo"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:65
+#, python-format
+msgid "Not a valid file!"
+msgstr "¡No es un archivo válido!"
+
+#. module: account_payment_batch_process_file
+#: selection:account.payment.batch.file,state:0
+msgid "Nuevo"
+msgstr "Nuevo"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:30
+#, python-format
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:36
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_payment_slip_number
+#, python-format
+msgid "Payment Slip Number"
+msgstr "Comprobante de Pago Nro."
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_payment_method_id
+msgid "Payment Type"
+msgstr "Tipo de pago"
+
+#. module: account_payment_batch_process_file
+#: model:ir.ui.menu,name:account_payment_batch_process_file.menu_action_account_payments_receivable_root
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:140
+#, python-format
+msgid "Program error: the expected model for this action is 'account.invoice'. The provided one is '%d'."
+msgstr "Error de programación: el modelo esperado para esta acción es 'account.invoice'. El proporcionado es '% d'."
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:137
+#, python-format
+msgid "Program error: wizard action executed without active_model or active_ids in context."
+msgstr "Error de programación: acción de asistente ejecutada sin active_model o active_ids en contexto."
+
+#. module: account_payment_batch_process_file
+#: model:ir.model,name:account_payment_batch_process_file.model_account_register_payments
+msgid "Register payments on multiple invoices"
+msgstr "Registrar pagos en múltiples facturas"
+
+#. module: account_payment_batch_process_file
+#: model:ir.model.fields,field_description:account_payment_batch_process_file.field_account_payment_batch_file_state
+msgid "State"
+msgstr "Estado"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:71
+#, python-format
+msgid "The file to be imported does not present the following columns: {}"
+msgstr "El archivo que se importará no presenta las siguientes columnas: {}"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:51
+#, python-format
+msgid "The file to import does not have a valid extention"
+msgstr "El archivo para importar no tiene una extensión válida"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:49
+#, python-format
+msgid "The file to import is not CSV"
+msgstr "El archivo para importar no es CSV"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:86
+#, python-format
+msgid "The invoice with the number: {} is not in the system or is in a different state open\n"
+msgstr "La factura con el número: {} no se encuentra en el sistema o está en un estado diferente abierto\n"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:147
+#, python-format
+msgid "You can only register payments for open invoices"
+msgstr "Solo puede registrar pagos por facturas en estado abiertas"
+
+#. module: account_payment_batch_process_file
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:151
+#: code:addons/account_payment_batch_process_file/wizard/invoice_batch_process_file.py:182
+#, python-format
+msgid "You cannot mix customer invoices and vendor bills in a single payment."
+msgstr "No puede mezclar facturas de clientes y facturas de proveedores en un solo pago."
+
+#. module: account_payment_batch_process_file
+#: model:ir.model,name:account_payment_batch_process_file.model_account_payment_batch_file
+msgid "account.payment.batch.file"
+msgstr "account.payment.batch.file"
+
+#. module: account_payment_batch_process_file
+#: model:ir.ui.view,arch_db:account_payment_batch_process_file.view_account_payment_batch_file_form
+msgid "or"
+msgstr "o"

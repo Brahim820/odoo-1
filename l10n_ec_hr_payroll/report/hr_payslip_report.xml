@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="custom_letter_portrait" model="report.paperformat">
+            <field name="name">Letter Portrait For Payslip</field>
+            <field name="default" eval="False"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">2</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">2</field>
+            <field name="margin_right">35</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing" eval="False" />
+            <field name="dpi">96</field>
+        </record>
+
+        <report id="hr_payroll.action_report_payslip"
+                model="hr.payslip"
+                string="Rol individual"
+                report_type="qweb-pdf"
+                paperformat="custom_letter_portrait"
+                name="l10n_ec_hr_payroll.hr_payslip_report"
+                file="Payslip"/>
+
+        <template id="hr_payslip_report">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page" style="font-size:19px;">
+                        <table style="width: 100%;">
+                            <tr style="height: 174mm;">
+                                <!-- <td style="border: 1px solid black; padding-left: 6mm; padding-right: 6mm; padding-top: 20mm;"> -->
+                                <td style="padding-left: 6mm; padding-right: 6mm; padding-top: 20mm;">
+                                    <table style="width: 100%;" >
+                                        <tr style="">
+                                            <td style="width: 40%;" />
+                                            <td style="font-size: 80%;">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td style="text-align: center" colspan="2">
+                                                            <strong>ROL DE PAGOS DESDE <span t-field="o.date_from" /> HASTA <span t-field="o.date_to" />
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 70%;">
+                                                            <strong>TIPO: <span style="text-transform:uppercase;" t-field="o.payroll_type.name" />
+                                                            </strong>
+                                                            <br/>
+                                                            <strong>
+                                                                <span style="text-transform:uppercase;" t-field="o.employee_id.code" />
+                                                                <span style="text-transform:uppercase;" t-field="o.employee_id" />
+                                                            </strong>
+                                                            <br />
+                                                            <strong>PUESTO: <span style="text-transform:uppercase;" t-field="o.employee_id.job_id.name" />
+                                                            </strong>
+                                                            <br />
+                                                        </td>
+                                                        <td style="font-size: 70%;">
+                                                            <strong>OFICINA: <span style="text-transform:uppercase;" t-field="o.employee_id.department_id.parent_id.name" />
+                                                            </strong>
+                                                            <br/>
+                                                            <strong>DEPARTAMENTO: <span style="text-transform:uppercase;" t-field="o.employee_id.department_id.name" />
+                                                            </strong>
+                                                            <br/>
+                                                            <strong>CIUDAD: <span style="text-transform:uppercase;" t-field="o.employee_id.job_id.address_id.canton_id" />
+                                                            </strong>
+                                                            <br/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <br />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <t t-set="news" t-value="get_news(o)"  />
+                                                <table style="width: 100%; font-size: 70%; padding-top: 3mm; padding-bottom: 3mm; padding-left: 3mm; padding-right: 3mm">
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 20%; font-size: 100%; text-align: center; vertical-align: middle;">
+                                                            <strong>Ref. <span t-field="o.number"/>
+                                                            </strong>
+                                                        </td>
+                                                        <td style="width: 20%;">
+                                                            <strong>Sueldo:</strong>
+                                                        </td>
+                                                        <td style="text-align: right; width: 15%">
+                                                            <span t-field="o.contract_id.wage" />
+                                                        </td>
+                                                        <td style="width: 5%;"/>
+                                                        <td style="width: 20%;">
+                                                            <strong>Horas 50%:</strong>
+                                                        </td>
+                                                        <td style="text-align: right; width: 15%">
+                                                            <span t-esc="news.get('he050')"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>Saldo CXC:</strong>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <span t-esc="news.get('loan')"/>
+                                                        </td>
+                                                        <td/>
+                                                        <td>
+                                                            <strong>Horas 100%:</strong>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <span t-esc="news.get('he100')"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br />
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <th style="text-align: left; font-size: 70%;">CONCEPTO</th>
+                                                        <th style="text-align: right; font-size: 70%;">INGRESOS</th>
+                                                        <th style="text-align: right; font-size: 70%;">DESCUENTOS</th>
+                                                        <th style="text-align: right; font-size: 70%;">A RECIBIR</th>
+                                                    </tr>
+                                                    <tr t-foreach="get_details(o.details_by_salary_rule_category, o.id)" t-as="line">
+                                                        <t t-if="line.get('detalle', '') != 'Total'">
+                                                            <td style="text-align: left; font-size: 70%;">
+                                                                <span style="text-transform:uppercase;" t-esc="line.get('detalle', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; font-size: 70%;">
+                                                                <span t-esc="line.get('ingreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; font-size: 70%;">
+                                                                <span
+                                                                        t-esc="line.get('egreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; font-size: 70%;">
+                                                                <span t-esc="line.get('recibir', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                        </t>
+                                                        <t t-if="line.get('detalle', '') == 'Total'">
+                                                            <td style="font-weight: bold; text-align: left; border-top: 1px solid black; font-size: 100%;">
+                                                                <big>
+                                                                    <big>
+                                                                        <span style="text-transform:uppercase;" t-esc="line.get('detalle', '')"/>
+                                                                    </big>
+                                                                </big>
+                                                            </td>
+                                                            <td style="text-align: right; border-top: 1px solid black; font-size: 100%;">
+                                                                <span t-esc="line.get('ingreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; border-top: 1px solid black; font-size: 100%;">
+                                                                <span t-esc="line.get('egreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; border-top: 1px solid black; font-size: 100%;">
+                                                                <span t-esc="line.get('recibir', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                        </t>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <br />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="font-size: 70%;">
+                                                <strong style="text-transform:uppercase;">REALIZADO POR: <span t-esc="o.create_uid.name" />
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report id="action_report_payslip_batch"
+                model="wizard.hr.payroll.print"
+                string="Payslip Batch"
+                report_type="qweb-pdf"
+                paperformat="custom_letter_portrait"
+                name="l10n_ec_hr_payroll.hr_payslip_report_batch"
+                file="Payslip Batch" />
+
+        <template id="hr_payslip_report_batch">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="run">
+                    <div class="page" style="font-size:19px">
+                        <t t-foreach="run.slip_ids" t-as="o">
+                            <t t-if="o.exclude is False">
+                                <div style="position:relative; height: 172mm; max-height: 172mm; min-height: 172mm; padding-left: 6mm; padding-right: 6mm; vertical-align:top; padding-top: 20mm;">
+                                    <table style="width: 100%; border:">
+                                        <tr>
+                                            <td style="width: 40%;" />
+                                            <td style="font-size: 80%;">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td style="text-align: center" colspan="2">
+                                                            <strong>ROL DE PAGOS DESDE <span t-field="o.date_from" /> HASTA <span t-field="o.date_to" />
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-size: 70%;">
+                                                            <strong>TIPO: <span style="text-transform:uppercase;" t-field="o.payroll_type.name" />
+                                                            </strong>
+                                                            <br/>
+                                                            <strong>
+                                                                <span style="text-transform:uppercase;" t-field="o.employee_id.code" />
+                                                                <span style="text-transform:uppercase;" t-field="o.employee_id" />
+                                                            </strong>
+                                                            <br />
+                                                            <strong>PUESTO: <span style="text-transform:uppercase;" t-field="o.employee_id.job_id.name" />
+                                                            </strong>
+                                                            <br />
+                                                        </td>
+                                                        <td style="font-size: 70%;">
+                                                            <strong>OFICINA: <span style="text-transform:uppercase;" t-field="o.employee_id.department_id.parent_id.name" />
+                                                            </strong>
+                                                            <br/>
+                                                            <strong>DEPARTAMENTO: <span style="text-transform:uppercase;" t-field="o.employee_id.department_id.name" />
+                                                            </strong>
+                                                            <br/>
+                                                            <strong>CIUDAD: <span style="text-transform:uppercase;" t-field="o.employee_id.job_id.address_id.canton_id" />
+                                                            </strong>
+                                                            <br/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <br />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <t t-set="news" t-value="get_news(o)"  />
+                                                <table style="width: 100%; font-size: 70%; padding-top: 3mm; padding-bottom: 3mm; padding-left: 3mm; padding-right: 3mm">
+                                                    <tr>
+                                                        <td rowspan="2" style="width: 20%; font-size: 100%; text-align: center; vertical-align: middle;">
+                                                            <strong>Ref. <span t-field="o.number"/>
+                                                            </strong>
+                                                        </td>
+                                                        <td style="width: 20%;">
+                                                            <strong>Sueldo:</strong>
+                                                        </td>
+                                                        <td style="text-align: right; width: 15%">
+                                                            <span t-field="o.contract_id.wage" />
+                                                        </td>
+                                                        <td style="width: 5%;"/>
+                                                        <td style="width: 20%;">
+                                                            <strong>Horas 50%:</strong>
+                                                        </td>
+                                                        <td style="text-align: right; width: 15%">
+                                                            <span t-esc="news.get('he050')"/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>Saldo CXC:</strong>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <span t-esc="news.get('loan')"/>
+                                                        </td>
+                                                        <td/>
+                                                        <td>
+                                                            <strong>Horas 100%:</strong>
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            <span t-esc="news.get('he100')"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <br />
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <th style="text-align: left; font-size: 70%;">CONCEPTO</th>
+                                                        <th style="text-align: right; font-size: 70%;">INGRESOS</th>
+                                                        <th style="text-align: right; font-size: 70%;">DESCUENTOS</th>
+                                                        <th style="text-align: right; font-size: 70%;">A RECIBIR</th>
+                                                    </tr>
+                                                    <tr t-foreach="get_details(o.details_by_salary_rule_category, o.id)" t-as="line">
+                                                        <t t-if="line.get('detalle', '') != 'Total'">
+                                                            <td style="text-align: left; font-size: 70%;">
+                                                                <span style="text-transform:uppercase;" t-esc="line.get('detalle', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; font-size: 70%;">
+                                                                <span t-esc="line.get('ingreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; font-size: 70%;">
+                                                                <span
+                                                                        t-esc="line.get('egreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; font-size: 70%;">
+                                                                <span t-esc="line.get('recibir', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                        </t>
+                                                        <t t-if="line.get('detalle', '') == 'Total'">
+                                                            <td style="font-weight: bold; text-align: left; border-top: 1px solid black; font-size: 100%;">
+                                                                <big>
+                                                                    <big>
+                                                                        <span style="text-transform:uppercase;" t-esc="line.get('detalle', '')"/>
+                                                                    </big>
+                                                                </big>
+                                                            </td>
+                                                            <td style="text-align: right; border-top: 1px solid black; font-size: 100%;">
+                                                                <span t-esc="line.get('ingreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; border-top: 1px solid black; font-size: 100%;">
+                                                                <span t-esc="line.get('egreso', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                            <td style="text-align: right; border-top: 1px solid black; font-size: 100%;">
+                                                                <span t-esc="line.get('recibir', '')"/>
+                                                                <br/>
+                                                            </td>
+                                                        </t>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <br />
+                                                <br />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="font-size: 70%;">
+                                                <strong style="text-transform:uppercase;">REALIZADO POR: <span t-esc="o.create_uid.name" />
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <p style="page-break-inside:always" />
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo> 
+    <template inherit_id="report.external_layout_header" 
+        id="base_report_custom_format.external_layout_header">
+        <t t-set="format_id"
+                t-value="userr_format_id or res_company.default_format_id"/>
+        <t t-if="format_id.header">
+            <div style="width:100%;">
+                <span t-field="format_id.header"/>
+            </div>
+        </t>
+    </template>
+
+    <template inherit_id="report.external_layout_footer" 
+        id="base_report_custom_format.external_layout_footer">
+        <t t-if="format_id.footer">
+            <div style="width:100%;">
+                <span t-field="format_id.footer"/>
+            </div>
+        </t>
+    </template>
+</odoo>

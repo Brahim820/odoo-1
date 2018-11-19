@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="template_form_view">
+        <field name="name">stock_picking_template_form_view</field>
+        <field name="model">stock.picking.template</field>
+        <field name="arch" type="xml">
+            <form string="Stock picking template">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="location_src_ids" widget="many2many_tags"/>
+                    </group>
+                    <group string="Picking lines">
+                        <field name="template_line_ids" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="template_tree_view" model="ir.ui.view">
+        <field name="name">stock_picking_template_tree_view</field>
+        <field name="model">stock.picking.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="template_line_tree_view" model="ir.ui.view">
+        <field name="name">stock_picking_template_tree_view</field>
+        <field name="model">stock.picking.template.line</field>
+        <field name="arch" type="xml">
+            <tree editable="buttom">
+                <field name="product_uom_qty"/>
+                <field name="product_id"/>
+                <field name="product_uom"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_stock_picking_template">
+        <field name="name">Picking template</field>
+        <field name="res_model">stock.picking.template</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_stock_picking_template" name="Picking templates" parent="stock.menu_stock_config_settings"
+              sequence="0" action="action_stock_picking_template"/>
+
+</odoo>

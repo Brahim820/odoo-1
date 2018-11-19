@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form -- open qty fields</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath
+                    expr="//field[@name='order_line']/tree/field[@name='qty_received']"
+                    position="before">
+                    <field
+                        name="qty_to_receive"
+                        invisible="not context.get('show_purchase', False)"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='qty_invoiced']" position="before">
+                    <field name="qty_to_invoice" invisible="not context.get('show_purchase', False)"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_order_tree" model="ir.ui.view">
+            <field name="name">purchase purchase order tree  inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="amount_untaxed" position="before">
+                        <field name="qty_to_receive"/>
+                        <field name="qty_to_invoice"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_purchase_order_filter" model="ir.ui.view">
+            <field name="name">request.quotation.select -- open qty filters</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <filter name="invoiced" position="after">
+                    <filter name="pending_qty_to_invoice" string="Pending Qty to Bill" domain="[('qty_to_invoice','>',0.0)]"/>
+                    <filter name="pending_qty_to_receive" string="Pending Qty to Receive" domain="[('qty_to_receive','>',0.0)]"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>

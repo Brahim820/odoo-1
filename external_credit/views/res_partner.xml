@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+
+    <record id="partner_rmu_form_view" model="ir.ui.view">
+        <field name="name">partner.rmu.form.view</field>
+        <field name="model">res.partner.rmu</field>
+        <field name="arch" type="xml">
+            <form string="Partner rmu">
+                <sheet>
+                    <group>
+                        <field name="year"/>
+                        <field name="rmu"/>
+                        <field name="due_amount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+
+    <record id="partner_credit_form_view" model="ir.ui.view">
+        <field name="name">partner.credit.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <group name="rmu" string="Unified monthly remuneration">
+                    <field name="rmu_ids" nolabel="1">
+                        <tree>
+                            <field name="year"/>
+                            <field name="rmu"/>
+                            <field name="due_amount"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+            <xpath expr="//group[1]" position="before" >
+                <group>
+                    <group>
+                        <field name="code"/>
+                        <field name="committee_groups"/>
+                    </group>
+                    <group>
+                        <field name="is_affiliate"/>
+                    </group>
+                </group>
+            </xpath>
+            <notebook position="inside">
+                <page name="credits_quotas" string="Credits and Quotas">
+                    <group name="credits" string="Credits">
+                        <field name="credit_ids" nolabel="1"/>
+                    </group> 
+                    <group name="quotas" string="Quotas">
+                        <field name="invoice_ids" nolabel="1"/>
+                    </group> 
+                </page> 
+            </notebook>    
+            <xpath expr="//field[@name='function']" position="after" >
+                <field name="department_id"/>
+                <field name="entry_date"/>
+            </xpath>
+            <xpath expr="//field[@name='function']" position="replace" >
+                <field name="job_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="affiliates_search_view" model="ir.ui.view">
+        <field name="name">affiliates.search.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter string="Committee Groups"
+                    name="committee_groups"
+                    context="{'group_by': 'committee_groups'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_personal_information_size" model="ir.ui.view">
+        <field name="name">Size field</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" 
+            ref="partner_contact_personal_information_page.personal_information"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group[@name='personal_information_group']">
+                    <field name="size"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="view_partner_bank_form" model="ir.ui.view">
+        <field name="name">view.res.bank.form.inherit</field>
+        <field name="model">res.partner.bank</field>
+        <field name="inherit_id" ref="base.view_partner_bank_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='partner_id']" position="after" >
+                    <field name="account_type"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+    
+
+    <record id="action_res_partner_affiliates_form" model="ir.actions.act_window">
+        <field name="name">Res partner affiliates form</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{"search_default_committee_groups": 1}</field>
+    </record>
+    
+    
+    
+
+</odoo>

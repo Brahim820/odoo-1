@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    <record id="credit_affiliate_report_form_view" model="ir.ui.view">
+        <field name="name">credit.affiliate.report.form.view</field>
+        <field name="model">credit.affiliate.report</field>
+        <field name="arch" type="xml">
+            <form string="Affiliate report">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="fcr"/>
+                    </group>
+                    <group name="affiliates" string="Affiliates">
+                        <field name="partner_ids"/>
+                    </group>
+                    <group name="credits" string="Credits">
+                        <field name="credit_line_ids"/>
+                    </group>
+                    <group name="quotas" string="Quotas">
+                        <field name="invoice_ids"/>
+                    </group> 
+                    <div>
+                        <p>
+                            Puede descargar su reporte aquí:
+                            <field name="xlsx_file" filename="xlsx_filename"/>
+                        </p>
+                    </div>
+                </sheet>
+                <footer>
+                    <button
+                        name="Cancel"
+                        string="Cancel"
+                        special="cancel"
+                        class="btn-default"
+                        />
+                    <button
+                        name="button_get_xlsx_report"
+                        string="Print XLSX Report"
+                        type="object"
+                        class="btn-primary"
+                        />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_credit_affiliate_report" model="ir.actions.act_window">
+        <field name="name">Credit affiliate report</field>
+        <field name="res_model">credit.affiliate.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        
+    </record>
+    <menuitem
+        id="menu_reports"
+        name="Reports"
+        parent="external_credit.menu_credit"
+        sequence="50"
+        />
+    
+    <menuitem
+        id="menu_credit_affiliate_report"
+        name="Credit affiliate report"
+        parent="menu_reports"
+        sequence="50"
+        action="action_credit_affiliate_report"
+        />
+    
+    
+    
+</odoo>

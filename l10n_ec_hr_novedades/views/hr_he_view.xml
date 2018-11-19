@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="hr_he_tree" model="ir.ui.view">
+      <field name="name">hr.he.tree</field>
+      <field name="model">hr.he</field>
+      <field name="arch" type="xml">
+		    <tree string="Registro de Horas Extra" colors="blue:state=='draft'">
+		      <field name="date" select="1"/>
+		      <field name="name" select="1"/>
+		      <field name="state" select="1"/>
+		    </tree>
+      </field>
+    </record>
+
+    <record id="hr_he_form" model="ir.ui.view">
+      <field name="name">hr.he.form</field>
+      <field name="model">hr.he</field>
+      <field name="arch" type="xml">
+		    <form string="Registro de Horas Extras">
+          <header>
+            <button name="procesar" states="draft" string="Validate" type="object"/>
+            <field name="state" select="1" widget="statusbar"/>
+          </header>
+            <div class="oe_title">
+              <label for="name" class="oe_edit_only"/>
+              <h1>
+                <field name="name" class="oe_inline"/>
+              </h1>
+            </div>
+            <group>
+                <field name="date"/>
+            </group>
+              <notebook>
+                <page string="Detalle por Empleado">
+                  <field name="line_ids" nolabel="1">
+                    <tree editable="bottom" string="Detail">
+                      <field name="date" invisible="1"/>
+                      <field name="employee_id"/>
+                      <field name="wage" readonly="1" options="{'rostore': 1}"/>
+                      <field name="valor_hora" readonly="1" options="{'rostore': 1}"/>
+                      <field name="hora_100" readonly="1" options="{'rostore': 1}" widget="float_time"/>
+                      <field name="hora_125" widget="float_time"/>
+                      <field name="hora_150" widget="float_time"/>
+                      <field name="hora_200" widget="float_time"/>
+                      <field name="total" sum="SUBTOTAL RUBROS $$"/>
+                      <field name="state" invisible="1"/>
+                    </tree>
+                  </field>
+                </page>
+              </notebook>
+		      </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_hr_he">
+      <field name="name">Registro de Horas Extras</field>
+      <field name="res_model">hr.he</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hr_he"
+              name="Horas Extras"
+              parent="menu_hr_novedad"
+              action="action_hr_he"/>
+
+  </data>
+</odoo>

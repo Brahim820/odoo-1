@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend='ClientListScreenWidget'>
+        <t t-jquery='.client-list thead tr' t-operation='append'>
+            <th>C.I. / R.U.C.</th>
+        </t>
+    </t>
+
+    <t t-extend='ClientLine'>
+        <t t-jquery='.client-line' t-operation='append'>
+            <td>
+                <t t-esc='partner.vat' />
+            </td>
+        </t>
+    </t>
+
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery='.client-name' t-operation='before'>
+            <div>
+                <input class='detail client-vat' name='vat' t-att-value='partner.vat' placeholder='C.I. / R.U.C. / Pasaporte'></input>
+            </div>
+        </t>
+    </t>
+
+</templates>

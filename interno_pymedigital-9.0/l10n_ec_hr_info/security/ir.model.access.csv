@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_hr_work_experience,access_hr_work_experience,model_hr_work_experience,,1,0,0,0
+access_hr_academic_training,access_hr_academic_training,model_hr_academic_training,,1,0,0,0
+access_hr_academic_institution,access_hr_academic_institution,model_hr_academic_institution,,1,0,0,0
+access_hr_trainings,access_hr_trainings,model_hr_trainings,,1,0,0,0
+access_hr_work_company,access_hr_work_company,model_hr_work_company,,1,0,0,0

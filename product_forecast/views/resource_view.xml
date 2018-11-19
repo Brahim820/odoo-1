@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <menuitem action="resource.action_resource_resource_tree"
+              id="resource_menu"
+              parent="mrp.menu_pm_resources_config" sequence="1"/>
+  </data>
+</openerp>

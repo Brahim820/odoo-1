@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="view_l10n_ec_hr_payslip_novedad_form" model="ir.ui.view">
+      <field name="name">hr.payslip.form</field>
+      <field name="model">hr.payslip</field>
+      <field name="inherit_id" ref="l10n_ec_hr_payroll.view_l10n_ec_hr_payslip_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='input_line_ids']//form//field[@name='code']" position="after">
+          <field name="novedad_id" />
+        </xpath>
+      </field>
+    </record>
+
+    <menuitem id="menu_hr_novedad"
+              parent="hr_payroll.menu_hr_payroll_root"
+              name="Novedades"
+              groups="base.group_hr_manager"/>
+
+    <record id="view_hr_payslip_novedad_form" model="ir.ui.view">
+      <field name="name">hr.novedad.form</field>
+      <field name="model">hr.novedad</field>
+      <field name="arch" type="xml">
+        <form string="Rubro">
+          <header>
+            <button name="pendiente" states="draft" string="To Process" type="object"/>
+            <field name="state" readonly="1" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="rule_id"/>
+                <field name="date"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Details">
+                <field name="line_ids" colspan="4" nolabel="1">
+                  <tree string="Detail" editable="bottom">
+                    <field name="employee_id"/>
+                    <field name="state" invisible="1"/>
+                    <field name="amount" sum="SUBTOTAL RUBROS $$"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_hr_payslip_novedad_tree" model="ir.ui.view">
+      <field name="name">hr.novedad.tree</field>
+      <field name="model">hr.novedad</field>
+      <field name="arch" type="xml">
+        <tree string="Income Outcome">
+          <field name="name"/>
+          <field name="date"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_hr_payslip_novedad" model="ir.actions.act_window">
+      <field name="name">Masivas</field>
+      <field name="res_model">hr.novedad</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hr_payslip_novedad"
+              action="action_hr_payslip_novedad"
+              parent="menu_hr_novedad"
+              name="Masivas"
+              groups="base.group_hr_manager"/>
+
+    <record model="ir.ui.view" id="view_hr_payslip_novedad_line_form">
+      <field name="name">hr.novedad.line.form</field>
+      <field name="model">hr.novedad.line</field>
+      <field name="arch" type="xml">
+        <form string="Rubro">
+          <header>
+            <button name="pendiente" states="draft" string="To Process" type="object"/>
+            <field name="state" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="rule_id"/>
+                <field name="employee_id"/>
+                <field name="amount"/>
+              </group>
+              <group>
+                <field name="novedad_id" readonly="1" attrs="{'invisible': [('novedad_id', '=',False)]}"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="view_hr_payslip_novedad_line_tree" model="ir.ui.view">
+      <field name="name">hr.novedad.line.tree</field>
+      <field name="model">hr.novedad.line</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Line">
+          <field name="name"/>
+          <field name="employee_id"/>
+          <field name="rule_id"/>
+          <field name="amount"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_hr_payslip_novedad_line" model="ir.actions.act_window">
+      <field name="name">Individuales</field>
+      <field name="res_model">hr.novedad.line</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hr_payslip_novedad_line"
+              action="action_hr_payslip_novedad_line"
+              parent="menu_hr_novedad"
+              name="Individuales"
+              groups="base.group_hr_manager"/>
+
+  </data>
+</odoo>

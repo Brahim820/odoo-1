@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+
+    <menuitem id="account_voucher.menu_action_sale_receipt"
+              action="account_voucher.action_sale_receipt"
+              parent="account.menu_finance_receivables"
+              name="Ingresos no tributables"
+              sequence="10"/>
+
+    <menuitem id="account_voucher.menu_action_purchase_receipt"
+              action="account_voucher.action_purchase_receipt"
+              parent="account.menu_finance_payables"
+              name="Egresos no tributable"
+              sequence="4"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="event_view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <field name="partner_id" position="after">
+                <field name="event_id" required="1"/>
+            </field>
+
+            <xpath expr="//form/sheet/notebook/page/field/form/div" position="replace">
+                <field name="invoice_lines">
+                    <tree create="0" delete="0">
+                        <field name="date_invoice" />
+                        <field name="name"/>
+                        <field name="quantity"/>
+                        <field name="discount" groups="sale.group_discount_per_so_line"/>
+                        <field name="price_subtotal"/>
+                        <field name="state_invoice" />
+                    </tree>
+                </field>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Registros">
+                    <field name="registration_ids">
+                        <tree create="0" delete="0">
+                            <field name="date_open"/>
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

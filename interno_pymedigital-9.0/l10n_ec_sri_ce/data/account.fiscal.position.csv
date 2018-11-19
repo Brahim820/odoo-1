@@ -1,0 +1,7 @@
+"id","name","doble_tributacion","paraiso_fiscal","persona_id:id","identificacion_id:id","tipopago_id:id","formapago_id:id"
+"account_fiscal_position_sepf","Sociedad del exterior (paraisos fiscales)","False","True","l10n_ec_sri.persona_09","l10n_ec_sri.identificacion_ext","l10n_ec_sri.tipopago_02","l10n_ec_sri.formapago_09"
+"account_fiscal_position_sesc","Sociedad del exterior (sin convenio de doble tributación)","False","False","l10n_ec_sri.persona_09","l10n_ec_sri.identificacion_ext","l10n_ec_sri.tipopago_02","l10n_ec_sri.formapago_09"
+"account_fiscal_position_secc","Sociedad del exterior (con convenio de doble tributación)","True","False","l10n_ec_sri.persona_09","l10n_ec_sri.identificacion_ext","l10n_ec_sri.tipopago_02","l10n_ec_sri.formapago_09"
+"account_fiscal_position_pnepf","Persona natural del exterior (paraisos fiscales)","False","True","l10n_ec_sri.persona_06","l10n_ec_sri.identificacion_pas","l10n_ec_sri.tipopago_02","l10n_ec_sri.formapago_09"
+"account_fiscal_position_pnesc","Persona natural del exterior (sin convenio de doble tributación)","False","False","l10n_ec_sri.persona_06","l10n_ec_sri.identificacion_pas","l10n_ec_sri.tipopago_02","l10n_ec_sri.formapago_09"
+"account_fiscal_position_pnecc","Persona natural del exterior (con convenio de doble tributación)","True","False","l10n_ec_sri.persona_06","l10n_ec_sri.identificacion_pas","l10n_ec_sri.tipopago_02","l10n_ec_sri.formapago_09"

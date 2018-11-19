@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="invoice_supplier_form" model="ir.ui.view">
+        <field name="name">invoice_supplier_form user formats</field>
+	<field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <button
+                    name="do_print_retencion"
+                    type="object"
+                    string="Imprimir retención"
+                    attrs="{'invisible': ['|',('type', '!=', 'in_invoice')]}"
+                    />
+            </field>
+        </field>
+    </record>
+</odoo>

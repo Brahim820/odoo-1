@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_complete_from_template_form_view" model="ir.ui.view">
+        <field name="name">purchase.complete.from.template.form</field>
+        <field name="model">purchase.complete.from.template</field>
+        <field name="arch" type="xml">
+            <form string="Complete from template">
+                <group>
+                    <group>
+                        <field name="purchase_template_id"/>
+                        <field name="date_planned"/>
+                        <field name="picking_type_id"/>
+                    </group>
+                    <group>
+                        <field name="set_product_qty"/>
+                        <field name="partner_id"/>
+                    </group>
+                </group>
+                <group string="Purchase lines" name="purchase_lines" >
+                    <field name="purchase_lines" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="product_qty"/>
+                            <field name="product_id"/>
+                            <field name="product_uom"/>
+                        </tree>
+                    </field>
+                </group>
+
+                <footer>
+                    <button string='Complete from template'
+                            name="complete_from_template"
+                            type="object"/>
+                    <button string='Create Order'
+                            name="create_order"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_purchase_complete_from_template" model="ir.actions.act_window">
+        <field name="name">Complete purchase from template</field>
+        <field name="res_model">purchase.complete.from.template</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="purchase_complete_from_template_form_view"/>
+        <field name="target">inline</field>
+    </record>
+    <menuitem id="menu_purchase_order_complete_from_template" name="Purchase Order from template" parent="purchase.menu_procurement_management"
+              sequence="100" action="action_purchase_complete_from_template"/>
+
+</odoo>

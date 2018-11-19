@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="product_summary_template_only_form_view" model="ir.ui.view">
+      <field name="name">product_summary_only_form_view</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//notebook" position="inside">
+          <page string="Product Forecast">
+            <field name="summary_ids">
+              <tree string="Summary lines" editable="bottom">
+                <field name="product_id" invisible="1"/>
+                <field name="year"/>
+                <field name="month"/>
+                <field name="purchases"/>
+                <field name="sales"/>
+                <field name="productions"/>
+                <field name="consume"/>
+                <field name="total"/>
+                <field name="forecast"/>
+                <field name="forecast_error"/>
+              </tree>
+              <form>
+                <group>
+                  <field name="product_id" invisible="1"/>
+                  <field name="year"/>
+                  <field name="month"/>
+                  <field name="purchases"/>
+                  <field name="sales"/>
+                  <field name="productions"/>
+                  <field name="consume"/>
+                  <field name="total"/>
+                  <field name="forecast"/>
+                  <field name="forecast_error"/>
+                </group>
+              </form>
+            </field>
+            <group col="4">
+              <field name="mad_periods"/>
+              <field name="MAD"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</openerp>

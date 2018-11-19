@@ -1,0 +1,596 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_forecast
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-31 20:13+0000\n"
+"PO-Revision-Date: 2017-01-31 15:24-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_EC\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_product_forecast_summary
+msgid ""
+"\n"
+"    Model to register MRP products & qty included in raw material\n"
+"    "
+msgstr ""
+"\n"
+"    Modelo para registrar productos MRP y cantidades, incluida materia prima\n"
+"    "
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_stock_orderpoint_line
+msgid ""
+"\n"
+"    Recompute StockWarehouse order point\n"
+"    "
+msgstr ""
+"\n"
+"    Recomputar reglas de abastecimiento\n"
+"    "
+
+#. module: product_forecast
+#: selection:forecast.compute,forecast_periods:0
+msgid "12"
+msgstr "12"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_warehouse_orderpoint_line_form
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: product_forecast
+#: selection:stock.orderpoint.line,state:0
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:25
+#: code:addons/product_forecast/wizard/product_summary_compute.py:42
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "April"
+msgstr "Abril"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:29
+#: code:addons/product_forecast/wizard/product_summary_compute.py:46
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "August"
+msgstr "Agosto"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_forecast_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_orderpoint_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_product_summary_wiz
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_forecast_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_orderpoint_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_product_summary_wiz
+msgid "Compute"
+msgstr "Computar"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_orderpoint_compute
+msgid "Compute Minimum and Maximum Stock Rules"
+msgstr "Computar reglas de abastecimiento"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_forecast_compute
+msgid "Compute Stock Forecast"
+msgstr "Computar pronostico de inventario"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_product_summary_compute
+msgid "Compute product summary"
+msgstr "Computar resumen de productos"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_warehouse_orderpoint_line_form
+msgid "Computed lines"
+msgstr "Lineas calculadas"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_consume
+msgid "Consume"
+msgstr "Consumo"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_create_uid
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute_create_uid
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_create_uid
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_create_uid
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_create_uid
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_create_date
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute_create_date
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_create_date
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_create_date
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_create_date
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_date
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_date
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_doc_date
+msgid "Date of Consumption"
+msgstr "Fecha de consumo"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:33
+#: code:addons/product_forecast/wizard/product_summary_compute.py:50
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: product_forecast
+#: model:ir.model.fields,help:product_forecast.field_product_summary_uom_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr "Unidad de medida por defecto utilizada para todas las operaciones de inventario."
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_display_name
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute_display_name
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_display_name
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_display_name
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_display_name
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_display_name
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_doc_uom
+msgid "Doc Origin UOM"
+msgstr "Doc Origen UoM"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_warehouse_orderpoint_line_form
+msgid "Esta acción no se puede cancelar, continuar?"
+msgstr "Esta acción no se puede cancelar, continuar?"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:23
+#: code:addons/product_forecast/wizard/product_summary_compute.py:40
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_forecast
+msgid "Forecast"
+msgstr "Pronostico"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_forecast_error
+msgid "Forecast error"
+msgstr "Error de pronostico"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_forecast_periods
+msgid "Forecast periods"
+msgstr "Periodos de pronostico"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_forecast_type
+msgid "Forecast type"
+msgstr "Tipo de pronostico"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_grow_percent
+msgid "Grow percent"
+msgstr "Porcentaje de crecimiento"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_historic_periods
+msgid "Historic periods"
+msgstr "Periodos históricos"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_id
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute_id
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_id
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_id
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_id
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_id
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_product_summary
+msgid "Inventory Summary in purchase, sales and production"
+msgstr "Resumen de inventario en compras, ventas y producción"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:22
+#: code:addons/product_forecast/wizard/product_summary_compute.py:39
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:28
+#: code:addons/product_forecast/wizard/product_summary_compute.py:45
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:27
+#: code:addons/product_forecast/wizard/product_summary_compute.py:44
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "June"
+msgstr "Junio"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute___last_update
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute___last_update
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary___last_update
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary___last_update
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute___last_update
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line___last_update
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_write_uid
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute_write_uid
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_write_uid
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_write_uid
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_write_uid
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_write_uid
+msgid "Last Updated by"
+msgstr "Ultima Actualización por"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_write_date
+#: model:ir.model.fields,field_description:product_forecast.field_orderpoint_compute_write_date
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_write_date
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_write_date
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_write_date
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_write_date
+msgid "Last Updated on"
+msgstr "Actualizado en"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_warehouse_orderpoint_line_ids
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_template_mad_periods
+msgid "MAD Periods"
+msgstr "Peridos DMA"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:24
+#: code:addons/product_forecast/wizard/product_summary_compute.py:41
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:26
+#: code:addons/product_forecast/wizard/product_summary_compute.py:43
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_template_MAD
+msgid "Mean absolute deviation"
+msgstr "Desviación media absoluta"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_stock_warehouse_orderpoint
+msgid "Minimum Inventory Rule"
+msgstr "Regla de inventario mínimo"
+
+#. module: product_forecast
+#: selection:forecast.compute,forecast_type:0
+msgid "Mobile Average"
+msgstr "Promedio móvil"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_month
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_month
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_month
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_month
+msgid "Month"
+msgstr "Mes"
+
+#. module: product_forecast
+#: selection:stock.orderpoint.line,state:0
+msgid "New"
+msgstr "Nuevo"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:32
+#: code:addons/product_forecast/wizard/product_summary_compute.py:49
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:31
+#: code:addons/product_forecast/wizard/product_summary_compute.py:48
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "October"
+msgstr "Octubre"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_orderpoint_id
+msgid "OrderPoint"
+msgstr "Punto de orden"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_forecast_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_orderpoint_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_product_summary_wiz
+msgid "Parameters"
+msgstr "Parámetros"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_previous_max_qty
+msgid "Previous Maximum Quantity"
+msgstr "Cant. máxima anterior"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_previous_min_qty
+msgid "Previous Minimum Quantity"
+msgstr "Cant. mínima anterior"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_price
+msgid "Price"
+msgstr "Precio"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_product_id
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_mrp_product_id
+msgid "Product MRP"
+msgstr "Producto MRP"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_template_summary_ids
+msgid "Product Summary"
+msgstr "Resumen de producto"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_product_template
+msgid "Product Template"
+msgstr "Plantilla producto"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_uom_id
+msgid "Product UOM"
+msgstr "Producto UoM"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.product_summary_template_only_form_view
+msgid "Product summary"
+msgstr "Resumen de producto"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_summary_line_id
+msgid "Product summary line"
+msgstr "Línea del resumen del producto"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_product_ids
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_product_ids
+#: model:ir.ui.view,arch_db:product_forecast.view_forecast_compute_wizard
+#: model:ir.ui.view,arch_db:product_forecast.view_product_summary_wiz
+msgid "Products"
+msgstr "Productos"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_purchases
+msgid "Purchases"
+msgstr "Compras"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_reason
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_warehouse_orderpoint_line_form
+msgid "Reject"
+msgstr "Rechazo"
+
+#. module: product_forecast
+#: selection:stock.orderpoint.line,state:0
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_forecast_summary_mrp_product_qty
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_forecast_summary_ids
+msgid "Required raw qty for Product MRP"
+msgstr "Cant. de materia prima para producto MRP"
+
+#. module: product_forecast
+#: model:ir.ui.menu,name:product_forecast.resource_menu
+msgid "Resources"
+msgstr "Recursos"
+
+#. module: product_forecast
+#: model:ir.actions.act_window,name:product_forecast.action_product_summary_compute
+#: model:ir.ui.menu,name:product_forecast.menu_product_summary_compute
+msgid "Run Product Summary Get"
+msgstr "Calcular resumen de producto"
+
+#. module: product_forecast
+#: model:ir.actions.act_window,name:product_forecast.action_orderpoint_compute
+#: model:ir.ui.menu,name:product_forecast.menu_orderpoint_compute
+msgid "Run Reordering Orderpoint Rules"
+msgstr "Ejecutar calculo de reglas de abastecimiento"
+
+#. module: product_forecast
+#: model:ir.actions.act_window,name:product_forecast.action_forecast_compute
+#: model:ir.ui.menu,name:product_forecast.menu_forecast_compute
+msgid "Run forecast"
+msgstr "Ejecutar pronosticos"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_run_background
+msgid "Run in background"
+msgstr "Ejecutar en background"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_sales
+msgid "Sales"
+msgstr "Ventas"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_forecast_compute_wizard
+msgid "Select forecast start date, leave blank if you want run today as init date"
+msgstr "Seleccione la fecha de inicio para el pronostico, deje en blanco para tomar la fecha actual como inicial"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_product_summary_wiz
+msgid "Select the products to compute (empty all)."
+msgstr "Seleccione los productos a computar (vacío para todos)"
+
+#. module: product_forecast
+#: code:addons/product_forecast/wizard/forecast_compute.py:30
+#: code:addons/product_forecast/wizard/product_summary_compute.py:47
+#: selection:forecast.compute,month:0 selection:product.summary.compute,month:0
+#, python-format
+msgid "September"
+msgstr "Septiembre"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_state
+msgid "State"
+msgstr "Estado"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_suggested_max_qty
+msgid "Suggested Maximum Quantity"
+msgstr "Cant. máxima sugerida"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_stock_orderpoint_line_suggested_min_qty
+msgid "Suggested Minimum Quantity"
+msgstr "Cant. mínima sugerida"
+
+#. module: product_forecast
+#: model:ir.model.fields,help:product_forecast.field_stock_orderpoint_line_suggested_max_qty
+msgid "Suggested new max qty"
+msgstr "Nueva cant. max sugerida"
+
+#. module: product_forecast
+#: model:ir.model.fields,help:product_forecast.field_stock_orderpoint_line_suggested_min_qty
+msgid "Suggested new previous_min_qtymin qty"
+msgstr "Suggested new min qty"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.product_summary_template_only_form_view
+msgid "Summary lines"
+msgstr "Líneas de resumen"
+
+#. module: product_forecast
+#: model:ir.model.fields,help:product_forecast.field_stock_orderpoint_line_previous_max_qty
+msgid "This is the previous max qty"
+msgstr "Esta es la cant. max previa"
+
+#. module: product_forecast
+#: model:ir.model.fields,help:product_forecast.field_stock_orderpoint_line_previous_min_qty
+msgid "This is the previous min qty "
+msgstr "Esta es la cant. min previa"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_forecast_compute_wizard
+msgid "This process could take some time depending the number of selected products and periods, ¿do you wish continue?"
+msgstr "Este proceso tomara algún tiempo dependiendo del número de productos. ¿desea continuar?"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_product_summary_wiz
+msgid "This process run in background and could take some time depending the number of selected products, ¿do you wish continue?"
+msgstr "Este proceso tomara algún tiempo dependiendo del número de productos. ¿desea continuar?"
+
+#. module: product_forecast
+#: selection:forecast.compute,forecast_type:0
+msgid "Time series"
+msgstr "Seria de tiempo"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_total
+msgid "Total"
+msgstr "Total"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_uom_id
+msgid "UoM"
+msgstr "UoM"
+
+#. module: product_forecast
+#: model:ir.ui.view,arch_db:product_forecast.view_orderpoint_compute_wizard
+msgid "Wizard checks all the stock rules and generate suggested news."
+msgstr "Wizard para revisa las reglas de abastecimiento y genera nuevas sugeridas"
+
+#. module: product_forecast
+#: model:ir.model.fields,field_description:product_forecast.field_forecast_compute_year
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_compute_year
+#: model:ir.model.fields,field_description:product_forecast.field_product_summary_year
+#: model:ir.model.fields,field_description:product_forecast.field_view_product_summary_year
+msgid "Year"
+msgstr "Año"
+
+#. module: product_forecast
+#: model:ir.model,name:product_forecast.model_view_product_summary
+msgid "view.product.summary"
+msgstr "view.product.summary"

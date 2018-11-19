@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.rule" id="user_wave_rule">
+        <field name="name">Stock: wave by user</field>
+        <field name="model_id" ref="stock_picking_wave.model_stock_picking_wave"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',
+            ('user_id', '=', False),
+            ('user_id', '=', user.id),
+            ]
+        </field>
+    </record>
+</odoo>

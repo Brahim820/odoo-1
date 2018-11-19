@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        
+    <record model="ir.ui.view" id="kardex_form_view">
+        <field name="name">stock.location.kardex form view</field>
+        <field name="model">stock.location.kardex</field>
+        <field name="arch" type="xml">
+            <form string="Stock location kardex">
+                <header>
+                    <button name="button_update_kardex" string="UPDATE KARDEX" type="object"/>
+                </header>
+                    
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="location_id"/>
+                        <field name="balance_qty" readonly="1"/>
+                    </group>
+                    <group string="Kardex lines">
+                        <field name="kardex_line_ids" nolabel="1" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="kardex_tree_view" model="ir.ui.view">
+            <field name="name">stock.location.kardex tree view</field>
+            <field name="model">stock.location.kardex</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product_id"/>
+                    <field name="location_id"/>
+                    <field name="balance_qty"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="kardex_line_form_view" model="ir.ui.view">
+            <field name="name">stock.location.kardex.line form view</field>
+            <field name="model">stock.location.kardex.line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="date"/>
+                            <field name="name"/>
+                            <field name="picking_id"/>
+                            <field name="counterpart_location_id"/>
+                        </group>
+                        <group>
+                            <group string="Inventory quantities">
+                                <field name="previous_balance_qty"/>
+                                <field name="in_qty"/>
+                                <field name="out_qty"/>
+                                <field name="balance_qty"/>
+                            </group>
+                            <group string="Inventory valuation">
+                                <field name="in_value" groups="stock.group_kardex_valuation"/>
+                                <field name="out_value" groups="stock.group_kardex_valuation"/>
+                                <field name="balance_value" groups="stock.group_kardex_valuation"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="kardex_line_tree_view" model="ir.ui.view">
+            <field name="name">stock.location.kardex.line tree view</field>
+            <field name="model">stock.location.kardex.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" invisible="1"/>
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="picking_id"/>
+                    <field name="counterpart_location_id"/>
+                    <field name="transit_location_id" invisible="1"/>
+                    <field name="previous_balance_qty"/>
+                    <field name="in_qty"/>
+                    <field name="out_qty"/>
+                    <field name="balance_qty"/>
+                    <field name="in_value" groups="stock.group_kardex_valuation"/>
+                    <field name="out_value" groups="stock.group_kardex_valuation"/>
+                    <field name="balance_value" groups="stock.group_kardex_valuation"/>
+                </tree>
+            </field>
+        </record>
+
+    <record model="ir.actions.act_window" id="action_stock_location_kardex">
+        <field name="name">Location kardex</field>
+        <field name="res_model">stock.location.kardex</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_stock_location_kardex"
+        name="Kardex"
+        parent="stock.menu_stock_inventory_control"
+        sequence="100"
+        action="action_stock_location_kardex"
+    />
+
+    <record id="view_location_form" model="ir.ui.view">
+        <field name="name">stock.location.form.view kardex inherit</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="button_update_kardex" string="Update kardex" type="object"/>
+                </header>
+            </form>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button
+                        string="Kardex"
+                        class="oe_stat_button"
+                        icon="fa-file-alt"
+                        name="%(stock_location_kardex.action_stock_location_kardex)d"
+                        type="action"
+                        context="{'location_id': active_id}"/>
+                </xpath> 
+        </field>
+    </record>
+</odoo>

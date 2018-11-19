@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="move_line_search_view" model="ir.ui.view">
+        <field name="name">Move Line search view</field>
+        <field name="model">stock.move</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Moves">
+                <field name="wave_id"/>
+                <field name="product_id"/>
+                <field name="picking_id"/>
+                <group expand="1" string="Group By">
+                    <filter string="Picking" name="picking" domain='[]'
+                            context="{'group_by':'picking_id'}"/>
+                    <filter string="Destination location" name="location_dest"
+                            domain='[]' context="{'group_by':'location_dest_id'}"/>
+                    <filter string="Source location" name="location" domain='[]'
+                            context="{'group_by':'location_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_picking_wave_tree" model="ir.ui.view">
+        <field name="name">Stock picking wave inherit</field>
+        <field name="model">stock.picking.wave</field>
+        <field name="inherit_id" ref="stock_picking_wave.view_picking_wave_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after" >
+                <field name="warehouse_id" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_wave_form" model="ir.ui.view">
+        <field name="name">Stock picking wave inherit</field>
+        <field name="model">stock.picking.wave</field>
+        <field name="inherit_id" ref="stock_picking_wave.view_picking_wave_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <button name="%(action_wave_report_wizard)d"
+                        type='action' string='Get report'/>
+            </field>
+            <field name="user_id" position="after">
+                <field name="group_id"/>
+                <field name="date_planned"/>
+                <field name="warehouse_id"/>
+            </field>
+            <field name="picking_ids" position="replace">
+                <notebook>
+                    <page name="picking" string="Pickings">
+                        <button name="button_supply" string="Supply"
+                                type="object" attrs="{'invisible':[('state','!=','in_progress')]}"/>
+                        <field name="picking_ids" nolabel="1"
+                               widget="many2many" options="{'not_delete': True}"
+                               domain="[('state', 'not in', ('draft', 'done', 'cancel')), ('wave_id', '=', False)]">
+                            <tree decoration-success="state == 'done'" decoration-muted="state == 'cancel'"
+                                  decoration-danger="procurement_ok == False" string="Picking list">
+                                <field name="procurement_ok" invisible="1"/>
+                                <field name="name"/>
+                                <field name="location_dest_id"/>
+                                <field name="partner_id"/>
+                                <field name="min_date"/>
+                                <field name="origin"/>
+                                <field name="backorder_id"/>
+                                <field name="state"/>
+                                <field name="priority" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="make_procurement" string="Procurements request">
+                        <button name="make_pending_procurements"
+                                type="object"
+                                icon="fa-plus"
+                                string="Request all procurements"/>
+
+                        <field name="make_procurement_ids" nolabel="1">
+                            <tree editable="bottom" decoration-muted="state == 'done'">
+                                <field name="state" invisible="1"/>
+                                <field name="warehouse_id"/>
+                                <field name="route_ids" widget="many2many_tags"/>
+                                <field name="product_id"/>
+                                <field name="uom_id"/>
+                                <field name="date_planned" invisible="1"/>
+                                <field name="qty"/>
+                                <button string="Procurement Request" name="make_procurement"
+                                        attrs="{'invisible':[('state','=','done')]}"
+                                        type="object" icon="fa-play"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="procurements" string="Procurements">
+                        <field name="procurement_ids" nolabel="1">
+                            <tree>
+                                <field name="product_id"/>
+                                <field name="product_qty"/>
+                                <field name="location_id"/>
+                                <field name="production_id"/>
+                                <field name="move_ids"/>
+                                <field name="purchase_id"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="pending_actions" string="Pending actions">
+                        <group string="Production Orders" name="productions">
+                            <field name="procurement_production_ids" nolabel="1">
+                                <tree decoration-info="state in ('draft','confirmed')"
+                                      decoration-muted="state == 'cancel'"
+                                      decoration-success="state == 'done'" string="Manufacturing Orders">
+                                    <field name="raw_ok"/>
+                                    <field name="semifinished_ok"/>
+                                    <field name="name"/>
+                                    <field name="date_planned"/>
+                                    <field name="product_id"/>
+                                    <field name="product_qty" sum="Total Qty"/>
+                                    <field name="product_uom" options="{'no_open':True,'no_create':True}"
+                                           groups="product.group_uom"/>
+                                    <field name="routing_id" groups="mrp.group_mrp_routings"/>
+                                    <field name="state"/>
+                                    <button name="action_assign" states="confirmed,picking_except"
+                                            string="Reserve" type="object" icon="fa-truck"/>
+                                    <button name="force_production" states="confirmed"
+                                            string="Force Reservation" type="object" icon="fa-chain-broken"/>
+                                    <button name="%(mrp.act_mrp_product_produce)d" states="ready,in_production"
+                                            string="Produce" type="action" icon="fa-cogs"/>
+                                </tree>
+                            </field>
+                            <newline/>
+                            <div class="button_box">
+                                <button name="supply_production_orders" string="Supply all" type="object"/>
+                                <button name="supply_raw_materials" string="Supply raw materials" type="object"/>
+                                <button name="supply_semifinished_products" string="Supply semifinished" type="object"/>
+                            </div>
+                        </group>
+
+                        <group string="Pickings" name="pickings">
+                            <field name="procurement_picking_ids" nolabel="1">
+                                <tree  decoration-info="state == 'draft'" decoration-muted="state == 'cancel'"
+                                       decoration-danger="state not in ('cancel', 'done') and min_date &lt; current_date">
+                                    <field name="name"/>
+                                    <field name="location_id"/>
+                                    <field name="location_dest_id"/>
+                                    <field name="min_date"/>
+                                    <field name="origin"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Purchases" name="purchases">
+                            <field name="procurement_purchase_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </field>
+    </record>
+
+    <record id="procurement_form_view" model="ir.ui.view">
+        <field name="name">Procurement order stock picking wave inherit</field>
+        <field name="model">procurement.order</field>
+        <field name="inherit_id" ref="procurement.procurement_form_view"/>
+        <field name="arch" type="xml">
+            <field name="rule_id" position="after">
+                <field name="wave_id"/>
+            </field>
+        </field>
+    </record>
+
+    <menuitem id="stock.menu_stock_warehouse_mgmt" name="Operations"
+              parent="stock.menu_stock_root" sequence="2"
+              groups="stock.group_stock_user"/>
+</odoo>

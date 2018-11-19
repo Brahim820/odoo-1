@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_invoice_form_creditcard" model="ir.ui.view">
+            <field name="name">account.invoice.form.creditcard</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_due']" position="before" >
+                    <field name="credit_card_retention"
+                           attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    <field name ="type" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

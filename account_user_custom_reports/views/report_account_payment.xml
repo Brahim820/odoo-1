@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- CHEQUE -->
+    <template id="report.check_content_report">
+        <table class="table-condensed" >
+            <tbody>
+                <tr>
+                    <td style="width:115mm;padding-left:15mm;">
+                        <div style="overflow:hidden; max-height: 1em;">
+                            <t t-if="not doc.check_receiver">
+                                <t t-if="not doc.check_usetradename">
+                                    <t t-esc="doc.partner_id.name"/>
+                                </t>
+                            </t>
+                            <t t-if="doc.check_usetradename">
+                                <t t-esc="doc.partner_id.tradename"/>
+                            </t>
+                            <t t-if="doc.check_receiver">
+                                <t t-esc="doc.check_receiver"/>
+                            </t>
+                        </div>
+                    </td>
+                    <td style="min-width:40mm; text-align:right;">
+                        <span t-esc="'%.2f'%(doc.amount)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-left: 15mm;">
+                        <div style="height: 3em;width: 100%; overflow:hidden;">
+                            <span t-esc="doc.check_amount_in_words"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <t t-esc="doc.check_city"/>
+                        <t>,</t>
+                        <span t-field="doc.payment_date"
+                              t-field-options="{&quot;format&quot;: &quot;yyyy-MM-dd&quot;}"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <template id="report.check_portrait_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id" t-value="user.check_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="report.check_content_report"/>
+		            <t t-if="int(format_id.copies) > 1">
+		                <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.check_content_report"/>
+		            </t>
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.check_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="report.check_portrait_report_id"
+            model="account.payment"
+            string="Cheque"
+            name="report.check_portrait_report"
+            file="cheque"
+            report_type="qweb-pdf"/>
+    <record id="report.check_portrait_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_portrait_5555"/>
+    </record>
+
+    <template id="report.check_landscape_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-set="format_id" t-value="user.check_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+		            <t t-call="report.check_content_report"/>
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+			            <t t-call="report.check_content_report"/>
+		            </t>
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.check_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="report.check_landscape_report_id"
+            model="account.payment"
+            string="Cheque"
+            name="report.check_landscape_report"
+            file="cheque"
+            report_type="qweb-pdf"/>
+    <record id="report.check_landscape_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_landscape_5555"/>
+    </record>
+
+    <!-- COMPROBANTE DE INGRESOS, EGRESOS Y TRANSFERENCIAS -->
+    <template id="report.payment_voucher_content_report">
+        <t t-if="format_id.header">
+            <div style="width:100%;">
+                <span t-field="format_id.header"/>
+            </div>
+        </t>
+        <table class="table-condensed" style="table-layout:fixed; border-collapse: collapse; empty-cells: show; width: 100%;">
+
+            <tbody>
+                <tr style="text-align:left;">
+                    <td style="text-align:left;">
+                        <t t-if="doc.payment_type == 'outbound'">
+                            <strong>EGRESO: </strong>
+                        </t>
+                        <t t-if="doc.payment_type == 'inbound'">
+                            <strong>INGRESO: </strong>
+                        </t>
+                        <t t-if="doc.payment_type == 'transfer'">
+                            <strong>TRANSFERENCIA: </strong>
+                        </t>
+                        <span t-field="doc.name"/>
+                        <br/>
+
+                        <strong>FECHA DE EMISIÓN: </strong>
+                        <span t-field="doc.payment_date" t-field-options="{&quot;format&quot;: &quot;yyyy-MM-dd&quot;}"/>
+                        <br/>
+
+                        <strong>CLIENTE: </strong>
+                        <span t-esc="doc.partner_id.name"/>
+                        <br/>
+
+                        <strong>CÉDULA / R.U.C.: </strong>
+                        <span t-esc="doc.partner_id.vat"/>
+                    </td>
+                    <td style="text-align:left;">
+                        <strong>FORMA DE PAGO: </strong>
+                        <t t-esc="doc.journal_id.name" />
+                        <br/>
+
+                        <strong>CHEQUE: </strong>
+                        <t t-if="doc.check_number > 0">
+                            <t t-esc="doc.check_number"/>
+                        </t>
+                        <t t-if="doc.check_number == 0">
+                            <t>-</t>
+                        </t>
+                        <br/>
+
+                        <t t-if="doc.secuencial">
+                            <strong>NRO. PRE-IMPRESO: </strong>
+                            <t t-esc="doc.secuencial"/>
+                        <br/>
+                        </t>
+
+                        <strong>CANTIDAD: </strong>
+                        <span t-field="doc.amount" />
+                        <br/>
+
+                        <strong>FACTURAS: </strong>
+                        <t t-foreach="doc.invoice_ids" t-as="inv"><t t-esc="inv.secuencial"/></t>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>CONCEPTO: </strong>
+                        <t t-esc="doc.communication"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table-condensed" style="margin-top: 1em; border-collapse: collapse; empty-cells: show; width: 100%;">
+            <thead>
+                <th style="border: black 1px solid; text-align:center;">
+                    CUENTA
+                </th>
+                <th style="border: black 1px solid; text-align:center;">
+                    NOMBRE CUENTA
+                </th>
+                <th style="border: black 1px solid; text-align:center;">
+                    DESCRIPCIÓN
+                </th>
+                <th style="border: black 1px solid; text-align:center;">
+                    DEBE
+                </th>
+                <th style="border: black 1px solid; border-right: black 1px solid;">
+                    HABER
+                </th>
+            </thead>
+            <tbody>
+                <tr t-foreach="doc.move_line_ids" t-as="move">
+                    <td style="text-align:left; padding-left: 3mm; border: solid black 1px;">
+                        <span t-esc="move.account_id.code"/>
+                    </td>
+                    <td style="text-align:left; padding-left: 3mm; border: solid black 1px;">
+                        <span t-esc="move.account_id.name"/>
+                    </td>
+                    <td style="padding-left:3mm; text-align:left;border: solid black 1px;">
+                        <span t-esc="move.name"/>
+                    </td>
+                    <td style="padding-right: 3mm; text-align:right;border: solid black 1px;">
+                        <span t-esc="'%.2f'%(move.debit)"/>
+                    </td>
+                    <td style="padding-right: 3mm; text-align:right; padding-right: 3mm; border: solid black 1px;">
+                        <span t-esc="'%.2f'%(move.credit)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="border-top: solid black 1px;" />
+                    <td style="padding-right: 3mm; text-align:right; border: solid black 1px;">
+                        <span t-esc="'%.2f'%(doc.amount)" />
+                    </td>
+                    <td style="padding-right: 3mm; text-align:right;border: solid black 1px;" >
+                        <span t-esc="'%.2f'%(doc.amount)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table align="center" class="table-condensed" style="margin-top: 1em; table-layout:fixed; border-collapse: collapse;empty-cells: show; width: 100%;">
+            <tbody>
+                <tr>
+                    <th style="text-align:center; border: solid black 1px; width: 25%;" >
+                        ELABORADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px; width:25%;">
+                        CONTADOR
+                    </th>
+
+                    <th style="text-align:center; border: solid black 1px; width:25%;">
+                        APROBADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px; width: 25%;" >
+                        RECIBÍ CONFORME
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border: solid black 1px;">
+                        <div style="height: 2em;">
+                            <span t-esc="(doc.create_uid.name or '').upper()"/>
+                        </div>
+                    </td>
+                    <td style="border: solid black 1px;"/>
+                    <td style="border: solid black 1px;"/>
+                    <td style="border: solid black 1px;" />
+                </tr>
+            </tbody>
+        </table>
+        <t t-if="format_id.footer">
+            <div style="width:100%;">
+                <span t-field="format_id.footer"/>
+            </div>
+        </t>
+    </template>
+    <template id="report.payment_voucher_portrait_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id"
+                   t-value="user.payment_voucher_format_id"/>
+                <t t-set="header"
+                   t-value="format_id.header"/>
+                <t t-set="footer"
+                   t-value="format_id.footer"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="report.payment_voucher_content_report"/>
+
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.payment_voucher_content_report"/>
+                    </t>
+
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.payment_voucher_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="report.payment_voucher_portrait_report_id"
+            model="account.payment"
+            string="Comprobante"
+            name="report.payment_voucher_portrait_report"
+            file="comprobante"
+            report_type="qweb-pdf"/>
+
+    <record id="report.payment_voucher_portrait_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_portrait_5555"/>
+    </record>
+
+    <template id="report.payment_voucher_landscape_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id"
+                   t-value="user.payment_voucher_format_id"/>
+                <t t-set="header"
+                   t-value="format_id.header"/>
+                <t t-set="footer"
+                   t-value="format_id.footer"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="report.payment_voucher_content_report"/>
+
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.payment_voucher_content_report"/>
+                    </t>
+
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.payment_voucher_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="report.payment_voucher_landscape_report_id"
+            model="account.payment"
+            string="Comprobante"
+            name="report.payment_voucher_landscape_report"
+            file="comprobante"
+            report_type="qweb-pdf"/>
+
+    <record id="report.payment_voucher_landscape_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_landscape_5555"/>
+    </record>
+
+    <!-- REPORTE CONSOLIDADO DE PAGOS PORTRAIT -->
+    <template id="report_account_payments_consolidated_portrait_content">
+        <div style="width:100%">
+            <div style="width:50%;float:left;">
+                <img t-if="format_id.image"
+                    t-attf-src="data:image/*;base64,{{format_id.image}}" style="max-height: 45px;"/>
+            </div>
+            <t t-if="format_id.header">
+                <div style="width:50%;float:right;">
+                    <span t-field="format_id.header"/>
+                </div>
+            </t>
+        </div>
+        <br/>
+        <br/>
+        <p style="text-align:center">
+                <strong>REPORTE CONSOLIDADO DE PAGOS</strong>
+        </p> 
+        <br/>
+        <br/>
+        <table class="table-condensed" style="width:100%;font-size:12px" >
+            <tbody>
+                <tr>
+                    <td width="50%">
+                        <strong>FECHA DE EMISIÓN:</strong>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>   
+                        
+                        <br/>
+                        <strong>N° DE PAGO:  </strong>
+                        <span t-esc="doc.name"/>
+                        <br/>
+                        <strong>CONCEPTO:  </strong>
+                        <span t-esc="' '.join(doc.partner_id.mapped('category_id.name'))"/>
+
+                    </td>
+                    <td>
+                        <strong>N° PREIMPRESO: </strong>
+                        <span t-esc="doc.secuencial"/>
+                        <br/>
+                        <t t-if="doc.bank_match_number">
+                            <strong>REFERENCIA BANCARIA: </strong>
+                            <span t-esc="doc.bank_match_number"/>
+                            <br/>
+                        </t>
+                        <strong>CLIENTE: </strong>
+                        <span t-esc="doc.partner_id.name"/>
+                        <br/>
+                        <strong>CÉDULA / R.U.C.: </strong>
+                        <span t-esc="doc.partner_id.vat"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="table-condensed" style="margin-top:1em;width:100%;
+            border-collapse:collapse;empty-cells:show;text-align:center;font-size:12px;
+            border:1px solid black">
+                <thead>
+                    <tr>
+                        <th style="border:solid black 1px;">
+                           FECHA
+                        </th>
+                        <th style="border:solid black 1px;">
+                            FECHA DE VENCIMIENTO
+                        </th>
+                        <th style="border:solid black 1px;">
+                            DESCRIPCIÓN
+                        </th>
+                        <th style="border:solid black 1px;">
+                            REGISTRO
+                        </th>
+                        <th style="border:solid black 1px;">
+                            SECUENCIAL
+                        </th>
+                        <th style="border:solid black 1px;">
+                            CRÉDITOS
+                        </th>
+                        <th style="border:solid black 1px;">
+                            DÉBITOS
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="doc.invoice_ids" t-as="i">
+                            <td style="padding-right:3mm;padding-right:3mm;
+                                border-left:solid black 1px;border-right:solid black 1px;"> 
+                                <span t-esc="i.date_invoice"/> 
+                            </td>
+                            <td style="border-right:1px solid black">
+                                <span t-esc="i.date_due"/> 
+                            </td>
+                            <td style="padding-right:3mm;padding-right:3mm; 
+                                border-left:solid black 1px;border-right:solid black 1px;">
+                                <span t-esc="i.origin"/> 
+                            </td>
+                            <td style="padding-right:3mm;padding-right:3mm;
+                                border-left:solid black 1px;border-right:solid black 1px;">
+                                <span t-esc="i.number"/>
+                            </td>
+                            <td style="padding-right:3mm;padding-right:3mm;
+                                border-left:solid black 1px;border-right:solid black 1px;">
+                                <span t-esc="i.get_sri_secuencial_completo_factura()"/>
+                            </td>
+                            <td style="padding-right:3mm;padding-right:3mm;
+                                border-left:solid black 1px;border-right:solid black 1px;">                                           <span t-esc="'%.2f'%(i.total)"/>
+                            </td>
+                            <td></td>
+                        <tr>
+                            <td style="border-right:1px solid black"></td>
+
+                            <td style="border-right:1px solid black"></td>
+                            <td style="border-right:1px solid black">
+                                Retención
+                            </td>
+                            <td style="border-right:1px solid black"></td>
+                            <td style="padding-right:3mm;padding-right:3mm;
+                                border-left:solid black 1px;border-right:solid black 1px;">
+                                <span t-esc="i.get_sri_secuencial_completo_retencion()"/> 
+                            </td>
+                            <td></td>
+                            <td style="padding-right:3mm;padding-right:3mm;
+                                border-left:solid black 1px;border-right:solid black 1px;">
+                                <span t-esc="i.total -i.amount_total"/>
+                            </td>
+                        </tr>
+                    </tr>
+                    <tr t-foreach="doc.invoice_ids.mapped('payment_ids').sorted(key=lambda x: x.amount)" t-as="p">
+                        <td style="padding-right:3mm;padding-right:3mm;">
+                            <span t-esc="p.payment_date"/>
+                        </td>
+                        <td style="padding-right:3mm;padding-right:3mm;border-left:1px solid black">
+                            <span t-esc="p.date_deposit"/>
+                        </td>
+                        <td style="padding-right:3mm;padding-right:3mm;
+                            border-left:solid black 1px;border-right:solid black 1px;">
+                            <span t-esc="p.communication"/>
+                        </td>
+                        <td style="border-right:1px solid black">
+                            <span t-esc="p.name"/>
+                        </td>
+                        <td style="border-right:1px solid black">
+                            <t t-if="p.check_number">
+                                <span t-esc="p.check_number"/>
+                            </t>
+                        </td>
+                            
+                        <td style="border-right:1px solid black"></td>
+                        <td style="padding-right:3mm;padding-right:3mm;
+                            border-left:solid black 1px;border-right:solid black 1px;">
+                            <span t-esc="p.amount"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-top:1px solid black"></td>
+                        <td style="border-top:1px solid black"></td>
+                        <td style="border-top:1px solid black"></td>
+                        <td style="border-top:1px solid black"></td>
+                        <td style="border-top:1px solid black"></td>
+                        <td style="padding-right:3mm;padding-right:3mm;border:solid black 1px">
+                            <span t-esc="sum(i.total for i in doc.invoice_ids )" />
+                        </td>
+                        <td style="border:1px solid black">
+
+                            <t t-set="ret_total"  t-value="0"/>
+                            <t t-foreach="doc.invoice_ids" t-as="i">
+                                <t t-set="ret_total"
+                                    t-value="ret_total + (i.total - i.amount_total)"/>
+                            </t>
+                            <t t-set="debits_total" 
+                                t-value="sum(p.amount for p in 
+                                doc.invoice_ids.mapped('payment_ids')) + ret_total"/>
+                            <span t-esc="debits_total"/>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+        <br/>
+        <br/>
+
+        <!-- Parte de las firmas -->
+
+        <table align="center" class="table-condensed" style="margin-top:1em;table-layout:fixed;border-collapse:collapse;empty-cells:show;width:100%;font-size:12px">
+            <tbody>
+                <tr>
+                    <th style="text-align:center; border: solid black 1px; width: 25%;" >
+                        ELABORADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px; width:25%;">
+                        CONTADOR
+                    </th>
+
+                    <th style="text-align:center; border: solid black 1px; width:25%;">
+                        APROBADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px; width: 25%;" >
+                        RECIBÍ CONFORME
+                    </th>
+                </tr>
+                <tr>
+                    
+                    <td style="border: solid black 1px;text-align:center;">
+                        <div style="height: 2em;">
+                            <span t-esc="user.name.upper()" />
+                        </div>
+                        <br/>
+                    </td>
+                    <td style="border: solid black 1px;text-align:center;">
+                        <div style="height: 2em;">
+                            <span t-esc="(doc.create_uid.name or '').upper()" />
+                        </div>
+                        <br/>
+                    </td>
+                    <td style="border: solid black 1px;text-align:center;"> <br/> </td>
+                    <td style="border: solid black 1px;text-align:center;"> <br/> </td>
+                </tr>
+            </tbody>
+        </table>
+        <t t-if="format_id.footer">
+            <div style="width:100%;">
+                <span t-field="format_id.footer"/>
+            </div>
+        </t>
+    </template>
+    
+    <template id="report_account_payments_consolidated_portrait_id">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id"
+                   t-value="user.payment_voucher_format_id"/>
+                <t t-set="header"
+                    t-value="format_id.header"/>
+                <t t-set="footer"
+                    t-value="format_id.footer"/>
+                <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="account_user_custom_reports.report_account_payments_consolidated_portrait_content"/>
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_user_custom_reports.report_account_payments_consolidated_portrait_content"/>
+                    </t>
+
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_user_custom_reports.report_account_payments_consolidated_portrait_content"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    
+    <report
+        id="report_account_payments_consolidated_portrait"
+        name="account_user_custom_reports.report_account_payments_consolidated_portrait_id"
+        model="account.payment"
+        string="Consolidado de pagos"
+        file="account_payments_consolidated"
+        report_type="qweb-pdf"
+        />
+    <record id="account_user_custom_reports.report_account_payments_consolidated_portrait"
+        model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_portrait_5555"/>
+    </record>
+</odoo>

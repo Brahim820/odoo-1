@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_payslip_overtime_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.overtime.tree</field>
+            <field name="model">hr.payslip.overtime</field>
+            <field name="arch" type="xml">
+		        <tree string="Registration Overtime">
+		            <field name="name" />
+                    <field name="department_id" />
+                    <field name="date" />
+		            <field name="state" />
+		        </tree>
+            </field>
+        </record>
+
+        <record id="hr_payslip_overtime_form" model="ir.ui.view">
+            <field name="name">hr.payslip.overtime.form</field>
+            <field name="model">hr.payslip.overtime</field>
+            <field name="arch" type="xml">
+		        <form string="Registration Overtime">
+                    <header>
+                        <button name="approved" states="draft" string="Approved" type="object"/>
+                        <!-- <button name="back_draft" states="done" string="Back to Draft" type="object"/> -->
+                        <button name="%(action_wizard_hr_payslip_overtime)d" string="Import Overtime from File" states="draft" type="action"/>
+                        <field name="state" select="1" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                        <notebook>
+                            <page string="Detail by Employee">
+                                <group attrs="{'invisible': [('state', '!=', 'draft' )]}">
+                                    <group>
+                                        <field name="department_id" />
+                                    </group>
+                                    <group>
+                                        <button name="load_employees" states="draft" string="Load Employees from Department" type="object"/>
+                                    </group>
+                                </group>
+                                <field name="line_ids" nolabel="1">
+                                    <tree string="Detail by Employee" editable="bottom" decoration-info="state == 'draft'" decoration-muted="state == 'done'">
+                                        <field name="employee_id" />
+                                        <field name="wage" readonly="1" send="1" />
+                                        <field name="hour_cost" readonly="1" send="1" />
+                                        <field name="overtime_025" widget="float_time" />
+                                        <field name="overtime_050" widget="float_time" />
+                                        <field name="overtime_100" widget="float_time" />
+                                        <field name="amount" sum="Subtotal" />
+                                        <field name="state" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+		        </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_payslip_overtime">
+            <field name="name">Overtime Record</field>
+            <field name="res_model">hr.payslip.overtime</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_payslip_overtime"
+                  name="Overtime"
+                  parent="root_hr_payroll_news"
+                  action="action_hr_payslip_overtime"
+                  sequence="3"/>
+  </data>
+</odoo>

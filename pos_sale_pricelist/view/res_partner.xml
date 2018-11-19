@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_pos_pricelist" model="ir.ui.view">
+        <field name="name">res.partner.pos.pricelist</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
+        <field name="groups_id" eval="[(4, ref('point_of_sale.group_pos_manager'))]"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="pos_pricelist_id" groups="point_of_sale.group_pos_manager"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

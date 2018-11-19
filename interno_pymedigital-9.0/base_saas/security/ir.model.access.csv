@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_saas_server_saas_user","saas_server Saas User","model_saas_server","base_saas.group_saas_user",1,1,1,1
+"access_saas_service_saas_user","saas_service Saas User","model_saas_service","base_saas.group_saas_user",1,1,1,1
+"access_saas_client_saas_user","saas_client Saas User","model_saas_client","base_saas.group_saas_user",1,1,1,1
+"access_saas_app_saas_user","saas_app Saas User","model_saas_app","base_saas.group_saas_user",1,1,1,1
+"access_saas_app_version_saas_user","saas_app_version Saas User","model_saas_app_version","base_saas.group_saas_user",1,1,1,1

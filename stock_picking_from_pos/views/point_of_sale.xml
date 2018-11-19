@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--    <record id="view_pos_pos_form" model="ir.ui.view">
+        <field name="name">Stock picking template inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="picking_template_id"/>
+                <button name="button_create_move_lines_from_template" string="Complete from template"
+                        type="object" attrs="{'invisible':[('state','!=','draft')]}"/>
+            </field>
+        </field>
+    </record>
+
+        <record model="ir.ui.view" id="template_form_view">
+            <field name="name">stock_picking_template_form_view</field>
+            <field name="model">stock.picking.template</field>
+            <field name="arch" type="xml">
+                <form string="Stock picking template.">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group string="Picking lines">
+                            <field name="template_line_ids" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="template_tree_view" model="ir.ui.view">
+            <field name="name">stock_picking_template_tree_view</field>
+            <field name="model">stock.picking.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record> -->
+        <record id="action_picking_form_from_pos" model="ir.actions.act_window">
+            <field name="name">New Transfer</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="domain"></field>
+            <field name="context">{
+                    'default_picking_type_code': 'internal',
+                    'contact_display': 'partner_address',
+            }
+            </field>
+            <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click here to create a new transfer.
+              </p><p>
+                You can either do it immediatly or mark it as Todo for future processing. Use your scanner to validate the transferred quantity quicker.
+              </p>
+            </field>
+        </record>
+
+
+    <menuitem id="menu_stock_picking_form_pos" name="Stock Pickings" parent="point_of_sale.menu_point_root"
+              sequence="0" action="action_picking_form_from_pos" />
+
+</odoo>

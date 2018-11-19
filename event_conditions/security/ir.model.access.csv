@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_event_conditions_condition_internal_user","event_conditions.condition_internal_user","model_event_condition","base.group_user",1,1,1,1

@@ -1,0 +1,2 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_mrp_capacity_line_all","access mrp.capacity.line all","model_mrp_capacity_line",,1,1,1,1

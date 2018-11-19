@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="wizard_form_view">
+            <field name="name">Wizard</field>
+            <field name="model">database_cleanup_for_production.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string="Filters">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="limit"/>
+                            <field name="cleanup_pos_orders"/>
+                            <field name="cleanup_pos_sessions"/>
+                        </group>
+
+<!--                        <group string="Invoices">
+                            <field name="inv_state"/>
+                            <group string="Clean up sale invoices">
+                                <field name="cleanup_sale_invoices"/>
+                                <field name="sale_journal_ids"
+                                       widget="many2many_tags"/>
+                            </group>
+                            <group string="Clean up purchase invoices">
+                                <field name="cleanup_purchase_invoices"/>
+                                <field name="purchase_journal_ids"
+                                       widget="many2many_tags"/>
+                            </group>
+                        </group>
+                        <group string="Clean up payments">
+                            <field name="cleanup_outbound_payments"/>
+                            <field name="cleanup_inbound_payments"/>
+                            <field name="cleanup_transfer_payments"/>
+                        </group> -->
+
+
+                        <div>
+                            <button name="button_cleanup" string="CLEAN UP RECORDS" type="object"
+                                    default_focus="1" class="btn-primary"/>
+                        </div>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="wizard_list_action">
+            <field name="name">Clean up for production</field>
+            <field name="res_model">database_cleanup_for_production.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form, search</field>
+        </record>
+
+        <menuitem id="database_cleanup_menu" name="Database cleanup"
+                  action="wizard_list_action"
+                  sequence="100"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_pos_config_form">
+            <field name="name">pos.config.form.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="pos_sync_order.view_pos_config_form" />
+            <field name="arch" type="xml">
+                <field name="allow_auto_sync" position="after">  
+                    <field name="pos_kitchen_view"/>
+                </field>                                        
+            </field>
+        </record>
+    </data>
+</openerp>

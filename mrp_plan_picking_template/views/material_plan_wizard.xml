@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_plan_wizard_form_view" model="ir.ui.view">
+        <field name="name">MRP Plan wizard template inherit</field>
+        <field name="model">mrp.plan.wizard</field>
+        <field name="inherit_id" ref="mrp_plan_wizard.purchase_plan_wizard_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_horizontal_separator']" position="before">
+                <group string="Templates" name="templates">
+                    <field name="picking_template_ids" nolabel="1"/>
+                    <newline/>
+                    <button name="action_complete_products_from_template" class="oe_highlight" type="object" string="Complete from template" attrs="{'invisible': [('picking_template_ids', '=', [])]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

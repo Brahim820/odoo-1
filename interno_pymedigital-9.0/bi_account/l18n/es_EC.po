@@ -1,0 +1,399 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bi_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c-20170815\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-01 12:45+0000\n"
+"PO-Revision-Date: 2018-06-01 12:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:108
+#, python-format
+msgid "AÑO EMISIÓN"
+msgstr "AÑO EMISIÓN"
+
+#. module: bi_account
+#: model:ir.model,name:bi_account.model_bi_invoice_report
+msgid "Bi Invoice Report"
+msgstr "Reporte de facturas"
+
+#. module: bi_account
+#: model:ir.ui.menu,name:bi_account.menu_bi_account_report
+#: model:ir.ui.menu,name:bi_account.menu_bi_sale_report
+msgid "Business Intelligence"
+msgstr "Tableros de Control"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:115
+#, python-format
+msgid "CANTIDAD"
+msgstr "CANTIDAD"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:113
+#, python-format
+msgid "CATEGORÍA DE PRODUCTO"
+msgstr "CATEGORÍA DE PRODUCTO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:86
+#: code:addons/bi_account/reports/bi_report_account.py:103
+#, python-format
+msgid "CLIENTE"
+msgstr "CLIENTE"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_consu
+msgid "Consumable"
+msgstr "Consumible"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:111
+#, python-format
+msgid "CÓDIGO PRODUCTO"
+msgstr "CÓDIGO PRODUCTO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:118
+#, python-format
+msgid "DESCUENTO"
+msgstr "DESCUENTO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:114
+#, python-format
+msgid "DETALLE"
+msgstr "DETALLE"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:90
+#, python-format
+msgid "DIAS"
+msgstr "DIAS"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_date_from
+msgid "Date from"
+msgstr "Desde"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_date_to
+msgid "Date to"
+msgstr "Hasta"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:83
+#, python-format
+msgid "FACTURA"
+msgstr "FACTURA"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:88
+#: code:addons/bi_account/reports/bi_report_account.py:107
+#, python-format
+msgid "FECHA EMISIÓN"
+msgstr "FECHA EMISIÓN"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:89
+#, python-format
+msgid "FECHA VENCIMIENTO"
+msgstr "FECHA VENCIMIENTO"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_foreign
+msgid "Foreing"
+msgstr "Extranjero"
+
+#. module: bi_account
+#: model:ir.ui.view,arch_db:bi_account.bi_account_report_form_view
+#: model:ir.ui.view,arch_db:bi_account.bi_sale_invoice_report_form_view
+msgid "Generate report"
+msgstr "Generar reporte"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_group_by
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_id
+msgid "ID"
+msgstr "ID"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:120
+#, python-format
+msgid "IVA"
+msgstr "IVA"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_in_invoice
+msgid "In invoice"
+msgstr "Compras"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_in_refund
+msgid "In refund"
+msgstr "Devolución en compras"
+
+#. module: bi_account
+#: model:ir.ui.view,arch_db:bi_account.bi_account_report_form_view
+#: model:ir.ui.view,arch_db:bi_account.bi_sale_invoice_report_form_view
+msgid "Info"
+msgstr "Información"
+
+#. module: bi_account
+#: model:ir.actions.act_window,name:bi_account.action_bi_account_report
+msgid "Invoice BI"
+msgstr "Facturas"
+
+#. module: bi_account
+#: selection:bi.invoice.report,type:0
+msgid "Invoice lines"
+msgstr "Líneas de factura"
+
+#. module: bi_account
+#: selection:bi.invoice.report,type:0
+#: model:ir.ui.menu,name:bi_account.menu_bi_invoice_report
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_local
+msgid "Local"
+msgstr "Nacional"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:109
+#, python-format
+msgid "MES EMISIÓN"
+msgstr "MES EMISIÓN"
+
+#. module: bi_account
+#: selection:bi.invoice.report,group_by:0
+msgid "None"
+msgstr "Ninguno"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:85
+#: code:addons/bi_account/reports/bi_report_account.py:101
+#, python-format
+msgid "ORIGEN"
+msgstr "ORIGEN"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_out_invoice
+msgid "Out invoice"
+msgstr "Venta"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_out_refund
+msgid "Out refund"
+msgstr "Devolución en ventas"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:105
+#, python-format
+msgid "PAÍS"
+msgstr "PAÍS"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:117
+#, python-format
+msgid "PRECIO UNITARIO"
+msgstr "PRECIO UNITARIO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:106
+#, python-format
+msgid "PROVINCIA"
+msgstr "PROVINCIA"
+
+#. module: bi_account
+#: selection:bi.invoice.report,group_by:0
+msgid "Partner"
+msgstr "Cliente / Proveedor"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_partner_ids
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: bi_account
+#: model:ir.ui.view,arch_db:bi_account.bi_account_report_form_view
+msgid "Product type"
+msgstr "Tipo de producto"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_xlsx_file
+msgid "Production"
+msgstr "Production"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_xlsx_filename
+msgid "Production filename"
+msgstr "Archivo"
+
+#. module: bi_account
+#: model:ir.ui.view,arch_db:bi_account.bi_account_report_form_view
+#: model:ir.ui.view,arch_db:bi_account.bi_sale_invoice_report_form_view
+msgid "Puede descargar su reporte de producción aquí:"
+msgstr "Puede descargar su reporte de producción aquí:"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:100
+#, python-format
+msgid "REGISTRO"
+msgstr "REGISTRO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:84
+#, python-format
+msgid "RETENCION"
+msgstr "RETENCION"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:104
+#, python-format
+msgid "RUC CLIENTE"
+msgstr "RUC CLIENTE"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:87
+#: code:addons/bi_account/reports/bi_report_account.py:102
+#, python-format
+msgid "SECUENCIAL"
+msgstr "SECUENCIAL"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:119
+#, python-format
+msgid "SUBTOTAL SIN IMPUESTOS"
+msgstr "SUBTOTAL SIN IMPUESTOS"
+
+#. module: bi_account
+#: model:ir.actions.act_window,name:bi_account.action_bi_sale_report
+msgid "Sale Invoice BI"
+msgstr "Sale Invoice BI"
+
+#. module: bi_account
+#: model:ir.ui.menu,name:bi_account.menu_bi_sale_invoice_report
+msgid "Sale Invoices"
+msgstr "Sale Invoices"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_service
+msgid "Service"
+msgstr "Service"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:112
+#, python-format
+msgid "TIPO DE PRODUCTO"
+msgstr "TIPO DE PRODUCTO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:99
+#, python-format
+msgid "TIPO FACTURA"
+msgstr "TIPO FACTURA"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:121
+#, python-format
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#. module: bi_account
+#: model:ir.ui.view,arch_db:bi_account.bi_account_report_form_view
+#: model:ir.ui.view,arch_db:bi_account.bi_sale_invoice_report_form_view
+msgid "Tipo"
+msgstr "Tipo"
+
+#. module: bi_account
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:116
+#, python-format
+msgid "UOM"
+msgstr "UOM"
+
+#. module: bi_account
+#: selection:bi.invoice.report,group_by:0
+#: model:ir.model.fields,field_description:bi_account.field_bi_invoice_report_user_ids
+msgid "User"
+msgstr "Usuario"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:92
+#, python-format
+msgid "VALOR PAGADO"
+msgstr "VALOR PAGADO"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:93
+#, python-format
+msgid "VALOR PENDIENTE"
+msgstr "VALOR PENDIENTE"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:91
+#, python-format
+msgid "VALOR TOTAL"
+msgstr "VALOR TOTAL"
+
+#. module: bi_account
+#: code:addons/bi_account/reports/bi_report_account.py:94
+#: code:addons/bi_account/reports/bi_report_account.py:110
+#, python-format
+msgid "VENDEDOR"
+msgstr "VENDEDOR"
+

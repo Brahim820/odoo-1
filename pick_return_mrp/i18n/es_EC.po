@@ -1,0 +1,255 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pick_return_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c-20180324\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-28 19:56+0000\n"
+"PO-Revision-Date: 2018-03-28 14:59-0500\n"
+"Last-Translator: <>\n"
+"Language: es_EC\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,move_type:0
+msgid "All at once"
+msgstr "Todo junto"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "CANCELLED"
+msgstr "CANCELADOS"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "Create picking"
+msgstr "Crear movimiento"
+
+#. module: pick_return_mrp
+#: model:ir.model,name:pick_return_mrp.model_mrp_pick_return_wizard
+msgid "Create picking for the MO"
+msgstr "Crear movimiento para la OP"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_location_dest_id
+msgid "Destination location"
+msgstr "Ubicación de destino"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "FINISHED"
+msgstr "FINALIZADO"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_in_picking_type_id
+msgid "In picking type"
+msgstr "En tipo de envío"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "LEFTOVER"
+msgstr "SOBRANTE"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: pick_return_mrp
+#: model:ir.model,name:pick_return_mrp.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Órden de producción"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_move_type
+msgid "Move type"
+msgstr "tipo de movimiento"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_pick_return_line_ids
+msgid "Moves to execute"
+msgstr "Movimientos a Ejecutar"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,priority:0
+msgid "Not urgent"
+msgstr "No urgente"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_origin
+msgid "Origin"
+msgstr "Origen"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_out_picking_type_id
+msgid "Out picking type"
+msgstr "Movimiento de salida"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "PREFILL WITH:"
+msgstr "COMPLETAR CON:"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,move_type:0
+msgid "Partial"
+msgstr "Parcial"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,type:0
+msgid "Pick"
+msgstr "Solicitar"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_production_form_view
+msgid "Pick or Return"
+msgstr "Recepción o devolución"
+
+#. module: pick_return_mrp
+#: model:ir.actions.act_window,name:pick_return_mrp.action_mrp_create_picking_wizard
+msgid "Pick or return products"
+msgstr "Solicitar O Devolver Productos"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_pick_return_wizard_line_mrp_wizard_id
+msgid "Pick return wizard"
+msgstr "Seleccione asistente de devolución"
+
+#. module: pick_return_mrp
+#: model:ir.model,name:pick_return_mrp.model_pick_return_wizard_line
+msgid "Pick return wizard line"
+msgstr "Seleccione la línea del asistente de devolución"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "Picking lines"
+msgstr "Líneas de movimiento"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_pick_return_wizard_line_product_unreserved
+msgid "Product Available"
+msgstr "Producto Disponible"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_stock_picking_mo_product_id
+msgid "Product to Produce"
+msgstr "Producto a Producir"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_mo_id
+#: model:ir.model.fields,field_description:pick_return_mrp.field_stock_picking_mo_id
+msgid "Production"
+msgstr "Producción"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_create_picking_wizard_form_view
+msgid "RAW MATERIALS"
+msgstr "MATERIA PRIMA"
+
+#. module: pick_return_mrp
+#: model:ir.ui.view,arch_db:pick_return_mrp.mrp_production_form_view
+msgid "Raw Material Pickings"
+msgstr "Movimientos de Inventario"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_production_raw_picking_ids
+msgid "Raw material Pickings"
+msgstr "Movimientos de Inventario"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,type:0
+msgid "Return"
+msgstr "Devolver"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_route_id
+msgid "Route"
+msgstr "Ruta"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_min_date
+msgid "Scheduled date"
+msgstr "Fecha establecida"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_location_src_id
+msgid "Source Location"
+msgstr "Ubicación origen"
+
+#. module: pick_return_mrp
+#: model:ir.model,name:pick_return_mrp.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_location_trans_id
+msgid "Transit Location"
+msgstr "Ubicación de tránsito"
+
+#. module: pick_return_mrp
+#: model:ir.model.fields,field_description:pick_return_mrp.field_mrp_pick_return_wizard_type
+#: model:ir.model.fields,field_description:pick_return_mrp.field_pick_return_wizard_line_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,priority:0
+msgid "Urgent"
+msgstr "Urgente"
+
+#. module: pick_return_mrp
+#: selection:mrp.pick.return.wizard,priority:0
+msgid "Very urgent"
+msgstr "Muy Urgente"
+

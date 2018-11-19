@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_docs_form" model="ir.ui.view">
+            <field name="name">view.docs.form</field>
+            <field name="model">internal_docs.docs</field>
+            <field name="arch" type="xml">
+                <form string="Documentos internos.">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_voiddocs_form" model="ir.ui.view">
+            <field name="name">Documentos internos anulados form view</field>
+            <field name="model">internal_docs.voiddocs</field>
+            <field name="arch" type="xml">
+                <form string="Documentos internos anualdos.">
+                    <sheet>
+                        <group string="Documentos internos" name="anulados" >
+                            <field name="fecha"/>
+                            <field name="docs_id" widget="selection" />
+                            <field name="journal_id" widget="selection"/>
+                            <field name="secuencialinicio"/>
+                            <field name="secuencialfin"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_voiddocs_tree" model="ir.ui.view">
+            <field name="name">Documentos internos anulados tree view</field>
+            <field name="model">internal_docs.voiddocs</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" >
+                    <field name="fecha"/>
+                    <field name="docs_id" />
+                    <field name="journal_id" widget="selection"/>
+                    <field name="secuencialinicio"/>
+                    <field name="secuencialfin"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_docs">
+            <field name="name">Documentos internos</field>
+            <field name="res_model">internal_docs.docs</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Ingrese sus documentos internos.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_voiddocs">
+            <field name="name">Documentos internos anulados</field>
+            <field name="res_model">internal_docs.voiddocs</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Ingrese los documentos internos que desea anular.
+                </p>
+            </field>
+        </record>
+
+    <menuitem
+        name="Documentos internos"
+        parent="account.account_account_menu"
+        action="action_docs"
+        sequence="30"
+        id="menu_docs"
+        groups="account.group_account_user" />
+
+    <menuitem
+        name="Documentos anulados"
+        parent="account.menu_finance_entries"
+        action="action_voiddocs"
+        sequence="5"
+        id="menu_voiddocs"
+        groups="account.group_account_user" />
+
+    </data>
+</odoo>

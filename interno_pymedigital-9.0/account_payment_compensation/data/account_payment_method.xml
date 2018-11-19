@@ -1,0 +1,15 @@
+<odoo>
+
+    <record id="payment_method_compensation_in" model="account.payment.method">
+      <field name="name">Payment compensation</field>
+      <field name="code">compensation</field>
+      <field name="payment_type">inbound</field>
+    </record>
+
+    <record id="payment_method_compensation_out" model="account.payment.method">
+      <field name="name">Payment compensation</field>
+      <field name="code">compensation</field>
+      <field name="payment_type">outbound</field>
+    </record>
+
+</odoo>

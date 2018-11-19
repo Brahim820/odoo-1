@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- OPEN ITEMS -->
+    <record id="check_deposit_wizard" model="ir.ui.view">
+        <field name="name">Open Items</field>
+        <field name="model">check.deposit.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="main_info">
+                        <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                    </group>
+                    <group name="filters" string="Filters">
+                        <field name="date_type"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="journal_ids"
+                            widget="many2many_tags"
+                            />
+                        <field name="partner_ids"
+                            options="{'no_create': True}"
+                            widget="many2many_tags"
+                            />
+                        <field name="account_ids"
+                            widget="many2many_tags"
+                            options="{'no_create': True}"
+                            />
+                    </group>
+                    <div>
+                        <p>
+                            Puede descargar su reporte de aquí:
+                            <field name="xlsx_file" filename="xlsx_filename"/>
+                        </p>
+                    </div>
+                </sheet>    
+                <footer>
+                    <!--<button name="button_export_pdf" string="Export PDF" type="object" default_focus="1" class="oe_highlight"/>
+                    or -->
+                    <button name="button_get_xlsx_report" string="Export XLSX" type="object"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_check_deposit_wizard"
+                name="Check deposit"
+                res_model="check.deposit.report.wizard"
+                view_type="form"
+                view_mode="form"
+                view_id="check_deposit_wizard"
+                target="new" />
+
+    <menuitem
+        parent="account.menu_finance_reports"
+        action="action_check_deposit_wizard"
+        id="menu_check_deposit_wizard"
+        sequence="30"
+        />
+
+</odoo>

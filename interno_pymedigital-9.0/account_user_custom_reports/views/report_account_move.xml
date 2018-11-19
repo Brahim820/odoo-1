@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- COMPROBANTE DE MOVIMIENTOS CONTABLES  -->
+    <template id="report.journal_voucher_content_report">
+        <t t-if="format_id.header">
+            <div style="width:100%;">
+                <span t-field="format_id.header"/>
+            </div>
+        </t>
+        <table class="table-condensed" style="width:100%;" >
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>DIARIO: </strong> <t t-esc="doc.journal_id.name"/><br/>
+                        <strong>EMPRESA: </strong> <t t-esc="doc.partner_id.name"/>
+                    </td>
+                    <td>
+                        <strong>NRO DE REGISTRO: </strong> <t t-esc="doc.name"/><br/>
+                        <strong>FECHA: </strong> <t t-esc="doc.date"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>REFERENCIA: </strong> <t t-esc="doc.ref"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table-condensed" style="margin-top: 1em; width:100%; border-collapse: collapse; empty-cells: show;">
+            <thead>
+                <tr>
+                    <th style="border: solid black 1px">
+                        CUENTA
+                    </th>
+                    <th style="border: solid black 1px">
+                        DESCRIPCIÓN
+                    </th>
+                    <th style="border: solid black 1px">
+                        DÉBITO
+                    </th>
+                    <th style="border: solid black 1px">
+                        CRÉDITO
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="doc.line_ids" t-as="line">
+                    <td style="border: solid black 1px; text-align: left;">
+                        <span t-field="line.account_id.code"/>
+                    </td>
+                    <td style="border: solid black 1px; text-align: left;">
+                        <t t-esc="line.account_id.name"/>
+                    </td>
+                    <td style="border: solid black 1px; text-align: right; padding-right: 2mm;">
+                        <t t-esc="line.debit"/>
+                    </td>
+                    <td style="border: solid black 1px; text-align: right; padding-right: 2mm;">
+                        <t t-esc="line.credit"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right; padding-right: 2mm;">
+                        TOTALES
+                    </td>
+                    <td style="border: solid black 1px; text-align: right; padding-right: 2mm;">
+                        <t t-esc="sum(l.debit for l in doc.line_ids)"/>
+                    </td>
+                    <td style="border: solid black 1px; text-align: right; padding-right: 2mm;">
+                        <t t-esc="sum(l.credit for l in doc.line_ids)"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table align="center" class="table-condensed" style="margin-top: 1em; table-layout:fixed; border-collapse: collapse; empty-cells: show; width: 100%;">
+            <tbody>
+                <tr>
+                    <th style="text-align:center; border: solid black 1px;" >
+                        ELABORADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px;">
+                        CONTADOR
+                    </th>
+
+                    <th style="text-align:center; border: solid black 1px;">
+                        APROBADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px;" >
+                        RECIBÍ CONFORME
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border: solid black 1px;">
+                        <div style="height: 2em;">
+                            <span t-esc="(doc.create_uid.name or '').upper()" />
+                        </div>
+                    </td>
+                    <td style="border: solid black 1px;"/>
+                    <td style="border: solid black 1px;"/>
+                    <td style="border: solid black 1px;" />
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <template id="report.journal_voucher_portrait_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id"
+                   t-value="user.journal_voucher_format_id or res_company.default_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="report.journal_voucher_content_report"/>
+
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.journal_voucher_content_report"/>
+                    </t>
+
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.journal_voucher_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+		    id="report.journal_voucher_portrait_report_id"
+            model="account.move"
+            string="Diario vertical"
+            name="report.journal_voucher_portrait_report"
+            file="diario"
+            report_type="qweb-pdf"/>
+    <record id="report.journal_voucher_portrait_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_portrait_5555"/>
+    </record>
+    <template id="report.journal_voucher_landscape_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id"
+                   t-value="user.journal_voucher_format_id or res_company.default_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="report.journal_voucher_content_report"/>
+
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.journal_voucher_content_report"/>
+                    </t>
+
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="report.journal_voucher_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+        <t t-if="format_id.footer">
+            <div style="width:100%;">
+                <span t-field="format_id.footer"/>
+            </div>
+        </t>
+    </template>
+    <report
+            id="report.journal_voucher_landscape_report_id"
+            model="account.move"
+            string="Diario horizontal"
+            name="report.journal_voucher_landscape_report"
+            file="diario"
+            report_type="qweb-pdf"/>
+    <record id="report.journal_voucher_landscape_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_landscape_5555"/>
+    </record>
+</odoo>

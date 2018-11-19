@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="report_stock_location_kardex_form_view">
+        <field name="name">report.stock.location.kardex form view</field>
+        <field name="model">report.stock.location.kardex</field>
+        <field name="arch" type="xml">
+            <form string=" Report Stock location kardex">
+                <sheet>
+                    <group>
+                        <field name="type"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="product_id"/>
+                        <field name="location_ids" widget="many2many_tags" domain="[('usage', '=', 'internal')]"/>
+                        <field name="costing" groups="stock.group_kardex_valuation"/>
+                    </group>
+                    <div>
+                        <p>
+                            Puede descargar su reporte aquí:
+                            <field name="xlsx_file" filename="xlsx_filename"/>
+                        </p>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="button_get_xlsx_report" string="Get report" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_report_stock_location_kardex">
+        <field name="name">Location kardex report</field>
+        <field name="res_model">report.stock.location.kardex</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_report_stock_location_kardex"
+            name="Kardex report"
+            parent="stock.menu_warehouse_report"
+            sequence="100"
+            action="action_report_stock_location_kardex"
+    />
+
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="button_pricelist">
+        <button class="control-button btn btn-default btn-fill btn-wd"><i class="pe-7s-ticket"/>
+             Set PriceList
+        </button>
+    </t>
+
+    <t t-extend="OrderWidget">
+        <t t-jquery=".total:first" t-operation="after">
+            <i class="pe-7s-ticket"/> Price List : <div class="price_list clearfix" style="float:right">
+                <div class='subentry'><span class="value price_list"></span></div>
+            </div>
+
+        </t>
+    </t>
+
+    <t t-name="popup_pricelists">
+        <div class="modal-dialog">
+            <div class="popup">
+                <p class="title">Choice a PriceList</p>
+                <div class="product-list-scroller touch-scrollable">
+                    <div class="product-list">
+                        <t t-if="widget.pricelists">
+                            <t t-foreach="widget.pricelists" t-as="pricelist">
+                                <span class='product' t-att-data-id="pricelist.id">
+                                    <div class="product-img">
+                                        <img src="/pos_sale_pricelist/static/description/pricelist.png" />
+                                    </div>
+                                    <div class="product-name">
+                                        <t t-esc="pricelist.name"/>
+                                    </div>
+                                </span>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="button cancel">
+                        Close
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+
+</templates>

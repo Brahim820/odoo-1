@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_event_form_analytic" model="ir.ui.view">
+            <field name="name">Event analitic defaults</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='address_id']" position="before">
+                    <field name="project_id" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

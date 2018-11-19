@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_plan_wizard_form_view" model="ir.ui.view">
+        <field name="name">MRP Plan wizard template inherit</field>
+        <field name="model">mrp.plan.wizard</field>
+        <field name="inherit_id" ref="mrp_plan_wizard.purchase_plan_wizard_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='needed_items']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='needed_items']//tree/field[@name='product_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='needed_items']//tree/field[@name='product_qty']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='needed_items']//tree/field[@name='product_uom_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='needed_items']//tree" position="attributes">
+                <attribute name="editable">bottom</attribute>
+            </xpath>
+            <xpath expr="//field[@name='needed_items']//tree/field[@name='product_id']" position="before">
+                <field name="state"/>
+            </xpath>
+
+            <field name="needed_items" position="after">
+                <newline/>
+                <group>
+                    <field name="purchase_responsible"/>
+                    <field name="purchase_schedule_date"/>
+                    <field name="purchase_picking_type_id"/>
+                    <button name="action_create_purchase_requisition" class="oe_highlight" type="object" string="Request Products" attrs="{'invisible': [('needed_items', '=', [])]}"/>
+                </group>
+            </field>
+
+        </field>
+    </record>
+</odoo>

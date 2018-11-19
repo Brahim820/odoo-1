@@ -1,0 +1,11 @@
+<openerp>
+    <data>
+
+        <template id="assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/web_restrict_export/static/src/js/sidebar.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <record id="wave_report_wizard_form_view" model="ir.ui.view">
+        <field name="name">Wave report wizard form view</field>
+        <field name="model">wave.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="wave_id" invisible="1"/>
+                        <field name="include_partner"/>
+                        <field name="include_warehouse"/>
+                    </group>
+                    <div>
+                        <p>
+                            Puede descargar su orden de producción aquí:
+                            <field name="file" filename="filename"/>
+                        </p>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="get_production_report"
+                            type='object' string='Generate report'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_wave_report_wizard" model="ir.actions.act_window">
+        <field name="name">Wave report wizard</field>
+        <field name="res_model">wave.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_wave_id': active_id }</field>
+        <field name="view_id" ref="wave_report_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_internal_docs_docs_all","access_internal_docs_docs_all","model_internal_docs_docs",,1,1,1,1
+"access_internal_docs_voiddocs_all","access_internal_docs_voiddocs_all","model_internal_docs_voiddocs",,1,1,1,1

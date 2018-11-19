@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_property_form_sri_ce" model="ir.ui.view">
+            <field name="name">res.partner.property.form.sri.ce</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="l10n_ec_sri.view_partner_property_form_sri"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='formapago_id']" position="after" >
+                    <field name="parterel" />
+                </xpath>
+            </field>
+        </record>
+  </data>
+</odoo>

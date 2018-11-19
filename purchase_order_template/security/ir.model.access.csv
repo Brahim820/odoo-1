@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_purchase_order_template_line_all,purchase.order.template.line all,model_purchase_order_template_line,,1,0,0,0
+access_purchase_order_template_all,purchase.order.template all,model_purchase_order_template,,1,0,0,0
+access_purchase_order_template_line_manager,purchase.order.template.line all,model_purchase_order_template_line,purchase.group_purchase_manager,1,1,1,1
+access_purchase_order_template_manager,purchase.order.template all,model_purchase_order_template,purchase.group_purchase_manager,1,1,1,1

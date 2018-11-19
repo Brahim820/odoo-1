@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+equipment_team_manager,equipment_team_manager,model_maintenance_team,base.group_equipment_manager,1,1,1,1
+equipment_team_hr_user,equipment_team_hr_user,model_maintenance_team,base.group_hr_user,1,1,1,1
+equipment_team_hr_manager,equipment_team_hr_manager,model_maintenance_team,base.group_hr_manager,1,1,1,1
+equipment_team_employee,equipment_team_employee,model_maintenance_team,base.group_user,1,1,0,0
+hr_equipment_employee,hr_equipment_employee,model_hr_equipment,base.group_user,1,0,0,0
+hr_equipment_request_employee,hr_equipment_request_employee_request,model_hr_equipment_request,base.group_user,1,1,1,0
+access_maintenance_report_emanager,maintenance1.report,model_maintenance_report,base.group_equipment_manager,1,1,1,1
+access_product_request,access_product_request,model_product_request,base.group_equipment_manager,1,1,1,1
+access_product_request_group_user,access_product_request_group_user,model_product_request,base.group_user,1,0,0,0

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tax_form_set_form_view" model="ir.ui.view">
+        <field name="name">tax_form_set form view</field>
+        <field name="model">l10n_ec_sri.tax.form.set</field>
+        <field name="inherit_id" ref="l10n_ec_sri.tax_form_set_form_view"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    name="button_sri_ats_checker"
+                    string="VALIDAR ATS"
+                    confirm="Usted va a validar todas los documentos de compras y
+                        ventas para comprobar errores del Anexo Transaccional.
+                        Esta acción puede tomar varios miutos, dependiendo
+                        de la cantidad de documentos a validar. Si lo que desea es
+                        comprobar la validez de un documento en particular, puede 
+                        utilizar el botón validar de ese documento, lo que será
+                        más rápido y eficiente."
+                    type="object"
+                    class="btn-primary"/>
+            </header>
+            <xpath expr="//field[@name='in_invoice_ids']/tree" position="inside">
+                <field name="invoice_ats_errors"/>
+                <button
+                    name="get_ats_errors" 
+                    help="Valida la factura para detectar errores en el Anexo Transasccional"
+                    icon="fa-question-circle"
+                    type="object" class="btn-primary"/>
+            </xpath>
+            <xpath expr="//field[@name='in_refund_ids']/tree" position="inside">
+                <field name="invoice_ats_errors"/>
+            </xpath>
+            <xpath expr="//field[@name='out_invoice_ids']/tree" position="inside">
+                <field name="invoice_ats_errors"/>
+            </xpath>
+            <xpath expr="//field[@name='out_refund_ids']/tree" position="inside">
+                <field name="invoice_ats_errors"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_plan_production_request_form" model="ir.ui.view">
+        <field name="name">wizard.plan.production.request.form</field>
+        <field name="model">plan.production.request</field>
+        <field name="arch" type="xml">
+            <form string="Generate/Import Plan Production Request">
+                <div>
+                    <label string="Please select one of the options." />
+                    <ul>
+                        <li> The <strong>Export Template</strong> option will generate an xlsx file to load Plan</li>
+                        <li> The <strong>Import Template</strong> option will allow you to load a pre-exported xslx file to record updates</li>
+                    </ul>
+                </div>
+                <group>
+                    <field name="option" />
+                    <field name="state" invisible="1"/>
+                </group>
+                <group attrs="{'invisible': ['|', ('state', '=', 'exported'),('option', '=', 'import')]}">
+                    <group>
+                        <field name="date_from" required="1"/>
+                        <field name="date_to" required="1"/>
+                    </group>
+                </group>
+                <group attrs="{'invisible': ['|',('state', '=', 'draft'),('option', '=', 'import')]}">
+                    <field name="name" invisible="1"/>
+                    <field name="file_template" filename="name" class="oe_link" readonly="1"/>
+                </group>
+                <group attrs="{'invisible': [('option', '=', 'export')]}">
+                    <field name="file_upload" />
+                </group>
+                <footer>
+                    <button name="generate_template" string="Generate Template" type="object" class="btn-primary" attrs="{'invisible': [('option', '=', 'import')]}" />
+                    <button name="import_template" string="Import Template" type="object" class="btn-primary" attrs="{'invisible': [('option', '=', 'export')]}" />
+                    or
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="plan_production_request">
+        <field name="name">Generate/Import Plan Request Production</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">plan.production.request</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

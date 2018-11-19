@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="root_hr_menu_contract"
+              parent="hr.menu_hr_root"
+              name="Contracts"
+              sequence="4"
+              groups="base.group_hr_manager"/>
+
+    <menuitem name="News"
+              parent="hr_payroll.menu_hr_payroll_root"
+              id="root_hr_payroll_news"/>
+
+</odoo>

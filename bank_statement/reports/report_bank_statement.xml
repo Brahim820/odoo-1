@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Anulados -->
+        <report
+                id="report_bank_statement_id"
+                model="account.bank.statement"
+                string="Conciliación bancaria"
+                name="inredh_bank_statement.reporte_conciliacion"
+                file="Conciliacion bancaria"
+                report_type="qweb-pdf"/>
+
+        <template id="reporte_conciliacion">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <table style="width: 100%; position: absolute; top: 0mm; left: 0mm">
+                            <tr align="center">
+                                <td style="width: 25%;">
+                                    <div id="company_logo" style="text-align:center;">
+                                        <img t-att-src="'data:image/png;base64,'+ res_company.logo_web"/>
+                                    </div>
+                                </td>
+                                <td style="vertical-align:text-top;">
+                                    <strong>
+                                        <big>CONCILIACIÓN BANCARIA</big>
+                                    </strong>
+                                    <br/>
+                                    <br/>
+                                    <strong>
+                                        <big>
+                                            <span t-esc="res_company.rml_header1 + ' - ' + res_company.name"/>
+                                        </big>
+                                    </strong>
+                                    <br/>
+                                    <br/>
+                                    <small>
+                                        <span t-esc="res_company.street"/>
+                                        <span t-esc="res_company.street2"/>
+                                    </small>
+                                </td>
+                                <td style="width: 35%; text-aling: center;">
+                                    <strong><span t-esc="doc.name"/></strong>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="width: 100%; border-collapse: separate; position: absolute; top: 60mm; left: 0mm; border:0;">
+                            <tr>
+                                <td style=" border:0; text-align:left;">
+                                    <strong>Fecha: </strong><span t-esc="doc.date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" border:0; text-align:left;">
+                                    <strong>Banco: </strong> <span t-esc="doc.journal_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" border:0; text-align:left;">
+                                    <strong>Saldo en Odoo: <span t-esc="doc.balance_end"/></strong>
+                                </td>
+
+                            </tr>
+                        </table>
+                        <table style="width: 60%; border-collapse: separate; position: absolute; top: 90mm; left: 25%; border:1; border-style:solid; align:left;">
+                            <tr>
+                                <th colspan="2" style="padding: 5px; width: 20%; background-color: #000000; color: #ffffff; border:1; border-style:solid; text-align:center;">
+                                    <strong>Datos del estado de cuenta</strong>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="width: 70%; border:1; border-style:solid; text-align:left;">
+                                    <strong>Saldo en libro bancos: </strong>
+                                </td>
+                                <td style="border:1; border-style:solid; text-align:right; padding-right:10px">
+                                    <span t-esc="doc.bank_balance_statement"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 70%; border:1; border-style:solid; text-align:left;">
+                                    (-) Créditos no inc. en estado
+                                </td>
+                                <td style="border:1; border-style:solid; text-align:right; padding-right:10px">
+                                    <span t-esc="doc.credit_no_inc_bank_statement"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 70%; border:1; border-style:solid; text-align:left;">
+                                    (+) Débitos no inc. en estado
+                                </td>
+                                <td style="border:1; border-style:solid; text-align:right; padding-right:10px">
+                                    <span t-esc="doc.debit_no_inc_bank_statement"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 70%; border:1; border-style:solid; text-align:left;">
+                                    <strong>Total Conciliado</strong>
+                                </td>
+                                <td style="border:1; border-style:solid; text-align:right; padding-right:10px">
+                                    <strong><span t-esc="doc.total_bank_statement"/></strong>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="position: absolute; width: 100%; top: 270mm; left: 0mm; border-spacing: 0; font-family: Arial, sans-serif; font-size: 12px; font-weight: normal;">
+                            <tr>
+                                <th style="width: 5%;"/>
+                                <th style="width: 15%;"/>
+                                <th style="width: 5%;"/>
+                                <th style="width: 15%;"/>
+                                <th style="width: 5%;"/>
+                                <th style="width: 15%;"/>
+                                <th style="width: 5%;"/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td style="border-top: 2px solid black; text-align:center;">PRESIDENTE</td>
+                                <td/>
+                                <td style="border-top: 2px solid black; text-align:center;">CONTADORA</td>
+                                <td/>
+                                <td style="border-top: 2px solid black; text-align:center;">ASISTENTE</td>
+                                <td/>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--&lt;!&ndash;</t>&ndash;&gt;-->
+                </t>
+            </t>
+        </template>
+    </data>
+
+    <data noupdate="1">
+        <record id="report_bank_statement_id" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="report.paperformat_euro"/>
+        </record>
+    </data>
+</odoo>

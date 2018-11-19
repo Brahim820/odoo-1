@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_assets_common"
+              name="User reports eport assets common"
+              inherit_id="report.assets_common">
+        <xpath expr="." position="inside">
+            <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet"/>
+        </xpath>
+    </template>
+</odoo>

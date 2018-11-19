@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="report_custom_format_form_view">
+        <field name="name">report.custom.format.form_view</field>
+        <field name="model">report.custom.format</field>
+        <field name="arch" type="xml">
+            <form string="Account Invoice Session.">
+                <sheet>
+                    <group string="General information" name="general">
+                        <field name="name"/>
+                        <field name="image" widget="image"/>
+                        <field name="page_orientation"/>
+                        <field name="copies"/>
+                        <field name="separator_style"/>
+                    </group>
+                    <group string="Header" name="header">
+                         <field name="header"/>
+                    </group>
+                    <group name="page" string="Page">
+                        <group name="page_layout" string="Layout">
+                            <field name="page_padding_top"/>
+                            <field name="page_padding_right"/>
+                            <field name="page_padding_bottom"/>
+                            <field name="page_padding_left"/>
+                            <field name="page_font_size"/>
+                            <field name="page_font_family"/>
+                            <field name="page_line_height"/>
+                            <field name="page_style"/>
+                        </group>
+                    </group>
+                    <group string="Footer" name="footer">
+                         <field name="footer"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_custom_format_tree_view" model="ir.ui.view">
+        <field name="name">report.custom.format.tree_view</field>
+        <field name="model">report.custom.format</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="page_padding_top"/>
+                <field name="page_padding_right"/>
+                <field name="page_padding_bottom"/>
+                <field name="page_padding_left"/>
+                <field name="page_font_size"/>
+                <field name="page_font_family"/>
+                <field name="page_line_height"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="report_custom_format_search_view" model="ir.ui.view">
+        <field name="name">report.custom.format.search.view</field>
+        <field name="model">report.custom.format</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="report_custom_format_action">
+        <field name="name">Report User Format</field>
+        <field name="res_model">report.custom.format</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="report_custom_format_menu" name="Custom formats" parent="report.reporting_menuitem"
+              action="report_custom_format_action"
+              sequence="100"/>
+</odoo>

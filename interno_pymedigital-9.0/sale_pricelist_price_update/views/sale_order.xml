@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.update.price</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+        	<button
+		     name="update_price" type="object"
+                     attrs="{'invisible': [('state', '!=', 'draft')]}"
+                     string="Update price"
+                     />
+            </field>
+        </field>
+    </record>
+</odoo>

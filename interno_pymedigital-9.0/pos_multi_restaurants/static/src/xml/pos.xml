@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="Chrome">
+        <t t-jquery='.pos-logo' t-operation='replace'>
+            <t t-if="widget.pos.config">
+                <t t-if="widget.pos.config.pos_multi_restaurant">
+                    <div style="color: wheat; font-size: 40px;position: fixed;margin-top: 19px;"><t t-esc="widget.pos.config.pos_multi_restaurant[1]"/></div>
+                </t>
+                <t t-if="! widget.pos.config.pos_multi_restaurant">
+                     <img class="pos-logo" src="/point_of_sale/static/src/img/logo.png" />
+                </t>
+            </t>
+        </t>
+    </t>
+</templates>

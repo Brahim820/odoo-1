@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="assets" inherit_id="pos_restaurant.assets">
+          <xpath expr="." position="inside">
+              <script type="text/javascript" src="/pos_multi_restaurants/static/src/js/pos.js"></script>
+          </xpath>
+        </template>
+
+    </data>
+</openerp>

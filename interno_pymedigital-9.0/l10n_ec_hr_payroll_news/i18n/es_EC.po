@@ -1,0 +1,1001 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ec_hr_payroll_news
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c-20170815\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-05 20:55+0000\n"
+"PO-Revision-Date: 2017-09-05 16:07-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_EC\n"
+"X-Generator: Poedit 2.0.3\n"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_wizard_hr_payslip_news
+msgid ""
+"\n"
+"    Generate and Imports news from Template\n"
+"    "
+msgstr ""
+"\n"
+"    Generar e Importar Novedades desde una Plantilla\n"
+"    "
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payslip_loans
+msgid ""
+"\n"
+"    Manage employee loans to payslip\n"
+"    "
+msgstr ""
+"\n"
+"    Gestionar Prestamos/Avances\n"
+"    "
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payslip_news
+msgid ""
+"\n"
+"    Manage income, expenses to payslip\n"
+"    "
+msgstr ""
+"\n"
+"    Gestionar Ingresos/Egresos a Pagar/Descontar\n"
+"    "
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payslip_overtime
+msgid ""
+"\n"
+"    Manage overtime of company employees\n"
+"    "
+msgstr ""
+"\n"
+"    Gestionar Horas Extras de los Empleados de la Compañía\n"
+"    "
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payslip_overtime_line
+msgid ""
+"\n"
+"    Overtime detail by employee\n"
+"    "
+msgstr ""
+"\n"
+"    Detalle Horas Extras por Empleado\n"
+"    "
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_wizard_hr_payslip_news_line
+msgid ""
+"\n"
+"    Salary Rule detail\n"
+"    "
+msgstr ""
+"\n"
+"    Detalle de Reglas Salariales\n"
+"    "
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Abril"
+msgstr "Abril"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.menu,name:l10n_ec_hr_payroll_news.menu_l10n_ec_hr_payslip_loans
+msgid "Advances/Loans"
+msgstr "Prestamos/Avances"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Agosto"
+msgstr "Agosto"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:142
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:26
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:79
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_amount
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_amount
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_amount
+#, python-format
+msgid "Amount"
+msgstr "Monto"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:147
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_application_date
+#, python-format
+msgid "Applicaction Date"
+msgstr "Fecha de Solicitud"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:28
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_approve_news
+#, python-format
+msgid "Approve news"
+msgstr "Aprobar Novedades"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:174
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:30
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:25
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:81
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.l10n_ec_hr_payroll_news_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+#, python-format
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:149
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_approved_date
+#, python-format
+msgid "Approved Date"
+msgstr "Fecha de Aprobación"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:155
+#, python-format
+msgid "April"
+msgstr "Abril"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,state:0 selection:hr.payslip.news,state:0
+#: selection:hr.payslip.overtime,state:0
+#: selection:hr.payslip.overtime.line,state:0
+msgid "Aprobado"
+msgstr "Aprobado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:159
+#, python-format
+msgid "August"
+msgstr "Agostos"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,state:0 selection:hr.payslip.news,state:0
+#: selection:hr.payslip.overtime,state:0
+#: selection:hr.payslip.overtime.line,state:0
+#: selection:wizard.hr.payslip.news,state:0
+#: selection:wizard.hr.payslip.overtime,state:0
+msgid "Borrador"
+msgstr "Borrador"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:36
+#, python-format
+msgid "Can not approve a record without detail lines"
+msgstr "No se puede aprobar este Registro ya que no se han Agregado Lineas"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:45
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:45
+#, python-format
+msgid "Can not delete a record in an approved state!"
+msgstr "No se puede borrar una novedad que este en un estado diferente a \"Borrador\""
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:24
+#, python-format
+msgid "Can not generate the payment of a loan in draft state!"
+msgstr "No se puede Generar un Pago de un Prestamo/Avance es estado Borrador!"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_overtime_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:135
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_name
+#, python-format
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_create_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_create_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_create_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_create_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_create_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_create_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_create_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_create_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_create_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_create_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_create_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_create_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:24
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:17
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:73
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_date
+#, python-format
+msgid "Date"
+msgstr "Fecha"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:163
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:23
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_department_id
+#, python-format
+msgid "Department"
+msgstr "Departamento"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:15
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_name
+#, python-format
+msgid "Description"
+msgstr "Descripción"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_form
+msgid "Detail by Employee"
+msgstr "Detalle por Empleado"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Diciembre"
+msgstr "Diciembre"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_display_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_display_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_display_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_display_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_display_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_display_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:31
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:26
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:82
+#, python-format
+msgid "Done"
+msgstr "Realizado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:173
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:29
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:24
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:80
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:33
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:25
+#, python-format
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:111
+#, python-format
+msgid "Due number %s for: %s"
+msgstr "Cuota numero %s de %s"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_line_ids
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+msgid "Dues"
+msgstr "Cuotas"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:143
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_dues
+#, python-format
+msgid "Dues Number"
+msgstr "Numero de Cuotas"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll.py:86
+#, python-format
+msgid "EXTRA HOURS (100%)"
+msgstr "HORAS EXTRAS (100%)"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:138
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:17
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:71
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_employee_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_employee_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_employee_id
+#, python-format
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+msgid "Employee Loans"
+msgstr "Prestamos/Avances del Empleado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:24
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_employee_ids
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+#, python-format
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.actions.act_window,name:l10n_ec_hr_payroll_news.action_l10n_ec_hr_payslip_loans
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_tree
+msgid "Employees Loans"
+msgstr "Prestamos/Avances de los Empleados"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Enero"
+msgstr "Enero"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:31
+#, python-format
+msgid "Export Template"
+msgstr "Exportar Plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:wizard.hr.payslip.news,state:0
+msgid "Exportado"
+msgstr "Exportado"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:wizard.hr.payslip.news,option:0
+msgid "Exportar Plantilla"
+msgstr "Exportar Plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:34
+#, python-format
+msgid "Exported"
+msgstr "Exportado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:78
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:35
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_overtime_100
+#, python-format
+msgid "Extra Hours (100%)"
+msgstr "Horas Extras (100%)"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Febrero"
+msgstr "Febrero"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:153
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:wizard.hr.payslip.overtime,state:0
+msgid "Generado"
+msgstr "Generado"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_overtime_form
+msgid "Generate Template"
+msgstr "Generar Plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.actions.act_window,name:l10n_ec_hr_payroll_news.action_wizard_hr_payslip_news
+#: model:ir.ui.menu,name:l10n_ec_hr_payroll_news.menu_wizard_hr_payslip_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+msgid "Generate/Import News"
+msgstr "Generar/Importar Novedades"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_overtime_form
+msgid "Generate/Import Overtime"
+msgstr "Generar/Importar Horas Extras"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.actions.act_window,name:l10n_ec_hr_payroll_news.action_wizard_hr_payslip_overtime
+msgid "Generate/Import overtime"
+msgstr "Generar/Importar Horas Extras"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:26
+#, python-format
+msgid "Generated"
+msgstr "Generado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll.py:66
+#, python-format
+msgid "HOURS NIGHT SHIFT (25%)"
+msgstr "JORNADA NOCTURNA (25%)"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:75
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_hour_cost
+#, python-format
+msgid "Hour Cost"
+msgstr "Valor Hora"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:76
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:34
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_overtime_025
+#, python-format
+msgid "Hours Night Shift (25%)"
+msgstr "Jornada Nocturna (25%)"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:49
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:34
+#, python-format
+msgid "Identification"
+msgstr "Nro. Identificación"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_form
+msgid "Import Overtime from File"
+msgstr "Importar Horas Extras desde Archivo"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:32
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_overtime_form
+#, python-format
+msgid "Import Template"
+msgstr "Importar Plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:wizard.hr.payslip.news,option:0
+msgid "Importar Plantilla"
+msgstr "Importar Plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:180
+#: model:ir.model.fields,help:l10n_ec_hr_payroll_news.field_hr_payslip_loans_reconciled
+#, python-format
+msgid "Indicates whether the loan has been reconciled"
+msgstr "Indica si el Préstamo/Avance se encuentra conciliado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:152
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Julio"
+msgstr "Julio"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:158
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:157
+#: selection:hr.payslip.loans,month:0
+#, python-format
+msgid "Jun"
+msgstr "Junio"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans___last_update
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news___last_update
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime___last_update
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line___last_update
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news___last_update
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line___last_update
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime___last_update
+msgid "Last Modified on"
+msgstr "Fecha de modificación"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_write_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_write_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_write_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_write_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_write_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_write_uid
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_write_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_write_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_write_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_write_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_write_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_write_date
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_form
+msgid "Load Employees from Department"
+msgstr "Cargar Empleados desde el Departamento"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/account_payment.py:10
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:23
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_account_payment_loan_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_loan_id
+#, python-format
+msgid "Loan"
+msgstr "Préstamo/Avance"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payroll_loans_config
+msgid "Loan Configuration"
+msgstr "Configuración de Prestamos/Avances"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:177
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_paid
+#, python-format
+msgid "Made Payment Order ?"
+msgstr "Orden de Pago Generada?"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:154
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Marzo"
+msgstr "Marzo"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:156
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Mayo"
+msgstr "Mayo"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:165
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_month
+#, python-format
+msgid "Month"
+msgstr "Mes"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:15
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:25
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:49
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:34
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_name
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_name
+#, python-format
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll.py:16
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll.py:20
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_input_new_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_input_overtime_id
+#, python-format
+msgid "New"
+msgstr "Novedad"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.actions.act_window,name:l10n_ec_hr_payroll_news.action_hr_payslip_news
+#: model:ir.ui.menu,name:l10n_ec_hr_payroll_news.menu_hr_payslip_news
+#: model:ir.ui.menu,name:l10n_ec_hr_payroll_news.root_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.l10n_ec_hr_payroll_news_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.l10n_ec_hr_payroll_news_tree
+msgid "News"
+msgstr "Novedades"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:65
+#, python-format
+msgid "News_Template_%s.xlsx"
+msgstr "Plantilla_Novedades_%s.xlsx"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:66
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:101
+#, python-format
+msgid "No exist active contract for employee %s"
+msgstr "No existe un contrato activo para el Empleado %s"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:176
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_note
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+#, python-format
+msgid "Notes"
+msgstr "Notas"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:162
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Noviembre"
+msgstr "Noviembre"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll.py:76
+#, python-format
+msgid "OVERTIME (50%)"
+msgstr "HORAS SUPLEMENTARIAS (50%)"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:161
+#, python-format
+msgid "October"
+msgstr "Octubre"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Octubre"
+msgstr "Octubre"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:32
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_option
+#, python-format
+msgid "Option"
+msgstr "Opción"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:69
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_overtime_id
+#: model:ir.ui.menu,name:l10n_ec_hr_payroll_news.menu_hr_payslip_overtime
+#, python-format
+msgid "Overtime"
+msgstr "Horas Extras"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:77
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:35
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_overtime_050
+#, python-format
+msgid "Overtime (50%)"
+msgstr "Horas Suplementarias (50%)"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.actions.act_window,name:l10n_ec_hr_payroll_news.action_hr_payslip_overtime
+msgid "Overtime Record"
+msgstr "Registro Horas Extras"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:21
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_ids
+#, python-format
+msgid "Overtime by Employees"
+msgstr "Horas Extras por Empleado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:40
+#, python-format
+msgid "Overtime_Template_%s.xlsx"
+msgstr "Plantilla_Horas_Extras_%s.xlsx"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:175
+#: selection:hr.payslip.loans,state:0
+#, python-format
+msgid "Paid"
+msgstr "Pagado"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+msgid "Paid Lines"
+msgstr "Lineas de Pago"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:49
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:34
+#, python-format
+msgid "Passport"
+msgstr "Nro. Pasaporte"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+msgid "Pay"
+msgstr "Generar Pago"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:169
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_pay_from
+#, python-format
+msgid "Pay From"
+msgstr "Pagar Desde"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Nómina"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.view_l10n_ec_hr_payslip_loans_form
+msgid "Pay from"
+msgstr "Pagar Desde"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:181
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_payment_id
+#, python-format
+msgid "Payment"
+msgstr "Pago"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:43
+#, python-format
+msgid "Payment Loan"
+msgstr "Pagar Préstamo/Avance"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payslip_input
+msgid "Payslip Input"
+msgstr "Ingresos Rol"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:145
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_pending_amount
+#, python-format
+msgid "Pending Amount"
+msgstr "Monto Pendiente"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:49
+#, python-format
+msgid "Period"
+msgstr "Periodo"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:86
+#, python-format
+msgid "Please Select file to import"
+msgstr "Por favor Seleccione un Archivo a Importar"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:22
+#, python-format
+msgid "Please config your Loan's Account!"
+msgstr "Por favor Configure la cuenta contable para Prestamos/Avances"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:52
+#, python-format
+msgid "Please select at least one employee to generate the template!!"
+msgstr "¡Por favor seleccione por lo menos un Empleado para Generar la Plantilla!"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:42
+#, python-format
+msgid "Please select at least one salary rule to generate the template!!"
+msgstr "¡Por favor seleccione por lo menos una Regla Salarial para Generar la Plantilla!"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+msgid "Please select one of the options."
+msgstr "Por favor seleccione una de las dos opciones"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:60
+#, python-format
+msgid "Please, select file to Import"
+msgstr "Por favor Seleccione un Archivo a Importar"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:136
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_number
+#, python-format
+msgid "Preprinted number"
+msgstr "Número de Preimpreso"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll.py:22
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:28
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_input_quantity
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_quantity
+#, python-format
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.news,state:0 selection:hr.payslip.overtime,state:0
+#: selection:hr.payslip.overtime.line,state:0
+msgid "Realizado"
+msgstr "Realizado"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:129
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_name
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+#, python-format
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:179
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_reconciled
+#, python-format
+msgid "Reconciled"
+msgstr "Conciliado"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_tree
+msgid "Registration Overtime"
+msgstr "Registro Horas Extras"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:140
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:20
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:130
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_rule_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_rule_id
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_rule_id
+#, python-format
+msgid "Salary Rule"
+msgstr "Regla Salarial"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:30
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_ids
+#, python-format
+msgid "Salary Rules"
+msgstr "Reglas salariales"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:160
+#, python-format
+msgid "September"
+msgstr "Septiembre"
+
+#. module: l10n_ec_hr_payroll_news
+#: selection:hr.payslip.loans,month:0
+msgid "Septiembre"
+msgstr "Septiembre"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:175
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_news.py:31
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:82
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_state
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_news_state
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_state
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_state
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_state
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_state
+#, python-format
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.hr_payslip_overtime_form
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:26
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:27
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:23
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:24
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_file_template
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_file_upload
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_file_template
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_file_upload
+#, python-format
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_overtime.py:22
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_overtime_name
+#, python-format
+msgid "Template Name"
+msgstr "Nombre de plantilla"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+msgid "The <strong>Export Template</strong> option will generate an xlsx file to load news, it is based on the selected employees and the salary rules."
+msgstr "La Opción <strong>Exportar Plantilla</strong> creara un archivo xlsx, en base a las Reglas Salariales y Empleados Seleccionados."
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+msgid "The <strong>Import Template</strong> option will allow you to load a pre-exported xslx file to record updates that affect the payment role in the system"
+msgstr "La Opción <strong>Importar Plantilla</strong> permite importar un archivo xlsx Generado Anteriormente, para registrar Novedades al Rol de Pagos en el Sistema "
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_overtime.py:74
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_overtime_line_wage
+#, python-format
+msgid "Wage"
+msgstr "Salario"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/wizard/wizard_hr_payslip_news.py:128
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_wizard_hr_payslip_news_line_wiz_id
+#, python-format
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: l10n_ec_hr_payroll_news
+#: code:addons/l10n_ec_hr_payroll_news/models/hr_payroll_loans.py:167
+#: model:ir.model.fields,field_description:l10n_ec_hr_payroll_news.field_hr_payslip_loans_year
+#, python-format
+msgid "Year"
+msgstr "Año"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payroll_config_settings
+msgid "hr.payroll.config.settings"
+msgstr "hr.payroll.config.settings"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_hr_payroll_loans_settings
+msgid "hr.payroll.loans.settings"
+msgstr "hr.payroll.loans.settings"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_news_form
+#: model:ir.ui.view,arch_db:l10n_ec_hr_payroll_news.wizard_hr_payslip_overtime_form
+msgid "or"
+msgstr "o"
+
+#. module: l10n_ec_hr_payroll_news
+#: model:ir.model,name:l10n_ec_hr_payroll_news.model_wizard_hr_payslip_overtime
+msgid "wizard.hr.payslip.overtime"
+msgstr "wizard.hr.payslip.overtime"

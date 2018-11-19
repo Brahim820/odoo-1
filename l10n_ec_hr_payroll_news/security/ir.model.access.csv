@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_payslip_overtime_line,access_hr_payslip_overtime_line,model_hr_payslip_overtime_line,,1,1,1,1
+access_hr_payslip_overtime,access_hr_payslip_overtime,model_hr_payslip_overtime,,1,1,1,1
+access_hr_payslip_news,access_hr_payslip_news,model_hr_payslip_news,,1,1,1,1
+access_hr_payslip_loans,access_hr_payslip_loans,model_hr_payslip_loans,,1,1,1,1

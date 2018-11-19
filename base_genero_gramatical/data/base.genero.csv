@@ -1,0 +1,5 @@
+"id","name","a","deel","e","es","son","el","n","o","s","lo","al","compania","code"
+"genero_f","Femenino","a","de la","e",,"es","la",,"a",,"la","a la","False","F"
+"genero_m","Masculino",,"del","e",,"es","el",,"o",,"lo","al","False","M"
+"genero_p","Plural","es","de los","es","es","son","los","n","os","s","los","a los","True","P"
+"genero_n","No identificado",/a,"del/de la","e",,"es","el/la",,"o/a",,"lo/la","al/a la","False","N"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="saas_client_form_view" model="ir.ui.view">
+        <field name="name">Saas Client form view</field>
+        <field name="model">saas.client</field>
+        <field name="inherit_id" ref="base_saas.saas_client_form_view"/>
+        <field name="arch" type="xml">
+            <field name="server_id" position="after">
+                <field name="odoodb_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

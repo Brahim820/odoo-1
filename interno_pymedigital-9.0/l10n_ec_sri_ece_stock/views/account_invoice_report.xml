@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<template id="report_factura_electronica_stock" inherit_id="l10n_ec_sri_ece.report_factura_electronica">
+            <xpath expr="//span[@id='id_guia_remision_value']" position="replace">
+                <span>
+                    <strong></strong>
+                    <span t-esc="o.get_sri_secuencial_completo_factura()"/>
+                </span>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

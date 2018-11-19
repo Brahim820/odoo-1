@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="SRIPosSelectionPopupWidget">
+        <div class="modal-dialog">
+            <div class="popup popup-selection">
+                <p class="title"><t t-esc=" widget.options.title || 'Select' " /></p>
+                <div class='selection scrollable-y touch-scrollable'>
+                    <t t-foreach="widget.list || []" t-as="item">
+                        <div class='selection-item' t-att-data-item-index='item_index'>
+                            <t t-esc='item.label'/>
+                        </div>
+                    </t>
+                </div>
+                <div class="footer">
+                    <div class="button cancel">
+                        Ok
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-extend='ClientListScreenWidget'>
+        <t t-jquery='.client-list thead tr' t-operation='append'>
+            <th>C.I. / R.U.C.</th>
+        </t>
+    </t>
+
+    <t t-extend='ClientLine'>
+        <t t-jquery='.client-line' t-operation='append'>
+            <td>
+                <t t-esc='partner.vat' />
+            </td>
+        </t>
+    </t>
+
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery='.client-name' t-operation='before'>
+            <div>
+                <input class='detail ruc'
+                       name='vat'
+                       t-att-value='partner.vat || partner.country_id.code'
+                       placeholder='C.I. / R.U.C. / Pasaporte'
+                />
+
+            </div>
+        </t>
+        <t t-jquery='.vat' t-operation='replace'>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+
+        <t t-jquery="div[class='pos-sale-ticket']" t-operation="inner">
+
+            <div style="height: 280mm;font-family:FontA1x1; font-size: 8pt;">
+                <div style="height: 100mm">
+                    <div class="pos-center-align">
+                        <t t-esc="moment().format('LT')"/> <t t-esc="order.name"/>
+                    </div>
+                    FECHA: <t t-esc="moment().format('ll')"/><br/>
+                    CLIENTE: <t t-esc="widget.pos.get_client().name"/><br/>
+                    R.U.C / C.I.: <t t-esc="widget.pos.get_client().vat"/><br/>
+                    DIRECCIÓN: <t t-esc=" widget.pos.get_client().street || '' "/><br/>
+                    <table class='receipt-orderlines' style="margin-top: 2px; border-top: solid 1px black;">
+                        <colgroup>
+                            <col width='65%' />
+                            <col width='17%' />
+                            <col width='18%' />
+                        </colgroup>
+                        <tr>
+                            <td>
+                                DESCRIPCIÓN
+                            </td>
+                            <td class="pos-right-align">
+                                CAN.
+                            </td>
+                            <td class="pos-right-align">
+                                TOT.
+                            </td>
+                        </tr>
+                        <tr t-foreach="orderlines" t-as="orderline">
+                            <td>
+                                <t t-esc="orderline.get_product().display_name"/>
+                            </td>
+                            <td class="pos-right-align">
+                                <t t-esc="orderline.get_quantity_str_with_unit()"/>
+                            </td>
+                            <td class="pos-right-align">
+                                <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class='receipt-total' style="margin-top: 2px; border-top: solid 1px black;">
+                        <tr>
+                            <td>SUBTOTAL 12%:</td>
+                            <td class="pos-right-align">
+                                <t t-esc="widget.format_currency(order.get_total_without_tax())"/>
+                            </td>
+                        </tr>
+                        <t t-foreach="order.get_tax_details()" t-as="taxdetail">
+                            <tr>
+                                <td><t>MONTO IVA:</t></td>
+                                <td class="pos-right-align">
+                                    <t t-esc="widget.format_currency(taxdetail.amount)" />
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td>TOTAL:</td>
+                            <td class="pos-right-align">
+                                <t t-esc="widget.format_currency(order.get_total_with_tax())"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class='receipt-paymentlines'>
+                        <t t-foreach="paymentlines" t-as="line">
+                          <tr>
+                              <td>
+                                  <t t-esc="line.name"/>
+                              </td>
+                              <td class="pos-right-align">
+                                  <t t-esc="widget.format_currency(line.get_amount())"/>
+                              </td>
+                          </tr>
+                        </t>
+                    </table>
+                    CAMBIO: <t t-esc="widget.format_currency(order.get_change())"/><br/>
+                    CAJERO: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
+                </div>
+                <t>.</t>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="Chrome">
+        <t t-jquery=".placeholder-UsernameWidget" t-operation="after">
+            <span class="username" id="pos-authorization">
+                Authorization
+            </span>
+        </t>
+    </t>
+
+</templates>

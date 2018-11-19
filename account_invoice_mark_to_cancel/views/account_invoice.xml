@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="invoice_form" model="ir.ui.view">
+        <field name="name">Mark to cancel form_view</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <button name="button_mark_to_cancel" string="Mark to cancel"
+                        type="object" confirm="Mark this invoice for cancellation?"
+                        attrs="{'invisible':[('state','not in',('open','paid'))]}"/>
+                <button name="invoice_cancel" states="to_cancel"
+                        string="Cancel Invoice" groups="account.group_account_invoice"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="invoice_supplier_form" model="ir.ui.view">
+        <field name="name">Mark to cancel supplier form_view</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <button name="button_mark_to_cancel" string="Mark to cancel"
+                        type="object" confirm="Mark this invoice for cancellation?"
+                        attrs="{'invisible':[('state','not in',('open','paid'))]}"/>
+                <button name="invoice_cancel" states="to_cancel"
+                        string="Cancel Invoice" groups="account.group_account_invoice"/>
+            </field>
+        </field>
+    </record>
+
+
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">Invoice - To cancel</field>
+        <field name="model">account.invoice</field>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//filter[@name='invoices']" position="after" >
+                    <filter name="invoice_to_cancel"
+                            string="To cancel"
+                            domain="[('state','=', 'to_cancel')]" />
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

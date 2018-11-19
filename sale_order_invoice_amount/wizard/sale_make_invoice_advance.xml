@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <record id="view_sale_advance_payment_inv" model="ir.ui.view">
+        <field name="name">Easy Invoice Orders</field>
+        <field name="model">sale.advance.payment.inv</field>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/group/label" position="replace">
+                <label for="amount" attrs="{'invisible': [('advance_payment_method', 'not in', ('fixed','percentage','amount'))]}"/>
+            </xpath>
+            <xpath expr="//form/group/div" position="replace">
+                <div attrs="{'invisible': [('advance_payment_method', 'not in', ('fixed','percentage','amount'))]}">
+                    <field name="amount"
+                           attrs="{'required': [('advance_payment_method', 'in', ('fixed','percentage','amount'))]}" class="oe_inline" widget="monetary"/>
+                    <label string="%%"
+                           attrs="{'invisible': [('advance_payment_method', '!=', 'percentage')]}" class="oe_inline"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</openerp>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_ec_sri_ece.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field
+                name="enviar_notas_de_credito_electronicas"
+                position="after"
+                >
+                <field name="enviar_guias_de_remision_electronicas"/>
+            </field>
+        </field>
+    </record>
+</odoo>

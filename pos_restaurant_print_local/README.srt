@@ -1,0 +1,27 @@
+En el archivo multiprint.js debemos agregar:
+
+return {
+    SubmitOrderButton: SubmitOrderButton,
+};
+
+Al final del arhivo, debe quedar así:
+
+screens.OrderWidget.include({
+    update_summary: function(){
+        this._super();
+        var changes = this.pos.get_order().hasChangesToPrint();
+        var skipped = changes ? false : this.pos.get_order().hasSkippedChanges();
+        var buttons = this.getParent().action_buttons;
+
+        if (buttons && buttons.submit_order) {
+            buttons.submit_order.highlight(changes);
+            buttons.submit_order.altlight(skipped);
+        }
+    },
+});
+
+return {
+    SubmitOrderButton: SubmitOrderButton,
+};
+
+});

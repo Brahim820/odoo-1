@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.view_order_form inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <notebook position="inside">
+                    <page string="Quotation lines" name="quotation_lines">
+                        <field
+                            name="quotation_line_ids"
+                            nolabel="1"
+                            widget="many2many"
+                            />
+                    </page>
+                </notebook>
+            </data>
+        </field>
+    </record>
+    
+    <record id="sale_quotation_line_form_view" model="ir.ui.view">
+        <field name="name">sale.quotation.line.form.view</field>
+        <field name="model">sale.quotation.line</field>
+        <field name="arch" type="xml">
+            <form string="Sale quotation line">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="category_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="sale_quotation_line_tree_view" model="ir.ui.view">
+        <field name="name">sale.quotation.line.tree.view</field>
+        <field name="model">sale.quotation.line</field>
+        <field name="arch" type="xml">
+            <tree string="Sale quotation line">
+                <field name="category_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="sale_quotation_line_search_view" model="ir.ui.view">
+        <field name="name">sale.quotation.line.search.view</field>
+        <field name="model">sale.quotation.line</field>
+        <field name="arch" type="xml">
+            <search string="Sale quotation line">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+    
+    <record id="action_sale_quotation_line" model="ir.actions.act_window">
+        <field name="name">Sale quotation line</field>
+        <field name="res_model">sale.quotation.line</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+    
+    <menuitem
+        id="menu_sale_quotation_line"
+        name="Sale quotation line"
+        groups="base.group_sale_manager"
+        parent="base.menu_sales"
+        sequence="100"
+        action="action_sale_quotation_line"
+        />
+
+    <record id="sale_quotation_category_form_view" model="ir.ui.view">
+        <field name="name">sale.quotation.category.form.view</field>
+        <field name="model">sale.quotation.category</field>
+        <field name="arch" type="xml">
+            <form string="Sale quotation category">
+                <sheet>
+                    <group name="General Information" string="General Information">
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="image" widget="image"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="template_form_view">
+        <field name="name">Purhcase order template form view</field>
+        <field name="model">purchase.order.template</field>
+        <field name="arch" type="xml">
+            <form string="Purchase order template">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                    </group>
+                    <group string="Picking lines">
+                        <field name="template_line_ids" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="template_tree_view" model="ir.ui.view">
+        <field name="name">Purchase order template tree view</field>
+        <field name="model">purchase.order.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="template_line_tree_view" model="ir.ui.view">
+        <field name="name">Purchase order template tree view</field>
+        <field name="model">purchase.order.template.line</field>
+        <field name="arch" type="xml">
+            <tree editable="buttom">
+                <field name="product_qty"/>
+                <field name="product_id"/>
+                <field name="product_uom"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_purchase_order_template">
+        <field name="name">Purchase order template</field>
+        <field name="res_model">purchase.order.template</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_purchase_order_template" name="Purchase templates" parent="purchase.menu_purchase_config"
+              sequence="100" action="action_purchase_order_template"/>
+
+</odoo>

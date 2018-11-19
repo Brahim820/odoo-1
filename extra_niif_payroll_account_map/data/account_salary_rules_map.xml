@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <!-- REGLAS COMUNES -->
+
+    <!-- Deducción IESS personal -->
+    <record id="l10n_ec_hr_payroll.hr_rule_personal_iess" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010703')]"/>
+    </record>
+
+    <!-- Reglas comunes de la liquicación de haberes -->
+
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_13" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','2010704')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_14" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','2010704')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_vac" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','2010704')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_vacultper" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','2010704')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_valcaliess" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','2010703')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_net_liquidacion" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010707')]"/>
+    </record>
+
+    <!-- REGLAS SALARIALES DE GASTOS -->
+
+    <!-- Ingresos -->
+    <record id="hr_payroll.hr_rule_basic" model="hr.salary.rule">
+        <field name="name">Sueldo (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520201')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_gratificacion" model="hr.salary.rule">
+        <field name="name">Gratificaciones (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520201')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- Cobro de Fondos de Reserva en el Rol de Pagos -->
+    <record id="l10n_ec_hr_payroll.hr_rule_reserve_funds" model="hr.salary.rule">
+        <field name="name">Fondos de reserva (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520202')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- Cobro de Fondos de Reserva como provision-->
+    <record id="l10n_ec_hr_payroll.hr_rule_reserve_funds_as_contribution" model="hr.salary.rule">
+        <field name="name">Provisión - Fondos de reserva (gasto)</field>
+			<field name="account_debit" model="account.account" search="[('code','=','520202')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010703')]"/>
+    </record>
+
+
+    <!-- Decimos recibidos en rol-->
+    <record id="l10n_ec_hr_payroll.hr_rule_13ing_salary" model="hr.salary.rule">
+        <field name="name">Décimo tercero (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520201')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_14ing_salary" model="hr.salary.rule">
+        <field name="name">Décimo cuarto (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520201')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- Decimos como provision-->
+    <record id="l10n_ec_hr_payroll.hr_rule_13_salary" model="hr.salary.rule">
+        <field name="name">Provisión - Décimo tercero (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010704')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_14_salary" model="hr.salary.rule">
+        <field name="name">Provisión - Décimo cuarto (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010704')]"/>
+    </record>
+
+    <!-- Vacaciones como provision-->
+    <record id="l10n_ec_hr_payroll.hr_rule_vacaciones" model="hr.salary.rule">
+        <field name="name">Provisión - Vacaciones (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010704')]"/>
+    </record>
+
+
+    <!-- Iess patronal -->
+
+    <record id="l10n_ec_hr_payroll.hr_rule_company_iess" model="hr.salary.rule">
+        <field name="name">IESS - Aporte patronal (gasto)</field>
+      <field name="account_debit" model="account.account" search="[('code','=','520202')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010703')]"/>
+    </record>
+
+<!--    <record id="l10n_ec_hr_payroll.hr_rule_deduccion_maternidad" model="hr.salary.rule">
+      <field name="account_credit" model="account.account" search="[('code','=','520201')]"/>
+      <field name="account_debit" model="account.account" search="[('code','=','')]"/>
+    </record> -->
+
+      <!-- Reglas de la liquidación de haberes al gasto -->
+
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_bon25" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_inddesint" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_indemb" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_inddirsin" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_indenfnopro" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_inddis" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_indterantpla" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520203')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- REGLAS SALARIALES DEL COSTO DE PRODUCCIÓN Y VENTAS -->
+
+    <!-- Ingresos -->
+    <record id="l10n_ec_hr_payroll.hr_rule_basic_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520101')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_gratificacion_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520101')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- Cobro de Fondos de Reserva en el Rol de Pagos -->
+    <record id="l10n_ec_hr_payroll.hr_rule_reserve_funds_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520102')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- Cobro de Fondos de Reserva como provision-->
+    <record id="l10n_ec_hr_payroll.hr_rule_reserve_funds_as_contribution_costo" model="hr.salary.rule">
+			<field name="account_debit" model="account.account" search="[('code','=','520102')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010703')]"/>
+    </record>
+
+    <!-- Decimos recibidos en rol-->
+    <record id="l10n_ec_hr_payroll.hr_rule_13ing_salary_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520101')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_14ing_salary_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520101')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+    <!-- Decimos como provision-->
+    <record id="l10n_ec_hr_payroll.hr_rule_13_salary_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010704')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_14_salary_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010704')]"/>
+    </record>
+
+    <!-- Vacaciones como provision-->
+    <record id="l10n_ec_hr_payroll.hr_rule_vacaciones_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010704')]"/>
+    </record>
+
+
+    <!-- Iess patronal -->
+
+    <record id="l10n_ec_hr_payroll.hr_rule_company_iess_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520102')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','2010703')]"/>
+    </record>
+
+    <record id="l10n_ec_hr_payroll.hr_rule_deduccion_maternidad_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','520101')]"/>
+    </record>
+
+    <!-- Reglas de la liquicación de haberes del costo de producción o ventas -->
+
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_bon25_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_inddesint_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_indemb_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_inddirsin_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_indenfnopro_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_inddis_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+    <record id="l10n_ec_hr_payroll.hr_rule_liq_indterantpla_costo" model="hr.salary.rule">
+      <field name="account_debit" model="account.account" search="[('code','=','520103')]"/>
+      <field name="account_credit" model="account.account" search="[('code','=','')]"/>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">Stock picking ece form view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+             <button name="do_new_transfer" position="before">
+                <button name="send_email_de"  string="Enviar por correo electrónico" type="object"
+                class="btn-primary" attrs="{'invisible':['|',('state', '!=', 'done')]}"/>
+            </button>
+            <field name="state" position="before">
+                <button name="%(action_wizard_carrier_info)d" type="action" string="Guía de Remisión" class="oe_highlight"/>
+                <button name="button_send_guia_remision_electronica" string="Generar Guía" type="object"/>
+            </field>
+            <field name="origin" position="after">
+                <field name="guia_remision_electronica_id" readonly="1"/>
+                <field name="ce_state" invisible="1"/>
+                <button
+                    name="button_corregir_guia_remision_electronica"
+                    string="CORREGIR GUIA DE REMISIÓN"
+                    attrs="{
+                        'invisible':[
+                            ('ce_state', 'not in', ('DEVUELTA', 'NO AUTORIZADO', 'RECHAZADA')
+                        )]}"
+                    type="object"
+                    class="oe_inline oe_link"
+                    />
+                <button
+                    name="send_de_backend"
+                    string="AUTORIZAR y/o VERIFICAR"
+                    attrs="{
+                        'invisible':[
+                            ('ce_state', 'not in', ('NO ENVIADO', 'RECIBIDA', 'EN PROCESO')
+                        )]}"
+                    type="object"
+                    class="oe_inline oe_link"
+                    />
+            </field>
+            <field name="backorder_id" position="after">
+                <field name="comprobante_id" invisible="1" readonly="1"/>
+                <field name="autorizacion_id" readonly="1"/>
+                <field name="secuencial" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_picking_delivery_form" model="ir.ui.view">
+        <field name="name">stock.picking.delivery.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='carrier_id']" position="after">
+                <field name="driver_id" />
+            </xpath>
+            <xpath expr="//field[@name='carrier_price']" position="before">
+                <field name="route" />
+                <field name="fechainitransporte" />
+                <field name="fechafintransporte" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

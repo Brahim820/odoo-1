@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ce_invoice_import_wizard_form_view" model="ir.ui.view">
+        <field name="name">l10n_ec_sri.ce.import.wizard form view</field>
+        <field name="model">l10n_ec_sri.ce.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Archivo a importar">
+                <sheet>
+                    <group string="Documentos a importar">
+                        <field name="wizard_line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="import_file"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string='Import' name="button_import_file" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="ce_import_wizard_form_view" model="ir.ui.view">
+        <field name="name">l10n_ec_sri.ce.import.wizard form view</field>
+        <field name="model">l10n_ec_sri.ce.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Archivo a importar">
+                <header>
+                    <button string='Import' name="button_import_file" type="object" class="btn-primary"/>                    
+                </header>
+                <sheet>
+                    <group string="Documentos a importar">
+                        <field name="wizard_line_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="import_file"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>               
+            </form>
+        </field>
+    </record>
+    
+    <act_window
+            id="ce_invoice_import_wizard_action"
+            name="Importar documentos electrónicos"
+            res_model="l10n_ec_sri.ce.import.wizard"
+            src_model="account.invoice"
+            view_mode="form"
+            multi="True"
+            target="new"
+            key2="client_action_multi"
+            view_id="ce_invoice_import_wizard_form_view"/>
+    <act_window
+            id="ce_import_wizard_action"
+            name="Importar documentos electrónicos"
+            res_model="l10n_ec_sri.ce.import.wizard"
+            src_model="account.invoice"
+            view_mode="form"
+            target="inline"
+            view_id="ce_import_wizard_form_view"/>
+            
+    <menuitem id="ce_import_wizard_menu"
+          name="Importar documentos electronicos"
+          parent="l10n_ec_sri.menu_sri_reports"
+          action="ce_import_wizard_action"
+          sequence="100"/>
+</odoo>

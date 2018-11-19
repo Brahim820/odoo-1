@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- PAGOS -->
+
+    <report
+        id="report_account_invoice"
+        name="account_user_custom_reports.report_account_invoice_id"
+        model="account.invoice"
+        string="Account invoice"
+        file="account_invoice"
+        report_type="qweb-pdf"
+        />
+    
+    <template id="report_account_invoice_content">
+         
+        <table class="table-condensed" style="width:100%;" >
+                <tbody>
+                    <tr>
+                        <td width="50%">
+                            <strong>RAZÓN SOCIAL:</strong>
+                            <span t-esc="doc.partner_id.name"/>
+                            <br/>
+                            <strong>DIRECCIÓN:</strong>
+                            <span t-esc="doc.partner_id.street"/>
+                            <t t-if="doc.partner_id.street2">
+                                <span t-esc="doc.partner_id.street2"/>
+                            </t>
+                            <br/>
+                            <strong>LUGAR Y FECHA:</strong>
+                                <span t-esc="doc.fechaemiret1"
+                                      t-field-options="{&quot;format&quot;: &quot;yyyy/MM/dd&quot;}"/>
+                            </td>
+                            <td width="50%">
+                                <strong>R.U.C.:</strong>
+                                <span t-esc="doc.partner_id.vat"/>
+                                <br/>
+                                <strong>COMPROBANTE:</strong>
+                                <span t-esc="doc.comprobante_id.name"/>
+                                <br/>
+                                <strong>Nro. COMPROBANTE:</strong>
+                                <span t-esc="doc.establecimiento"/>-<span
+                                    t-esc="doc.puntoemision"/>-
+                                <span t-esc="doc.secuencial"/>
+                                <br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table-condensed" style="margin-top: 1em; width:100%; border-collapse: collapse; empty-cells: show;">
+                    <thead>
+                        <tr>
+                            <th style="border: solid black 1px">
+                                AÑO
+                            </th>
+                            <th colspan="2" style="border: solid black 1px">
+                                DETALLE
+                            </th>
+                            <th style="border: solid black 1px">
+                                % RET.
+                            </th>
+                            <th style="border: solid black 1px">
+                                IMPUESTO
+                            </th>
+                            <th style="border: solid black 1px">
+                                CÓDIGO
+                            </th>
+                            <th style="border: solid black 1px">
+                                BASE IMP.
+                            </th>
+                            <th style="border: solid black 1px">
+                                VALOR
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="total" t-value="0"/>
+                        <tr t-foreach="doc.sri_tax_line_ids" t-as="tax">
+                            <t t-set="impuesto" t-value="''"/>
+                            <t t-if="tax.group == 'RetAir'">
+                                <t t-set="impuesto" t-value="'I.R.'"/>
+                            </t>
+                            <t t-if="tax.group in ('RetBien10','RetBienes','RetServ100','RetServ20','RetServ50','RetServicios')">
+                                <t t-set="impuesto" t-value="'I.V.A.'"/>
+                            </t>
+
+                            <t t-if="impuesto">
+                                <td style="border: solid black 1px">
+                                    <span t-field="doc.fechaemiret1"
+                                          t-field-options="{&quot;format&quot;: &quot;yyyy&quot;}"/>
+                                </td>
+                                <td colspan="2" style="border: solid black 1px; text-align: rigth;">
+                                    <t>RETENCIÓN DE</t>
+                                    <t t-esc="impuesto"/>
+                                </td>
+                                <td style="border: solid black 1px">
+                                    <span t-esc="tax.porcentaje"/>
+                                </td>
+                                <td style="border: solid black 1px">
+                                    <t t-esc="impuesto"/>
+                                </td>
+                                <td style="border: solid black 1px">
+                                    <span t-esc="tax.impuesto"/>
+                                </td>
+                                <td style="border: solid black 1px; text-align:right;">
+                                    <span t-esc="'%.2f'%(tax.base)"/>
+                                </td>
+                                <td style="border: solid black 1px; text-align:right;">
+                                    <span t-esc="'%.2f'%(tax.amount)"/>
+                                    <t t-set="total" t-value="total + tax.amount"/>
+                                </td>
+                            </t>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="text-align:right;">
+                                TOTAL RETENIDO
+                            </td>
+                            <td style="border: solid black 1px; text-align:right;">
+                                <span t-esc="'%.2f'% total"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table align="center" class="table-condensed" style="margin-top: 1em; table-layout:fixed; border-collapse: collapse; empty-cells: show; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="border: solid black 1px">
+                                FIRMA AUTORIZADA
+                            </th>
+                            <th style="border: solid black 1px">
+                                RECIBÍ CONFORME
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="height: 3em; border: solid black 1px;"/>
+                            <td style="border: solid black 1px;"/>
+                        </tr>
+                    </tbody>
+                </table>
+    </template>
+    <template id="account_invoice_user_custom_reports.retencion_portrait_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id" t-value="user.retencion_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            <t t-if="int(format_id.copies) > 1">
+		                <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            </t>
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="retencion_portrait_report_id"
+            model="account.invoice"
+            string="RETENCIÓN"
+            name="account_invoice_user_custom_reports.retencion_portrait_report"
+            file="retencion"
+            report_type="qweb-pdf"/>
+    <record id="account_invoice_user_custom_reports.retencion_portrait_report_id"
+            model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_portrait_5555"/>
+    </record>
+    
+    <template id="report_account_invoice_id">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <t t-call="account_user_custom_reports.report_account_invoice_content"/>
+                </div>
+            </t>
+        </t>
+    </template>
+    
+    
+    <template id="account_invoice_content_report">
+                <table class="table-condensed" style="width:100%;" >
+                    <tbody>
+                        <tr>
+                            <td width="50%">
+                                <strong>RAZÓN SOCIAL:</strong>
+                                <span t-esc="doc.partner_id.name"/>
+                                <br/>
+                                <strong>DIRECCIÓN:</strong>
+                                <span t-esc="doc.partner_id.street"/>
+                                <t t-if="doc.partner_id.street2">
+                                    <span t-esc="doc.partner_id.street2"/>
+                                </t>
+                                <br/>
+                                <strong>LUGAR Y FECHA:</strong>
+                                <span t-esc="doc.fechaemiret1"
+                                      t-field-options="{&quot;format&quot;: &quot;yyyy/MM/dd&quot;}"/>
+                            </td>
+                            <td width="50%">
+                                <strong>R.U.C.:</strong>
+                                <span t-esc="doc.partner_id.vat"/>
+                                <br/>
+                                <strong>COMPROBANTE:</strong>
+                                <span t-esc="doc.comprobante_id.name"/>
+                                <br/>
+                                <strong>Nro. COMPROBANTE:</strong>
+                                <span t-esc="doc.establecimiento"/>-<span
+                                    t-esc="doc.puntoemision"/>-
+                                <span t-esc="doc.secuencial"/>
+                                <br/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table-condensed" style="margin-top: 1em; width:100%; border-collapse: collapse; empty-cells: show;">
+                    <thead>
+                        <tr>
+                            <th style="border: solid black 1px">
+                                AÑO
+                            </th>
+                            <th colspan="2" style="border: solid black 1px">
+                                DETALLE
+                            </th>
+                            <th style="border: solid black 1px">
+                                % RET.
+                            </th>
+                            <th style="border: solid black 1px">
+                                IMPUESTO
+                            </th>
+                            <th style="border: solid black 1px">
+                                CÓDIGO
+                            </th>
+                            <th style="border: solid black 1px">
+                                BASE IMP.
+                            </th>
+                            <th style="border: solid black 1px">
+                                VALOR
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="total" t-value="0"/>
+                        <tr t-foreach="doc.sri_tax_line_ids" t-as="tax">
+                            <t t-set="impuesto" t-value="''"/>
+                            <t t-if="tax.group == 'RetAir'">
+                                <t t-set="impuesto" t-value="'I.R.'"/>
+                            </t>
+                            <t t-if="tax.group in ('RetBien10','RetBienes','RetServ100','RetServ20','RetServ50','RetServicios')">
+                                <t t-set="impuesto" t-value="'I.V.A.'"/>
+                            </t>
+
+                            <t t-if="impuesto">
+                                <td style="border: solid black 1px">
+                                    <span t-field="doc.fechaemiret1"
+                                          t-field-options="{&quot;format&quot;: &quot;yyyy&quot;}"/>
+                                </td>
+                                <td colspan="2" style="border: solid black 1px; text-align: rigth;">
+                                    <t>RETENCIÓN DE</t>
+                                    <t t-esc="impuesto"/>
+                                </td>
+                                <td style="border: solid black 1px">
+                                    <span t-esc="tax.porcentaje"/>
+                                </td>
+                                <td style="border: solid black 1px">
+                                    <t t-esc="impuesto"/>
+                                </td>
+                                <td style="border: solid black 1px">
+                                    <span t-esc="tax.impuesto"/>
+                                </td>
+                                <td style="border: solid black 1px; text-align:right;">
+                                    <span t-esc="'%.2f'%(tax.base)"/>
+                                </td>
+                                <td style="border: solid black 1px; text-align:right;">
+                                    <span t-esc="'%.2f'%(tax.amount)"/>
+                                    <t t-set="total" t-value="total + tax.amount"/>
+                                </td>
+                            </t>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="text-align:right;">
+                                TOTAL RETENIDO
+                            </td>
+                            <td style="border: solid black 1px; text-align:right;">
+                                <span t-esc="'%.2f'% total"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table align="center" class="table-condensed" style="margin-top: 1em; table-layout:fixed; border-collapse: collapse; empty-cells: show; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="border: solid black 1px">
+                                FIRMA AUTORIZADA
+                            </th>
+                            <th style="border: solid black 1px">
+                                RECIBÍ CONFORME
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="height: 3em; border: solid black 1px;"/>
+                            <td style="border: solid black 1px;"/>
+                        </tr>
+                    </tbody>
+                </table>
+    </template>
+    <template id="account_invoice_user_custom_reports.retencion_portrait_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id" t-value="user.retencion_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+                    <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            <t t-if="int(format_id.copies) > 1">
+		                <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            </t>
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="retencion_portrait_report_id"
+            model="account.invoice"
+            string="RETENCIÓN"
+            name="account_invoice_user_custom_reports.retencion_portrait_report"
+            file="retencion"
+            report_type="qweb-pdf"/>
+    <record id="account_invoice_user_custom_reports.retencion_portrait_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_portrait_5555"/>
+    </record>
+
+    <template id="retencion_landscape_report">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-set="format_id" t-value="user.retencion_format_id"/>
+		        <div class="page" t-att-style="format_id.page_style">
+		            <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+			            <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            </t>
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_invoice_user_custom_reports.retencion_content_report"/>
+		            </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+            id="retencion_landscape_report_id"
+            model="account.payment"
+            string="Retención"
+            name="account_invoice_user_custom_reports.retencion_landscape_report"
+            file="retencion"
+            report_type="qweb-pdf"/>
+    <record id="account_invoice_user_custom_reports.retencion_landscape_report_id" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="report.a4_landscape_5555"/>
+    </record>
+
+</odoo>

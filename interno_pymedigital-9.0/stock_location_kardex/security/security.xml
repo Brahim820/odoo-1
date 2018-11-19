@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="stock.group_kardex_valuation" model="res.groups">
+        <field name="name">Manage inventory valuation on kardex</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="mrp_production_request_create_mo_view" model="ir.ui.view">
+        <field name="name">mrp.production.request.create.mo.form</field>
+        <field name="model">mrp.production.request.create.mo</field>
+        <field name="inherit_id" ref="mrp_production_request.mrp_production_request_create_mo_view"/>
+        <field name="arch" type="xml">
+            <group name="destination" position="replace">
+                <group name="distributed_destination" string="Manufacturing Orders Plan">
+                    <group>
+                        <field name="routing_id"/>
+                        <field name="mo_distribution_method"/>
+                    </group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_step"/>
+                    </group>
+                </group>
+                <newline/>
+                <group>
+                    <field name="mo_distributed_qty"/>
+                </group>
+            </group>
+            <button name="create_mo" position="replace">
+                <button name="create_distributed_mo" string="Create Orders"
+                        type="object" class="oe_highlight"/>
+            </button>
+        </field>
+    </record>
+</odoo>

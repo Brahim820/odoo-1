@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="invoice_tree" model="ir.ui.view">
+        <field name="name">Event Sale invoice tree view</field>
+        <field name="model">account.invoice</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="account.invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name='partner_id' position="after" >
+                <field name="name" />
+            </field>
+        </field>
+    </record>
+</odoo>

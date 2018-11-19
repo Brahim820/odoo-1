@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="mrp_routing_form_view" model="ir.ui.view">
+        <field name="name">MRP routing capacity inherit</field>
+        <field name="model">mrp.routing</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Capacity restrictions">
+                <group>
+                    <field name="capacity_line_ids" nolabel="1"/>
+                </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_capacity_line_form_view">
+        <field name="name">MRP capacity line form view</field>
+        <field name="model">mrp.capacity.line</field>
+        <field name="arch" type="xml">
+            <form string="Capacity line form.">
+                <sheet>
+                    <group>
+                        <field name="product_ids" widget="many2many_tags"/>
+                        <field name="product_tmpl_ids" widget="many2many_tags"/>
+                        <field name="product_category_ids" widget="many2many_tags"/>
+                        <field name="product_uom_id"/>
+                        <field name="max_qty"/>
+                        <field name="min_qty"/>
+                        <field name="opt_qty"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="mrp_capacity_line_tree_view" model="ir.ui.view">
+        <field name="name">MRP capacity line tree view</field>
+        <field name="model">mrp.capacity.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_ids" widget="many2many_tags"/>
+                <field name="product_tmpl_ids" widget="many2many_tags"/>
+                <field name="product_category_ids" widget="many2many_tags"/>
+                <field name="product_uom_id"/>
+                <field name="max_qty"/>
+                <field name="min_qty"/>
+                <field name="opt_qty"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

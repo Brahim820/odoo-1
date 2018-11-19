@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="bi_account_report_form_view" model="ir.ui.view">
+        <field name="name">bi.purchase.report.form.view</field>
+        <field name="model">bi.purchase.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="info" string="Info">
+                        <group>
+                            <field name="type"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group>
+                            <field name="group_by"/>
+                            <field name="user_ids" widget="many2many_tags"/>
+                            <field name="partner_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+
+                    <group name="Tipo" string="Tipo">
+                        <group>
+                            <field name="in_invoice"/>
+                            <field name="out_invoice"/>
+                        </group>
+                        <group>
+                            <field name="in_refund"/>
+                            <field name="out_refund"/>
+                        </group>
+                    </group>
+                    
+                    
+                    <!--<group string="Filtros">
+                        <group name="states" string="States">
+                            <field name="done"/>
+                            <field name="confirmed"/>
+                            <field name="ready"/>
+                        </group>
+                        <group>    
+                            <field name="in_production"/>
+                            <field name="cancel"/>
+                            <field name="draft"/>
+                        </group>
+                    </group>-->
+
+                    <!--<group>
+                        <field name="product_ids" widget="many2many_tags"/>
+                        <field name="template_ids" widget="many2many_tags"/>
+                        <field name="category_ids" widget="many2many_tags"/>
+                        <field name="route_ids"/>
+                    </group>-->
+                    <div>
+                        <p>
+                            Puede descargar su reporte de producción aquí:
+                            <field name="xlsx_file" filename="xlsx_filename"/>
+                        </p>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="button_get_xlsx_report"
+                            type='object' string='Generate report'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bi_account_report" model="ir.actions.act_window">
+        <field name="name">Purchace BI</field>
+        <field name="res_model">bi.purchase.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="bi_account_report_form_view"/>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem
+        name="Business Intelligence"
+        id="menu_bi_account_report"
+        parent="account.menu_finance"
+    />
+    <menuitem 
+        name="Purchaces"
+        id="menu_bi_purchase_report"
+        parent="bi_account.menu_bi_account_report"
+        action="action_bi_account_report"
+    />
+</odoo>

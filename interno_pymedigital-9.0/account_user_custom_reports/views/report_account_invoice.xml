@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PARTE DEL PROYECTO LIBREGOB -->
+<!-- LICENCIA AGPL-v3 -->
+<odoo>
+    
+    <template id="report_account_invoice_payments_content">
+        <div style="width:100%">
+            <div style="width:50%;float:left;">
+                <img t-attf-src="data:image/*;base64,{{format_id.image}}" style="max-height: 45px;"/>
+            </div>
+            <div style="width:50%;float:right;">
+                <span t-field="format_id.header"/>
+            </div>
+        </div>
+        <p align="center">
+            <t t-if="doc.type == 'out_invoice'"> 
+                <strong>COMPROBANTE DE INGRESO DE CAJA</strong>
+            </t> 
+            <t t-if="doc.type == 'in_invoice'">
+                <strong>COMPROBANTE DE EGRESO DE CAJA</strong>
+            </t>
+        </p> 
+        <br/>
+        <br/>
+        <table class="table-condensed" style="width:100%;" >
+            <tbody>
+                <tr>
+                    <td width="50%">
+                        <strong>RAZÓN SOCIAL:</strong>
+                            <span t-esc="doc.partner_id.name"/>
+                        <br/>
+                        <strong>DIRECCIÓN:</strong>
+                            <span t-esc="doc.partner_id.street"/>
+                        <t t-if="doc.partner_id.street2">
+                            <span t-esc="doc.partner_id.street2"/>
+                        </t>
+                        <br/>
+                    </td>           
+                    <td width="50%">
+                        <strong>R.U.C.:</strong>
+                        <span t-esc="doc.partner_id.vat"/>
+                        <br/>
+                        <strong>TOTAL FACTURA: </strong>
+                        <span t-esc="doc.total"/>
+                        <br/>
+                        <strong>TOTAL RETENCIÓN: </strong>
+                        <span t-esc="doc.total - doc.amount_total"/>
+                        <br/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="table-condensed" style="margin-top:1em;width:100%;border-collapse:collapse;empty-cells:show;">
+                <thead>
+                    <tr>
+                        <th style="border:solid black 1px;">
+                           COMPROBANTE
+                        </th>
+                        <th style="border:solid black 1px;">
+                            DESCRIPCIÓN
+                        </th>
+                        <th style="border:solid black 1px;">
+                            FECHA DE PAGO
+                        </th>
+                        <th style="border:solid black 1px;">
+                            N° CHEQUE
+                        </th>
+                        <th style="border:solid black 1px;">
+                            N° FACTURA
+                        </th>
+                        <th style="border:solid black 1px;">
+                            MONTO
+                        </th>
+                        <th style="border:solid black 1px;">
+                            DIARIO
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="doc.payment_ids" t-as="p">
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;"> 
+                            <span t-esc="p.name"/> 
+                        </td>
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;"> 
+                            <span t-esc="p.communication"/> 
+                        </td>
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;">
+                            <span t-esc="p.payment_date"/>
+                        </td>
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;">
+                            <t t-if="p.check_number != 0 "><span t-esc="p.check_number"/></t>
+                        </td>
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;">                   
+                            <t t-foreach="p.invoice_ids" t-as="i">
+                                <span t-esc="i.number"/>
+                            </t>
+                        </td>
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;">
+                            <span t-esc="'%.2f'%(p.amount)"/> 
+                        </td>
+                        <td style="padding-right:3mm;text-align:right;padding-right:3mm;border:solid black 1px;">
+                            <span t-esc="p.journal_id.name"/>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+        <br/>
+        <br/>
+
+        <table>
+            <tr>
+                <t t-set="journal_id" t-value="[]"/>
+                <tr t-foreach="doc.payment_ids" t-as="p">
+                    <t t-set="journal_id" t-value="journal_id+[p.journal_id]"/>
+                </tr>    
+                <tr t-foreach="set(journal_id)" t-as="journal">
+                    <td>TOTAL <span t-esc="journal.name"/>:     </td>
+                    <t t-set="amount" t-value="0" />
+                    <t t-foreach="doc.payment_ids" t-as="p">
+                        <t t-if="journal.id == p.journal_id.id">
+                            <t t-set="amount"  t-value="amount + p.amount"/>
+                        </t>
+                    </t>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-right">      <span t-esc="'%.2f'%(amount)"/></td>
+                </tr>
+            </tr>
+        </table>
+
+
+
+
+        <!-- Parte de las firmas -->
+
+        <table align="center" class="table-condensed" style="margin-top:1em;table-layout:fixed;border-collapse:collapse;empty-cells:show;width:100%;">
+            <tbody>
+                <tr>
+                    <th style="text-align:center; border: solid black 1px; width: 25%;" >
+                        ELABORADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px; width:25%;">
+                        CONTADOR
+                    </th>
+
+                    <th style="text-align:center; border: solid black 1px; width:25%;">
+                        APROBADO POR
+                    </th>
+                    <th style="text-align:center; border: solid black 1px; width: 25%;" >
+                        RECIBÍ CONFORME
+                    </th>
+                </tr>
+                <tr>
+                    
+                    <td style="border: solid black 1px;text-align:center;">
+                        <div style="height: 2em;">
+                            <span t-esc="user.name.upper()" />
+                        </div>
+                        <br/>
+                    </td>
+                    <td style="border: solid black 1px;text-align:center;">
+                        <div style="height: 2em;">
+                            <span t-esc="(doc.create_uid.name or '').upper()" />
+                        </div>
+                        <br/>
+                    </td>
+                    <td style="border: solid black 1px;text-align:center;"> <br/> </td>
+                    <td style="border: solid black 1px;text-align:center;"> <br/> </td>
+                </tr>
+            </tbody>
+        </table>
+        <t t-if="format_id.footer">
+            <div style="width:100%;">
+                <span t-field="format_id.footer"/>
+            </div>
+        </t> 
+    </template>
+    
+    <template id="report_account_invoice_payments_id">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="format_id"
+                   t-value="user.income_expenses_voucher_format_id"/>
+                <t t-set="header"
+                   t-value="format_id.header"/>
+                <t t-set="footer"
+                    t-value="format_id.footer"/>
+                <t t-set="image"
+                    t-value="format_id.image"/>
+                <div class="page">
+                    <t t-call="account_user_custom_reports.report_account_invoice_payments_content"/>
+                    <br/>
+                    <t t-call="account_user_custom_reports.report_account_invoice_payments_content"/>
+
+		            <t t-if="int(format_id.copies) > 1">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_user_custom_reports.report_account_invoice_payments_content"/>
+                    </t>
+
+		            <t t-if="int(format_id.copies) > 2">
+			            <div t-att-style="format_id.separator_style"/>
+                        <t t-call="account_user_custom_reports.report_account_invoice_payments_content"/>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+    
+    <report
+        id="report_account_invoice_payments"
+        name="account_user_custom_reports.report_account_invoice_payments_id"
+        model="account.invoice"
+        string="Comprobante de Egresos/Ingresos de caja"
+        file="account_invoice_payments"
+        report_type="qweb-pdf"
+        />
+</odoo>

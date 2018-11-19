@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pick_return_stock_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c-20170609\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-22 22:15+0000\n"
+"PO-Revision-Date: 2017-11-30 14:34-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,move_type:0
+msgid "All at once"
+msgstr "Todo de una vez"
+
+#. module: pick_return_stock_template
+#: model:ir.ui.view,arch_db:pick_return_stock_template.stock_create_picking_wizard_form_view
+msgid "Calculate move lines"
+msgstr "Calcular líneas de movimiento"
+
+#. module: pick_return_stock_template
+#: model:ir.ui.view,arch_db:pick_return_stock_template.stock_create_picking_wizard_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pick_return_stock_template
+#: model:ir.ui.view,arch_db:pick_return_stock_template.stock_create_picking_wizard_form_view
+msgid "Create picking"
+msgstr "Crear movimiento"
+
+#. module: pick_return_stock_template
+#: model:ir.model,name:pick_return_stock_template.model_stock_pick_return_wizard
+msgid "Create picking for the MO"
+msgstr "Crear movimiento para la OP"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_location_dest_id
+msgid "Destination location"
+msgstr "Ubicación de destino"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_in_picking_type_id
+msgid "In picking type"
+msgstr "En tipo de movimiento"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_move_type
+msgid "Move type"
+msgstr "Tipo de movimiento"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_pick_return_line_ids
+msgid "Moves to execute"
+msgstr "Se mueve para ejecutar"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,priority:0
+msgid "Not urgent"
+msgstr "No urgente"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_origin
+msgid "Origin"
+msgstr "Origen"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_out_picking_type_id
+msgid "Out picking type"
+msgstr "Tipo de movimiento de salida"
+
+#. module: pick_return_stock_template
+#: code:addons/pick_return_stock_template/wizards/stock_pick_return_wizard.py:58
+#, python-format
+msgid "PICKINGS"
+msgstr "MOVIMIENTOS"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,move_type:0
+msgid "Partial"
+msgstr "Parcial"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,type:0
+msgid "Pick"
+msgstr "Recoger"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_pick_return_wizard_line_stock_wizard_id
+msgid "Pick return wizard"
+msgstr "Seleccione asistente de devolución"
+
+#. module: pick_return_stock_template
+#: model:ir.model,name:pick_return_stock_template.model_pick_return_wizard_line
+msgid "Pick return wizard line"
+msgstr "Seleccione asistente de devolución por línea"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_template_id
+msgid "Picking Template"
+msgstr "Plantilla de movimiento"
+
+#. module: pick_return_stock_template
+#: model:ir.ui.view,arch_db:pick_return_stock_template.stock_create_picking_wizard_form_view
+msgid "Picking lines"
+msgstr "Líneas de movimiento"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: pick_return_stock_template
+#: model:ir.ui.menu,name:pick_return_stock_template.menu_stock_pick_return
+msgid "Request products"
+msgstr "Solicitar productos"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,type:0
+msgid "Return"
+msgstr "Devolución"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_route_id
+msgid "Route"
+msgstr "Ruta"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_min_date
+msgid "Scheduled date"
+msgstr "Fecha planeada"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_location_src_id
+msgid "Source Location"
+msgstr "Ubicación de origen"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_location_trans_id
+msgid "Transit Location"
+msgstr "Ubicación de tránsito"
+
+#. module: pick_return_stock_template
+#: model:ir.model.fields,field_description:pick_return_stock_template.field_stock_pick_return_wizard_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,priority:0
+msgid "Urgent"
+msgstr "Urgente"
+
+#. module: pick_return_stock_template
+#: selection:stock.pick.return.wizard,priority:0
+msgid "Very urgent"
+msgstr "Muy  urgente"
+
+#. module: pick_return_stock_template
+#: code:addons/pick_return_stock_template/wizards/stock_pick_return_wizard.py:39
+#, python-format
+msgid "You need a template to "
+msgstr "Ud. necesita una platilla para "
+
+#. module: pick_return_stock_template
+#: model:ir.actions.act_window,name:pick_return_stock_template.action_stock_create_picking_wizard
+msgid "action.stock.pick.return.wizard"
+msgstr "action.stock.pick.return.wizard"

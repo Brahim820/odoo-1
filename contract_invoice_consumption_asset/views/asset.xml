@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add page in account asset asset form -->
+
+    <record id="account_asset_asset_form_inherit" model="ir.ui.view">
+        <field name="name">account.asset.asset.form.inherit</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="account_asset.view_account_asset_asset_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="contract_ids" widget="many2many_tags"/>
+                <field name="counter_type_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//page[2]" position="after">
+                <page string="Asset Consumption">
+                    <field
+                        readonly="1"
+                        name="asset_consumption_line_ids">
+                        <tree>
+                            <field name="quantity"/>
+                            <field
+                                name="counter_type_id" 
+                                widget="selection"
+                                />
+                            <field name="date"/>
+                            <field name="user_id"/>
+                            <field name="state"/>
+                            <field name="invoice_line_ids"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Tree view, actions, menus de asset asset consumption -->
+    
+    <record id="account_asset_asset_tree_view" model="ir.ui.view">
+        <field name="name">account.asset.asset.tree.view</field>
+        <field name="model">account.asset.asset.consumption</field>
+        <field name="arch" type="xml">
+            <tree string="Account asset asset" editable="bottom">
+                <field
+                    name="asset_id"
+                    options="{'no_create_edit':True, 'no_open': True, 'no_quick_create': True}"
+                    />
+                <field name="quantity"/>
+                <field name="voucher" filename="voucher_filename"/>
+                <field name="voucher_filename" invisible="1"/>
+                
+                <field
+                    name="counter_type_id"
+                    options="{'no_create_edit':True, 'no_open': True, 'no_quick_create': True}"
+                    />
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="state"/>
+                <button name="button_state_confirmed"
+                    type="object"
+                    string="Confirm" 
+                    attrs="{'invisible':[('state','!=', 'draft')]}"/>
+                <button
+                    name="button_state_draft"
+                    string="Cancel"
+                    type="object"
+                    attrs="{'invisible':[('state', '=', 'draft')]}"/>
+                <button name="button_state_adjustment"
+                    string="Adjust" 
+                    type="object"
+                    attrs="{'invisible':[('state','!=','draft')]}"/>
+            </tree>
+        </field>
+    </record>
+   
+    <record id="asset_consumption_counter_type_form_view" model="ir.ui.view">
+        <field name="name">asset.consumption.counter.type.form.view</field>
+        <field name="model">asset.consumption.counter.type</field>
+        <field name="arch" type="xml">
+            <form string="Asset consumption counter type">
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="asset_ids" invisible="1"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+        
+    <record id="asset_consumption_counter_type_tree_view" model="ir.ui.view">
+        <field name="name">asset.consumption.counter.type.tree.view</field>
+        <field name="model">asset.consumption.counter.type</field>
+        <field name="arch" type="xml">
+            <tree string="Asset consumption counter type" editable="bottom">
+               <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="action_account_asset_asset_consumption" model="ir.actions.act_window">
+        <field name="name">Account asset asset consumption</field>
+        <field name="res_model">account.asset.asset.consumption</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+    
+    <record id="action_asset_consumption_counter_type" model="ir.actions.act_window">
+        <field name="name">Asset consumption counter type</field>
+        <field name="res_model">asset.consumption.counter.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+        id="menu_counter_type"
+        name="Counter type"
+        parent="base.menu_sales"
+        action="action_asset_consumption_counter_type"
+        sequence="80"
+        />
+    
+    <menuitem
+        id="menu_asset_consumption"
+        name="Asset consumption lines"
+        parent="base.menu_sales"
+        action="action_account_asset_asset_consumption"
+        sequence="60"
+        />
+    
+    <menuitem
+        id="menu_sale_assets"
+        parent="base.menu_sales"
+        action="account_asset.action_account_asset_asset_form"
+        sequence="50"
+        />
+    
+
+</odoo>

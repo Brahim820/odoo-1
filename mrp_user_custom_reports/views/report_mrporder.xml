@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <template id="report_mrporder">
+        <t t-call="report.html_container">
+            <t t-set="format_id" t-value="user.production_format_id"/>
+            <t t-foreach="docs" t-as="o">
+                <t t-if="format_id">
+                    <div class="page" t-att-style="format_id.page_style">
+                        <t t-if="format_id.header">
+                            <div style="width:100%;">
+                                <span t-field="format_id.header"/>
+                            </div>
+                        </t>
+                        <!--<div class="oe_structure"/>-->
+                        <h2>Production Order # : <span t-field="o.name"/></h2>
+
+                        <div class="row mt32 mb32">
+                            <!--<div class="col-xs-3">-->
+                                <!--<strong>Source Document:</strong><br/>-->
+                                <!--<span t-field="o.origin"/>-->
+                            <!--</div>-->
+                            <div class="col-xs-3">
+                                <strong>Product:</strong><br/>
+                                <span t-field="o.product_id.code"/>
+                                <span t-esc="o.product_id.name_get()[0][1]"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Planned quantity:</strong><br/>
+                                <span t-field="o.product_qty"/>
+                                <span t-field="o.product_uom.name" groups="product.group_uom"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Amount produced:</strong><br/>
+                                <span t-field="o.product_qty"/>
+                                <span t-field="o.product_uom.name" groups="product.group_uom"/>
+                            </div>
+                        </div>
+
+                        <div class="row mt32 mb32">
+                            <div class="col-xs-3">
+                                <strong>Reponsable:</strong><br/>
+                                <span t-field="o.user_id.name"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Scheduled Date:</strong><br/>
+                                <span t-field="o.date_planned"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Start Date:</strong><br/>
+                                <span t-field="o.date_planned"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>End Date:</strong><br/>
+                                <span t-field="o.date_planned"/>
+                            </div>
+                        </div>
+
+                        <table class="table table-condensed" t-if="resume_lines or subproduct_lines">
+                            <thead>
+                                <tr>
+                                    <th><strong>Product</strong></th>
+                                    <th class="text-right"><strong>Planned amount</strong></th>
+                                    <!--<th class="text-right" t-if="o.move_lines2"><strong>Planned</strong></th>-->
+                                    <th class="text-right" t-if="o.move_lines2"><strong>Produced</strong></th>
+                                    <th class="text-right" t-if="o.move_lines2"><strong>Difference</strong></th>
+                                    <th class="text-right" t-if="o.move_lines2"><strong>Scrap</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <t t-if="resume_lines">
+                                    <tr>
+                                        <td colspan="4"><strong>Consumed Products</strong></td>
+                                    </tr>
+                                    <tr t-foreach="resume_lines" t-as="line2">
+                                        <td>
+                                            <!--<span t-field="line2.product_code"/>-->
+                                            <span t-esc="line2['product_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['planned_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['product_uom_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['diff_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['scrap_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                                <t t-if="subproduct_lines">
+                                    <tr>
+                                        <td colspan="4"><strong>Sub-Products</strong></td>
+                                    </tr>
+                                    <tr t-foreach="subproduct_lines" t-as="line2">
+                                        <td>
+                                            <!--<span t-field="line2.product_code"/>-->
+                                            <span t-esc="line2['product_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['planned_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['product_uom_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line2['diff_qty']"/>
+                                            <span t-esc="line2['uom_name']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <tr/>
+                        <tr/>
+                        <tr/>
+
+                        <div class="table-responsive">
+
+                            <table class="table table-condensed table-bordered">
+                                <tbody>
+                                    <tr style="height:40px"><td/><td/></tr>
+                                    <tr style="height:40px"><td/><td/></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <t t-if="format_id.footer">
+                            <div style="width:100%;">
+                                <span t-field="format_id.footer"/>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</openerp>

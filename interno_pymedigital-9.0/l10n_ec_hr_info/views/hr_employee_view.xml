@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="l10n_ec_hr_info_form" model="ir.ui.view">
+            <field name="name">l10n.ec.hr.info.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Academic Training">
+                        <group string="Academic Training">
+                            <field name="academic_ids" nolabel="1">
+                                <tree string="Academic Training">
+                                    <field name="name" />
+                                    <field name="institution_id" />
+                                    <field name="level" />
+                                    <field name="date_start" />
+                                    <field name="date_stop" />
+                                    <field name="state" />
+                                </tree>
+                                <form string="Academic Training">
+                                    <div class="oe_title">
+                                        <label for="name" class="oe_edit_only"/>
+                                        <h1>
+                                            <field name="name" placeholder="Title Name"/>
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <group>
+                                            <field name="institution_id" required="1" />
+                                            <field name="level" required="1" />
+                                            <field name="knowledge_area" attrs="{'invisible': [('level', 'not in', ['technical_superior', 'university', 'postgraduate', 'doctorate'])], 'required': [('level', 'in', ['technical_superior', 'university', 'postgraduate', 'doctorate'])]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="date_start" required="1" />
+                                            <field name="date_stop" required="1" />
+                                            <field name="state" required="1" />
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                        <group string="Courses and Trainings">
+                            <field name="training_ids" nolabel="1">
+                                <tree string="Courses and Trainings">
+                                    <field name="name" />
+                                    <field name="institution_id" />
+                                    <field name="modality" />
+                                    <field name="date_start" />
+                                    <field name="date_stop" />
+                                    <field name="hours" />
+                                </tree>
+                                <form string="Academic Training">
+                                    <div class="oe_title">
+                                        <label for="name" class="oe_edit_only"/>
+                                        <h1>
+                                            <field name="name" placeholder="Title Name"/>
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <group>
+                                            <field name="institution_id" required="1" />
+                                            <field name="modality" required="1" />
+                                            <field name="other" attrs="{'invisible': [('modality', '!=', 'other')], 'required': [('modality', '=', 'other')]}" />
+                                        </group>
+                                        <group>
+                                            <field name="date_start" required="1" />
+                                            <field name="date_stop" required="1" />
+                                            <field name="hours" required="1" />
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </page>
+                    <page string="Work Experience">
+                        <field name="experience_ids" nolabel="1">
+                            <tree string="Work Experience">
+                                <field name="company_id" />
+                                <field name="name" />
+                                <field name="date_start" />
+                                <field name="date_stop" />
+                            </tree>
+                            <form string="Academic Training">
+                                <div class="oe_title">
+                                    <label for="name" class="oe_edit_only"/>
+                                    <h1>
+                                        <field name="name" placeholder="Job Position"/>
+                                    </h1>
+                                </div>
+                                <group>
+                                    <group>
+                                        <field name="company_id" required="1" />
+                                        <field name="exit_reason" />
+                                    </group>
+                                    <group>
+                                        <field name="date_start" required="1" />
+                                        <field name="date_stop" required="1" />
+                                    </group>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,2 @@
+"id","sequence","en_compras","en_ventas","es_retencion","name","requiere_autorizacion","code"
+"l10n_ec_sri.comprobante_sinvalor",1,"True","False","False","Comprobante sin valor tributario","False",""

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_mrp_production_request_form" model="ir.ui.view">
+        <field name="name">MRP Production requests wave inherits</field>
+        <field name="model">mrp.production.request</field>
+        <field name="inherit_id" ref="mrp_production_request.view_mrp_production_request_form"/>
+        <field name="arch" type="xml">
+            <field name="bom_id" position="after">
+                <field name="wave_id"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_mrp_production_request_tree" model="ir.ui.view">
+        <field name="name">Stock move product category tree view</field>
+        <field name="model">mrp.production.request</field>
+        <field name="inherit_id" ref="mrp_production_request.view_mrp_production_request_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="before">
+                <field name="wave_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

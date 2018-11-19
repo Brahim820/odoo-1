@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_model_hr_novedad_all,access_model_hr_novedad_all,model_hr_novedad,,1,0,0,0
+access_model_hr_novedad_base_group_hr_user,access_model_hr_novedad_base_group_hr_user,model_hr_novedad,base.group_hr_user,1,1,1,1
+access_model_hr_novedad_line_all,access_model_hr_novedad_line_all,model_hr_novedad_line,,1,0,0,0
+access_model_hr_novedad_line_base_group_hr_user,access_model_hr_novedad_line_base_group_hr_user,model_hr_novedad_line,base.group_hr_user,1,1,1,1
+access_model_hr_he_all,access_model_hr_he_all,model_hr_he,,1,0,0,0
+access_model_hr_he_base_group_hr_user,access_model_hr_he_base_group_hr_user,model_hr_he,base.group_hr_user,1,1,1,1
+access_model_hr_he_line_all,access_model_hr_he_line_all,model_hr_he_line,,1,0,0,0
+access_model_hr_he_line_base_group_hr_user,access_model_hr_he_line_base_group_hr_user,model_hr_he_line,base.group_hr_user,1,1,1,1

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--  Compute Forecast -->
+
+        <record id="view_forecast_compute_wizard" model="ir.ui.view">
+            <field name="name">Run forecast compute</field>
+            <field name="model">forecast.compute</field>
+            <field name="arch" type="xml">
+                <form string="Parameters">
+                    <group colspan="2">
+                        <group colspan="2" col="4">
+                            <field name="forecast_type"/>
+                            <field name="run_background"/>
+                        </group>
+                        <group colspan="2" col="4" attrs="{'invisible':[('forecast_type','=',False)]}">
+                            <label colspan="4" string="Select forecast start date, leave blank if you want run today as init date"/>
+                            <field name="month"/>
+                            <field name="year"/>
+                            <field name="forecast_periods"
+                                   attrs="{'required':[('forecast_type','!=',False)]}"/>
+                            <field name="historic_periods"
+                                   attrs="{'required':[('forecast_type','=','mobile_avg')],'invisible':[('forecast_type','!=','mobile_avg')]}"/>
+                            <field name="grow_percent"/>
+                        </group>
+                        <group colspan="2" string="Products">
+                            <field name="product_ids" nolabel="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="forecast_calculation" string="Compute" type="object" class="btn-primary"
+                                confirm="This process could take some time depending the number of selected products and periods, ¿do you wish continue?"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_forecast_compute" model="ir.actions.act_window">
+            <field name="name">Run forecast</field>
+            <field name="res_model">forecast.compute</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_forecast_compute"
+                  id="menu_forecast_compute"
+                  parent="stock.menu_stock_sched" sequence="4"/>
+
+    </data>
+</openerp>

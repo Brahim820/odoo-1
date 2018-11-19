@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="pos_kitchen assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_kitchen/static/src/js/pos.js"></script>
+                <link rel="stylesheet" href="/pos_kitchen/static/src/css/pos.css" />
+            </xpath>
+        </template>
+    </data>
+</openerp>

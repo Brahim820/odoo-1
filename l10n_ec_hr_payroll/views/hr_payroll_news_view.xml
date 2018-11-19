@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="l10n_ec_hr_payroll_news_ffilter" model="ir.ui.view">
+            <field name="name">l10n.ec.hr.payroll.news.filter</field>
+            <field name="model">hr.payslip.news</field>
+            <field name="arch" type="xml">
+                <search string="News">
+                    <field name="employee_id" />
+                    <field name="name" />
+                    <field name="department_id" />
+                </search>
+            </field>
+        </record>
+
+        <record id="l10n_ec_hr_payroll_news_form" model="ir.ui.view">
+            <field name="name">l10n.ec.hr.payroll.news.form</field>
+            <field name="model">hr.payslip.news</field>
+            <field name="arch" type="xml">
+                <form string="News">
+                    <header>
+                        <button name="approved_new" states="draft" string="Approved" class="oe_highlight" type="object"/>
+                        <field name="state" nolabel="1" statusbar_visible="draft,approved,done" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <label for="name" class="oe_edit_only" />
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_id" create="0" />
+                                <field name="payroll_type" string="Pay in" />
+                                <field name="rule_id" widget="selection" />
+                            </group>
+                            <group>
+                                <field name="department_id" />
+                                <field name="date" />
+                                <field name="amount" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="l10n_ec_hr_payroll_news_tree" model="ir.ui.view">
+            <field name="name">l10n.ec.hr.payroll.news.tree</field>
+            <field name="model">hr.payslip.news</field>
+            <field name="arch" type="xml">
+                <tree string="News" decoration-info="state == 'draft'" decoration-muted="state == 'done'">
+                    <field name="name" />
+                    <field name="employee_id" />
+                    <field name="department_id" />
+                    <field name="date" />
+                    <field name="rule_id" />
+                    <field name="payroll_type" string="Pay in" />
+                    <field name="amount" sum="tatal"/>
+                    <field name="state" />
+                    <button name="approved_new" states="draft" icon="kanban-apply" class="oe_highlight" type="object"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_payslip_news" model="ir.actions.act_window">
+            <field name="name">News</field>
+            <field name="res_model">hr.payslip.news</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_payslip_news"
+                  action="action_hr_payslip_news"
+                  parent="root_hr_payroll_news"
+                  name="News"
+                  sequence="2"/>
+
+    </data>
+</odoo>

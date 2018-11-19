@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_check_deposit_view_form" model="ir.ui.view">
+        <field name="name">account.check.deposit.form.inherit</field>
+        <field name="model">account.check.deposit</field>
+        <field name="inherit_id" ref="account_check_deposit.account_check_deposit_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='check_payment_ids']//tree//field[@name='date']" position="after">
+                <field name="date_deposit"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

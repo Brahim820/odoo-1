@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_salary_rule__category_inggrav" model="hr.salary.rule.category">
+        <field name="name">Ingresos imputables</field>
+        <field name="code">INGGRAV</field>
+    </record>
+
+    <record id="INGRESONOGRAVADO" model="hr.salary.rule.category">
+        <field name="name">Ingresos no imputables</field>
+        <field name="code">INGNOGRAV</field>
+    </record>
+
+    <record id="LIQING" model="hr.salary.rule.category">
+        <field name="name">Ingresos de la Liquidación de haberes</field>
+        <field name="code">LIQING</field>
+    </record>
+
+    <record id="LIQDED" model="hr.salary.rule.category">
+        <field name="name">Deducciones de la Liquidación de haberes</field>
+        <field name="code">LIQDED</field>
+    </record>
+
+    <record id="SUBIESS" model="hr.salary.rule.category">
+        <field name="name">Subsidios pagados por el IESS</field>
+        <field name="code">SUBIESS</field>
+    </record>
+
+    <record id="LOAN" model="hr.salary.rule.category">
+        <field name="name">Prestamos</field>
+        <field name="code">LOAN</field>
+    </record>
+
+</odoo>
